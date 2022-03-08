@@ -1,6 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Cloudflare系列使用</title>
+    <url>/2021/10/18/Hexo/Cloudflare%E7%B3%BB%E5%88%97%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><blockquote>
+<p>年少不知 Cloudflare 好，错把鹅云当做宝。</p>
+<p>Cloudflare 是一家米国的跨国科技企业，提供CDN、优化工具、安全、分析以及应用等服务。Cloudflare 在 CDN 加速领域很有名气，提供免费和付费的加速服务和网站保护服务。Cloudflare 提供不同类型的套餐，即使是免费用户，Cloudflare 提供的功能也很全面。</p>
+</blockquote>
+<blockquote>
+<p>本文主要介绍最近使用 Cloudflare 实现的一些功能，包括：DNS 管理、Cloudflare Pages、配置 Hexo 百度收录、Notion 个人域名访问。</p>
+</blockquote>
+<p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/cloudflare%E7%B3%BB%E5%88%97%E4%BD%BF%E7%94%A8.svg"></p>
+<span id="more"></span>
+<h2 id="壹丨cloudflare-管理-dns">壹丨Cloudflare 管理 DNS</h2>
+<blockquote>
+<p>与阿里云解析功能类似，在 Cloudflare 中可以设置【使用 Cloudflare 代理流量】或【仅限 DNS 解析】</p>
+</blockquote>
+<p>Cloudflare 网址：https://www.cloudflare.com</p>
+<p>记录类型介绍：</p>
+<ul>
+<li>CNAME 记录：别名记录，将域名解析到另外一个域名；</li>
+<li>A 记录：指定主机名（或域名）对应的 IP 地址，即当访问此域名的时候，直接指向 IP 地址的主机；</li>
+<li>TXT 记录：为某个主机名或域名设置说明，可以用来验证对域名的管理权；</li>
+<li>MX 记录：邮件交换记录，一般用于将某个域名的电子邮件指向对应邮件服务器。</li>
+</ul>
+<h2 id="贰丨cloudflare-pages">贰丨Cloudflare Pages</h2>
+<blockquote>
+<p>Cloudflare Pages 是一个 JAMstack 平台，为前端开发人员提供协作和部署服务，支持 Hugo、JekyII、React、Vue、Gatsby 等框架。</p>
+</blockquote>
+<p>Cloudflare Pages 网址：https://pages.cloudflare.com</p>
+<h4 id="项目创建">1. 项目创建：</h4>
+<p>创建项目 —— 登录 Github —— 选择 git 仓库</p>
+<h4 id="构建与部署">2. 构建与部署：</h4>
+<blockquote>
+<p>使用Hexo创建博客，执行 <code>hexo g</code> 命令时，将 <code>~/hexo-site/source/</code> 文件夹下 <code>.md</code>、<code>.html</code>、<code>.js</code> 等文件渲染，放入 <code>~/hexo-site/public/</code> 文件夹下，执行 <code>hexo deploy</code> 命令将 <code>~/hexo-site/public/</code> 文件夹下的内容推到 git 仓库。</p>
+<p>即 Cloudflare Pages 从 Github 导入的文件就是生成网页的源文件，所以 —— <strong>构建参数不需要设置</strong></p>
+</blockquote>
+<p>构建配置：</p>
+<ul>
+<li>框架预设：None</li>
+<li>构建命令：空</li>
+<li>构建输出目录：空</li>
+<li>根目录（高级）：空</li>
+</ul>
+<p>配置完后将自动部署……</p>
+<h4 id="自定义域">3. 自定义域</h4>
+<p>第一步，项目 —— 自定义域 —— 设置自定义域；</p>
+<p>第二步，Cloudflare 中：DNS —— 添加记录 —— 设置 CNAME 记录。</p>
+<h4 id="https">4. HTTPS</h4>
+<p>使用 Cloudflare 代理可以直接开启强制 HTTPS，在 Cloudflare Pages 中是默认配置的。</p>
+<h2 id="叁丨配置-hexo-百度收录">叁丨配置 Hexo 百度收录</h2>
+<blockquote>
+<p>试过很多次，都无法实现百度收录，据说百度无法从 Github 爬取内容。目前已经放弃百度收录，如果博客部署在 Coding、Gitee 等国内代码托管网站，可以试试以下步骤。</p>
+</blockquote>
+<p>百度搜索资源平台 - 快速收录网址：https://ziyuan.baidu.com/dailysubmit/index</p>
+<p>第一步，用户中心 —— 站点管理 —— 添加网站；实践证明：填入 <code>https://www.mastermao.cn</code>，添加 CNAME 记录验证，是比较容易成功的；</p>
+<p>第二步，sitemap 提交，个人 blog 使用 npm 安装相关插件、配置 <code>_config.yml</code> ，然后重新生成博客，在网页端提交即可；</p>
+<p>第三步，设置自动提交，修改 <code>_config.yml</code> 配置，具体不再赘述，详见参考 [2]：</p>
+<h2 id="肆丨notion-个人域名访问">肆丨Notion 个人域名访问</h2>
+<blockquote>
+<p>Notion 是一款电子笔记软件，堪称电子笔记界的天花板的存在。</p>
+<p>Notion 不仅可以用来写电子笔记，还可以直接将电子笔记公开链接，生成个人网页；</p>
+<p>Notion 目前并未提供自定义个人域名的功能，但可以使用 Cloudflare 手动配置。</p>
+</blockquote>
+<h4 id="notion-公开链接">1. Notion 公开链接</h4>
+<p>第一步，设置喜好域名。Notion 中，Settings &amp; Members —— Settings —— Domain —— 填入喜好的字段，如填入 “mastermao” ，则公开链接的格式就是：<code>mastermao.notion.site/xxxxx</code>；</p>
+<p>第二步，公开链接。转到公开页，右上角 Share —— Share to web，并可设置 Show link options，生成的公开链接盛出备用。</p>
+<h4 id="创建规则-转发-url">2. 创建规则 —— 转发 URL</h4>
+<p>Cloudflare 中，规则 —— 创建页面规则：</p>
+<ul>
+<li>如果 URL 匹配：填入想设置成的域名</li>
+<li>则设置为：选择转发 URL、301 - 永久重定向、填入 Notion 公开链接</li>
+<li>保存</li>
+</ul>
+<p>经过实测，可设置的域名限制比较宽松，子域名（ <code>notion.mastermao.cn</code>）、子页面（ <code>mastermao.cn/notion</code> ）都可以使用。</p>
+<blockquote>
+<p>错误示例：</p>
+<p>博客导航栏的地址链接，以画廊为例，地址为：<code>mastermao.cn/gallery/</code>，当把 Notion 转发 URL 设置为 <code>mastermao.cn/notion/</code> 时，实践证明，生成的页面无法点击，无效。</p>
+</blockquote>
+<h4 id="hexo页面内引用">3. Hexo页面内引用</h4>
+<p>使用一条 HTML 代码将自定义的 Notion 链接引用：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">center</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://notion.mastermao.cn&quot;</span>&gt;</span>这是我的Notion<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">center</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>后续可以考虑换成图标等……</p>
+<blockquote>
+<p>做到这里突然发现，我做转发 URL 图啥呢？</p>
+<p>针对直接使用顶级域名访问 Notion 是很便利的，除此之外可以设置子域名或子页面访问，或在页面中引用链接使用。</p>
+</blockquote>
+<h2 id="参考">参考</h2>
+<blockquote>
+<p>[1] 知乎，<span class="citation" data-cites="江湖人士">@江湖人士</span>，<a href="https://zhuanlan.zhihu.com/p/82909515">cloudflare使用入门教程，国外最好免费CDN</a></p>
+<p>[2] 知乎，<span class="citation" data-cites="随风">@随风</span>，<a href="https://zhuanlan.zhihu.com/p/128033054">Hexo博客提交百度收录SEO</a></p>
+<p>[3] 哔哩哔哩，@ VSeducation，<a href="https://www.bilibili.com/read/cv10994288">如何利用 Notion 搭建个人主页|博客</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Cloudflare</tag>
+        <tag>Notion</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo多线部署</title>
     <url>/2021/10/18/Hexo/Hexo%E5%A4%9A%E7%BA%BF%E9%83%A8%E7%BD%B2/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><blockquote>
@@ -525,143 +627,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Windows下Hexo环境配置</title>
-    <url>/2021/06/26/Hexo/Windows%E4%B8%8BHexo%E5%86%99%E4%BD%9C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><blockquote>
-<p>Windows 10 系统可拓展 Linux 子系统功能（WSL），可以通过软件商店安装 Linux 系统，如 Ubuntu、CentOS 等，搭配新版Windows Terminal，黑苹果不香了……</p>
-</blockquote>
-<p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/Windows%E4%B8%8BHexo%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE.svg" alt></p>
-<span id="more"></span>
-<h2 id="壹丨windows-安装-linux-子系统">壹丨Windows 安装 Linux 子系统</h2>
-<h4 id="安装应用">1. 安装应用</h4>
-<ul>
-<li>Windows 下：设置 —— 应用 —— 应用和功能 —— 程序或功能 —— 启用或关闭 Windows 功能 —— 勾选“适用于 Linux 的 Windows 子系统” —— 重启</li>
-</ul>
-<p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/image-20210626183417980.png" alt style="zoom: 33%;"></p>
-<ul>
-<li>Windows 下：Microsoft Store —— 安装 Ubuntu 20.04 LTS</li>
-</ul>
-<p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/image-20210626183718148.png" alt style="zoom: 33%;"></p>
-<ul>
-<li>Windows 下：Microsoft Store —— 安装 Windows Terminal</li>
-</ul>
-<p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/image-20210626183628209.png" alt style="zoom:33%;"></p>
-<h4 id="启动-ubuntu-20.04-lts">2. 启动 Ubuntu 20.04 LTS，</h4>
-<ul>
-<li>完成系统安装</li>
-<li>设置用户名和密码</li>
-<li>后续使用 Windows Terminal 作为终端</li>
-</ul>
-<h4 id="修改清华镜像源">3. 修改清华镜像源</h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo nano /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
-<p>使用 <code>#</code> 注释掉原来的镜像，添加：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 预发布软件源，不建议启用</span></span><br><span class="line"><span class="comment"># deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse</span></span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse</span></span><br></pre></td></tr></table></figure>
-<h4 id="wsl-相关说明">4. WSL 相关说明</h4>
-<p>打开 Terminal 时，显示：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mastermao@MasterMao:/mnt/c/Users/MasterMao$</span><br></pre></td></tr></table></figure>
-<p>在 Windows 中，当前文件夹是用户文件夹；在 Ubuntu 下，C 盘挂载到 <code>/mnt/c</code>；Ubuntu 和 Windows 的用户目录是不同的。</p>
-<p>Ubuntu 根目录</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~</span><br></pre></td></tr></table></figure>
-<p>配置 Github 或 Coding 的 SSH key 时，正确的目录应该是：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/.ssh</span><br></pre></td></tr></table></figure>
-<p>而不是：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mastermao@MasterMao:/mnt/c/Users/MasterMao$ <span class="built_in">cd</span> .ssh</span><br></pre></td></tr></table></figure>
-<h2 id="贰丨安装-hexo">贰丨安装 Hexo</h2>
-<h4 id="安装-nodejs">1. 安装 Nodejs</h4>
-<p>打开 <a href="https://nodejs.org/en/">Nodejs官网</a>，查看最新版本，<code>14.17.1 LTS</code></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -</span><br><span class="line">$ sudo apt-get install -y nodejs</span><br></pre></td></tr></table></figure>
-<h4 id="安装-hexo">2. 安装 Hexo</h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<h4 id="安装-deployer">3. 安装 Deployer</h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<h2 id="叁丨git-设置">叁丨Git 设置</h2>
-<h4 id="查看版本">1. 查看版本</h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git --version</span><br></pre></td></tr></table></figure>
-<h4 id="本地-git-配置">2. 本地 git 配置</h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">&quot;yourname&quot;</span></span><br><span class="line">$ git config --global user.email <span class="string">&quot;youremail&quot;</span></span><br><span class="line">$ ssh-keygen -t rsa -C <span class="string">&quot;youremail&quot;</span></span><br></pre></td></tr></table></figure>
-<h4 id="github-中添加-ssh-key">3. Github 中添加 SSH key</h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/.ssh</span><br><span class="line">$ cat id_rsa.pub</span><br></pre></td></tr></table></figure>
-<p>Github 账户 setting 中，SSH keys —— New SSH key —— 将 id_rsa.pub 内容粘贴进去</p>
-<h4 id="测试连接">4. 测试连接</h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-<h2 id="肆丨使用-typora-创作博客">肆丨使用 Typora 创作博客</h2>
-<h4 id="使用本地图片">【使用本地图片】</h4>
-<h5 id="设置-post_asset_folder">1. 设置 <code>post_asset_folder</code></h5>
-<figure class="highlight bash"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">post_asset_folder: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<h5 id="安装-hexo-asset-image">2. 安装 <code>hexo-asset-image</code></h5>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/hexo-site</span><br><span class="line">$ npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
-<h5 id="配置-typora-图片保存路径">3. 配置 Typora 图片保存路径：</h5>
-<p>文件 —— 偏好设置 —— 图像 —— 插入图片时...</p>
-<ul>
-<li>复制到指定路径</li>
-<li><code>./$&#123;filename&#125;</code></li>
-<li>勾选 - 对本地位置的图片应用上述规则</li>
-<li>勾选 - 对网络位置的图片应用上述规则</li>
-<li>勾选 - 优先使用相对路径</li>
-</ul>
-<h4 id="使用图床">【使用图床】</h4>
-<h5 id="下载-picgo">1. 下载 PicGo</h5>
-<p>PicGo 开源地址：https://github.com/Molunerfinn/PicGo/releases</p>
-<h5 id="设置自动上传">2. 设置自动上传</h5>
-<p>偏好设置 —— 图像：</p>
-<ul>
-<li>插入图片时 —— 上传图片</li>
-<li>勾选对本地位置的图片应用上述规则</li>
-<li>勾选对网络位置的图片应用上述规则</li>
-<li>上传服务 —— PicGo(app)</li>
-<li>PicGo 路径 —— 填入软件路径</li>
-</ul>
-<h5 id="验证图片上传选项">3. 验证图片上传选项</h5>
-<h2 id="伍丨windows-terminal-美化">伍丨Windows Terminal 美化</h2>
-<blockquote>
-<p>Windows Terminal 与 Windows 10 自带命令提示符界面相比美观了很多，不过仍可进一步定制。</p>
-</blockquote>
-<p>标签栏下三角 —— 设置：</p>
-<ul>
-<li>启动：
-<ul>
-<li>默认配置文件：Ubuntu</li>
-</ul></li>
-</ul>
-<p>配置文件 —— Ubuntu：</p>
-<ul>
-<li>常规：
-<ul>
-<li>名称：Ubuntu</li>
-<li>图标：...</li>
-<li>选项卡标题：Ubuntu</li>
-</ul></li>
-<li>外观：
-<ul>
-<li>文本配色方案：Tango Dark</li>
-<li>字体：Monaco</li>
-<li>字号：13</li>
-<li>光标形状：下划线</li>
-<li>背景图像：...</li>
-<li>背景图像不透明度：50%</li>
-<li>文本格式化：亮色</li>
-<li>亚克力效果：开</li>
-<li>Acrylic 不透明度：70%</li>
-<li>滚动条可见性：隐藏</li>
-</ul></li>
-</ul>
-<p>预览：</p>
-<p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/image-20211024065230434.png" alt style="zoom: 80%;"></p>
-<h2 id="参考">参考</h2>
-<blockquote>
-<p>Ubuntu | 镜像站使用帮助，<a href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/">清华大学开源软件镜像站</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Typora</tag>
-        <tag>Windows</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo美化</title>
     <url>/2021/08/20/Hexo/Hexo%E7%BE%8E%E5%8C%96/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><blockquote>
@@ -824,6 +789,342 @@
       </tags>
   </entry>
   <entry>
+    <title>Windows下Hexo环境配置</title>
+    <url>/2021/06/26/Hexo/Windows%E4%B8%8BHexo%E5%86%99%E4%BD%9C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><blockquote>
+<p>Windows 10 系统可拓展 Linux 子系统功能（WSL），可以通过软件商店安装 Linux 系统，如 Ubuntu、CentOS 等，搭配新版Windows Terminal，黑苹果不香了……</p>
+</blockquote>
+<p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/Windows%E4%B8%8BHexo%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE.svg" alt></p>
+<span id="more"></span>
+<h2 id="壹丨windows-安装-linux-子系统">壹丨Windows 安装 Linux 子系统</h2>
+<h4 id="安装应用">1. 安装应用</h4>
+<ul>
+<li>Windows 下：设置 —— 应用 —— 应用和功能 —— 程序或功能 —— 启用或关闭 Windows 功能 —— 勾选“适用于 Linux 的 Windows 子系统” —— 重启</li>
+</ul>
+<p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/image-20210626183417980.png" alt style="zoom: 33%;"></p>
+<ul>
+<li>Windows 下：Microsoft Store —— 安装 Ubuntu 20.04 LTS</li>
+</ul>
+<p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/image-20210626183718148.png" alt style="zoom: 33%;"></p>
+<ul>
+<li>Windows 下：Microsoft Store —— 安装 Windows Terminal</li>
+</ul>
+<p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/image-20210626183628209.png" alt style="zoom:33%;"></p>
+<h4 id="启动-ubuntu-20.04-lts">2. 启动 Ubuntu 20.04 LTS，</h4>
+<ul>
+<li>完成系统安装</li>
+<li>设置用户名和密码</li>
+<li>后续使用 Windows Terminal 作为终端</li>
+</ul>
+<h4 id="修改清华镜像源">3. 修改清华镜像源</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo nano /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+<p>使用 <code>#</code> 注释掉原来的镜像，添加：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 预发布软件源，不建议启用</span></span><br><span class="line"><span class="comment"># deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse</span></span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse</span></span><br></pre></td></tr></table></figure>
+<h4 id="wsl-相关说明">4. WSL 相关说明</h4>
+<p>打开 Terminal 时，显示：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mastermao@MasterMao:/mnt/c/Users/MasterMao$</span><br></pre></td></tr></table></figure>
+<p>在 Windows 中，当前文件夹是用户文件夹；在 Ubuntu 下，C 盘挂载到 <code>/mnt/c</code>；Ubuntu 和 Windows 的用户目录是不同的。</p>
+<p>Ubuntu 根目录</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~</span><br></pre></td></tr></table></figure>
+<p>配置 Github 或 Coding 的 SSH key 时，正确的目录应该是：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/.ssh</span><br></pre></td></tr></table></figure>
+<p>而不是：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mastermao@MasterMao:/mnt/c/Users/MasterMao$ <span class="built_in">cd</span> .ssh</span><br></pre></td></tr></table></figure>
+<h2 id="贰丨安装-hexo">贰丨安装 Hexo</h2>
+<h4 id="安装-nodejs">1. 安装 Nodejs</h4>
+<p>打开 <a href="https://nodejs.org/en/">Nodejs官网</a>，查看最新版本，<code>14.17.1 LTS</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -</span><br><span class="line">$ sudo apt-get install -y nodejs</span><br></pre></td></tr></table></figure>
+<h4 id="安装-hexo">2. 安装 Hexo</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<h4 id="安装-deployer">3. 安装 Deployer</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<h2 id="叁丨git-设置">叁丨Git 设置</h2>
+<h4 id="查看版本">1. 查看版本</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git --version</span><br></pre></td></tr></table></figure>
+<h4 id="本地-git-配置">2. 本地 git 配置</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">&quot;yourname&quot;</span></span><br><span class="line">$ git config --global user.email <span class="string">&quot;youremail&quot;</span></span><br><span class="line">$ ssh-keygen -t rsa -C <span class="string">&quot;youremail&quot;</span></span><br></pre></td></tr></table></figure>
+<h4 id="github-中添加-ssh-key">3. Github 中添加 SSH key</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/.ssh</span><br><span class="line">$ cat id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p>Github 账户 setting 中，SSH keys —— New SSH key —— 将 id_rsa.pub 内容粘贴进去</p>
+<h4 id="测试连接">4. 测试连接</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<h2 id="肆丨使用-typora-创作博客">肆丨使用 Typora 创作博客</h2>
+<h4 id="使用本地图片">【使用本地图片】</h4>
+<h5 id="设置-post_asset_folder">1. 设置 <code>post_asset_folder</code></h5>
+<figure class="highlight bash"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">post_asset_folder: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h5 id="安装-hexo-asset-image">2. 安装 <code>hexo-asset-image</code></h5>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/hexo-site</span><br><span class="line">$ npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+<h5 id="配置-typora-图片保存路径">3. 配置 Typora 图片保存路径：</h5>
+<p>文件 —— 偏好设置 —— 图像 —— 插入图片时...</p>
+<ul>
+<li>复制到指定路径</li>
+<li><code>./$&#123;filename&#125;</code></li>
+<li>勾选 - 对本地位置的图片应用上述规则</li>
+<li>勾选 - 对网络位置的图片应用上述规则</li>
+<li>勾选 - 优先使用相对路径</li>
+</ul>
+<h4 id="使用图床">【使用图床】</h4>
+<h5 id="下载-picgo">1. 下载 PicGo</h5>
+<p>PicGo 开源地址：https://github.com/Molunerfinn/PicGo/releases</p>
+<h5 id="设置自动上传">2. 设置自动上传</h5>
+<p>偏好设置 —— 图像：</p>
+<ul>
+<li>插入图片时 —— 上传图片</li>
+<li>勾选对本地位置的图片应用上述规则</li>
+<li>勾选对网络位置的图片应用上述规则</li>
+<li>上传服务 —— PicGo(app)</li>
+<li>PicGo 路径 —— 填入软件路径</li>
+</ul>
+<h5 id="验证图片上传选项">3. 验证图片上传选项</h5>
+<h2 id="伍丨windows-terminal-美化">伍丨Windows Terminal 美化</h2>
+<blockquote>
+<p>Windows Terminal 与 Windows 10 自带命令提示符界面相比美观了很多，不过仍可进一步定制。</p>
+</blockquote>
+<p>标签栏下三角 —— 设置：</p>
+<ul>
+<li>启动：
+<ul>
+<li>默认配置文件：Ubuntu</li>
+</ul></li>
+</ul>
+<p>配置文件 —— Ubuntu：</p>
+<ul>
+<li>常规：
+<ul>
+<li>名称：Ubuntu</li>
+<li>图标：...</li>
+<li>选项卡标题：Ubuntu</li>
+</ul></li>
+<li>外观：
+<ul>
+<li>文本配色方案：Tango Dark</li>
+<li>字体：Monaco</li>
+<li>字号：13</li>
+<li>光标形状：下划线</li>
+<li>背景图像：...</li>
+<li>背景图像不透明度：50%</li>
+<li>文本格式化：亮色</li>
+<li>亚克力效果：开</li>
+<li>Acrylic 不透明度：70%</li>
+<li>滚动条可见性：隐藏</li>
+</ul></li>
+</ul>
+<p>预览：</p>
+<p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/image-20211024065230434.png" alt style="zoom: 80%;"></p>
+<h2 id="参考">参考</h2>
+<blockquote>
+<p>Ubuntu | 镜像站使用帮助，<a href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/">清华大学开源软件镜像站</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Typora</tag>
+        <tag>Windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PyQt5开发环境配置</title>
+    <url>/2021/06/29/PyQt5/PyQt5%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>PyQt5开发环境配置</p>
+<span id="more"></span>
+<h2 id="环境">1. 环境</h2>
+<ul>
+<li>包管理器：Anaconda3</li>
+<li><p>IDE：PyCharm</p></li>
+<li><p>PyQt5模块：</p></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line">$ pip install pyqt5</span><br><span class="line"><span class="comment"># 卸载</span></span><br><span class="line">$ pip uninstall pyqt5</span><br></pre></td></tr></table></figure>
+<h2 id="qtdesigner-pyuic">2. QtDesigner &amp; PyUIC</h2>
+<ul>
+<li>QtDesigner，可视化UI编辑器</li>
+<li>PyUIC，将.ui文件转化为.py文件，以供Python主程序调用。</li>
+</ul>
+<h3 id="windows下">Windows下：</h3>
+<p>PyCharm——Preferences——Tools——External Tools——加号</p>
+<h4 id="qtdesigner">1. QtDesigner：</h4>
+<ul>
+<li>Name：<code>QtDesigner</code></li>
+<li>Program：<code>C:\ProgramData\&#123;Anaconda安装路径&#125;\Library\bin\designer.exe</code></li>
+<li>Working directory：<code>$FileDir$</code></li>
+</ul>
+<h3 id="pyuic">2. PyUIC：</h3>
+<ul>
+<li>Name：<code>PyUIC</code></li>
+<li>Program：<code>C:\ProgramData\&#123;Anaconda安装路径&#125;&#125;\python.exe</code></li>
+<li>Arguments：<code>-m PyQt5.uic.pyuic $FileName$ -o $FileNameWithoutExtension$.py</code></li>
+<li>Working directory：<code>$FileDir$</code></li>
+</ul>
+<h3 id="macos下">MacOS下：</h3>
+<p>PyCharm——Preferences——Tools——External Tools——加号</p>
+<h4 id="qtdesigner-1">1. QtDesigner：</h4>
+<ul>
+<li>Name：<code>QtDesigner</code></li>
+<li>Program：<code>/Users/用户名/opt/anaconda3/bin/Designer.app</code></li>
+<li>Working directory：<code>$FileDir$</code></li>
+</ul>
+<h4 id="pyuic-1">2. PyUIC</h4>
+<ul>
+<li>Name：<code>PyUIC</code></li>
+<li>Program：<code>/Users/用户名/opt/anaconda3/bin/python.app</code></li>
+<li>Arguments：<code>-m PyQt5.uic.pyuic $FileName$ -o $FileNameWithoutExtension$.py</code></li>
+<li>Working directory：<code>$FileDir$</code></li>
+</ul>
+<h2 id="logo_rc报错问题">3. logo_rc报错问题</h2>
+<p>【问题描述】界面中添加logo，使用PyUIC转换后，以下语句报错</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> logo_rc</span><br></pre></td></tr></table></figure>
+<p>【解决方法】将<code>xx.qrc</code>文件转换为<code>.py</code>文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pyrcc5 xx.qrc -o xx_rc.py</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>PyQt</category>
+      </categories>
+      <tags>
+        <tag>macOS</tag>
+        <tag>Windows</tag>
+        <tag>PyQt</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PyQt5控件及用法</title>
+    <url>/2021/06/29/PyQt5/PyQt5%E6%8E%A7%E4%BB%B6%E5%8F%8A%E7%94%A8%E6%B3%95/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h2 id="待整理...">待整理...</h2>
+<span id="more"></span>
+<h3 id="ui使用方法">UI使用方法</h3>
+<p>https://my.oschina.net/u/4322686/blog/3448663</p>
+<h3 id="combobox">comboBox</h3>
+<p>currentText()获得文本</p>
+<p>currentIndex()获得下标</p>
+<p>self.comboBox.currentIndexChanged.connect() comboBox的事件选中函数</p>
+<h3 id="qlineedittextedit">QlineEdit、textEdit</h3>
+<h3 id="qcheckbox">QCheckBox</h3>
+<p>https://www.jb51.net/article/181600.htm</p>
+<h3 id="qchart">Qchart</h3>
+<p>https://blog.csdn.net/u011218356/article/details/88957823</p>
+]]></content>
+      <categories>
+        <category>PyQt</category>
+      </categories>
+      <tags>
+        <tag>PyQt</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PyQt5扩展库</title>
+    <url>/2021/06/29/PyQt5/PyQt5%E6%89%A9%E5%B1%95%E5%BA%93/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h2 id="待更新...">待更新...</h2>
+<span id="more"></span>
+<h2 id="qchart库">QChart库</h2>
+<h3 id="安装">安装</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pip install PyQtChart</span><br></pre></td></tr></table></figure>
+<h3 id="使用">使用</h3>
+<p>https://blog.csdn.net/u011218356/article/details/88957823</p>
+]]></content>
+      <categories>
+        <category>PyQt</category>
+      </categories>
+      <tags>
+        <tag>macOS</tag>
+        <tag>Windows</tag>
+        <tag>PyQt</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MXNet+Gluoncv环境搭建</title>
+    <url>/2021/06/29/PyQt5/MXNet-Gluoncv%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>MXNet+Gluoncv环境搭建</p>
+<span id="more"></span>
+<h2 id="linux下">Linux下</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># MXNet+Gluoncv+CUDA10.0</span></span><br><span class="line">$ pip install --upgrade mxnet-cu100mkl gluoncv -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com</span><br></pre></td></tr></table></figure>
+<h2 id="macos下">macOS下</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># MxNet+Gluoncv</span></span><br><span class="line">$ pip install --upgrade mxnet gluoncv -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装OpenCV-headless（解决Gluoncv中与PyQt5中OpenCV冲突）</span></span><br><span class="line">$ pip install opencv-contrib-python-headless -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com</span><br></pre></td></tr></table></figure>
+<h2 id="windows下对cuda版本要求严格">Windows下（对CUDA版本要求严格）</h2>
+<h3 id="安装前须知">安装前须知</h3>
+<ul>
+<li><p>CUDA版本一定为：<code>CUDA 10.1</code></p></li>
+<li><div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1">$ <span class="ex">nvcc</span> --version</a></code></pre></div></li>
+<li>cuDNN版本一定对应 <code>CUDA 10.1</code></li>
+<li>安装MXNet版本一定为 1.5.0`</li>
+<li><p>Anaconda新建环境，选择 <code>Python 3.6</code></p></li>
+</ul>
+<h3 id="安装步骤">安装步骤</h3>
+<ul>
+<li>安装<code>Microsoft Visual Studio</code></li>
+<li>安装<code>NVIDIA CUDA-Toolkit</code>，选择<code>10.1</code> 版本，环境变量添加<code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1</code></li>
+<li>下载<code>NVIDIA cuDNN</code>，解压到<code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\</code></li>
+<li>Anaconda新建环境，选择<code>Python 3.6</code></li>
+<li>安装MXNet</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pip install mxnet-cu101==1.5.0</span><br></pre></td></tr></table></figure>
+<h3 id="安装中可能出现的问题">安装中可能出现的问题</h3>
+<p><strong>出现 OSError: [WinError 126] 找不到指定的模块：</strong></p>
+<ul>
+<li>安装微软运行库</li>
+</ul>
+<p><strong>libmxnet.dll was not found：</strong></p>
+<ul>
+<li>创建Python3.6环境，重新<code>pip install mxnet-cu101==1.5.0</code></li>
+</ul>
+<h2 id="参考">【参考】</h2>
+<p>[1] https://zhuanlan.zhihu.com/p/91554516</p>
+<p>[2] https://blog.csdn.net/huanghe_zhiyuan/article/details/108298193</p>
+]]></content>
+      <categories>
+        <category>MXNet</category>
+      </categories>
+      <tags>
+        <tag>macOS</tag>
+        <tag>Windows</tag>
+        <tag>MXNet</tag>
+        <tag>Gluoncv</tag>
+        <tag>环境搭建</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>视频处理中的延迟问题</title>
+    <url>/2021/06/29/PyQt5/%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86%E4%B8%AD%E7%9A%84%E5%BB%B6%E8%BF%9F%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>OpenCV在摄像机每次获取新帧时，总是先把上一次读取的帧拿出来先用，再把新帧加入缓存，所以要想获取最新的帧，一定要连续读两次才能读到最新帧。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">flag, image = self.cap.read()</span><br><span class="line">flag, image = self.cap.read()</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>PyQt</category>
+      </categories>
+      <tags>
+        <tag>PyQt</tag>
+        <tag>OpenCV</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PPT 设置图片透明背景</title>
+    <url>/2021/11/03/PPT%E4%BD%BF%E7%94%A8/PPT%E8%AE%BE%E7%BD%AE%E5%9B%BE%E7%89%87%E9%80%8F%E6%98%8E%E8%83%8C%E6%99%AF/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><blockquote>
+<p>做 PPT 使用现成的模板添加内容，经常遇到在添加图片的时候，图片有背景颜色， PPT 模板的背景可能是白色，可能是其他浅颜色，总之很不好看。</p>
+</blockquote>
+<blockquote>
+<p>本文主要介绍 PPT 中设置图片透明背景的方法。</p>
+</blockquote>
+<span id="more"></span>
+<p>如下图，PPT 中插入一张白色背景图片，和 PPT 模板背景有色差。</p>
+<p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/image-20211103173325763.png" alt="PPT 中插入有背景的图片" style="zoom: 50%;"></p>
+<p><strong>第一步，</strong>选中图片 —— 格式</p>
+<p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/image-20211103173613976.png" alt="第一步，图片格式" style="zoom:67%;"></p>
+<p><strong>第二步，</strong>颜色 —— 设置透明色</p>
+<p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/image-20211103173703704.png" alt="第二步，设置透明色" style="zoom:67%;"></p>
+<p><strong>第三步，</strong>删除背景，点击图片背景。</p>
+<p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/image-20211103173855302.png" alt="第三步，删除背景" style="zoom:67%;"></p>
+]]></content>
+      <categories>
+        <category>Office</category>
+      </categories>
+      <tags>
+        <tag>PPT</tag>
+        <tag>使用技巧</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Pycharm设置文件模板</title>
     <url>/2021/11/28/Python/Pycharm%E8%AE%BE%E7%BD%AE%E6%96%87%E4%BB%B6%E6%A8%A1%E6%9D%BF/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><blockquote>
@@ -867,8 +1168,153 @@
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Pycharm</tag>
         <tag>Python</tag>
+        <tag>Pycharm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Pyside6踩坑记（持续更新中...）</title>
+    <url>/2021/11/28/PythonGUI%E7%BC%96%E7%A8%8B/Pyside6%E8%B8%A9%E5%9D%91%E8%AE%B0/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><blockquote>
+<p>使用 Pyside6 的记录</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="壹丨环境配置">壹丨环境配置</h2>
+<p>第一步，Pycharm 中新建工程，命名 <code>MasterFusion</code></p>
+<p>第二步，pip 安装pyside6</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install PySide6</span><br></pre></td></tr></table></figure>
+<p>第三步，配置 QtDesigner</p>
+<p>Settings —— Tools —— External Tools —— 加号</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># name</span></span><br><span class="line">QtDesigner6</span><br><span class="line"></span><br><span class="line"><span class="comment"># Program</span></span><br><span class="line">C:\Users\MasterMao\anaconda3\envs\MasterFusion\Lib\site-packages\PySide6\designer.exe</span><br><span class="line"></span><br><span class="line"><span class="comment"># Working directory</span></span><br><span class="line">$FileDir$</span><br></pre></td></tr></table></figure>
+<p>文件资源管理器定位到 <code>C:\Users\MasterMao\anaconda3\envs\MasterFusion\Lib\site-packages\PySide6</code>，新建文件夹 <code>./bin</code>，将PySide6根目录下 的<code>uic.exe</code>、<code>Qt6Core.dll</code> 拷贝到 <code>bin</code> 目录下</p>
+<h2 id="贰丨使用-pydracula-模板">贰丨使用 PyDracula 模板</h2>
+<p>项目地址：https://github.com/Wanderson-Magalhaes/Modern_GUI_PyDracula_PySide6_or_PyQt6</p>
+<p>文件说明：</p>
+<blockquote>
+<p><strong>main.py</strong>: 初始化文件</p>
+<p><strong>main.ui</strong>: Qt Designer 工程文件</p>
+<p><strong>resouces.qrc</strong>: Qt Designer 资源文件，使用 Designer 添加资源</p>
+<p><strong>setup.py</strong>: 使用 cx-Freeze 编译程序</p>
+<p><strong>themes/</strong>: 主题文件</p>
+<p><strong>modules/</strong>: PyDracula GUI 的模块</p>
+<p><strong>modules/app_funtions.py</strong>: 此处添加应用程序</p>
+<p><strong>modules/app_settings.py</strong>: 用户界面全局变量</p>
+<p><strong>modules/resources_rc.py</strong>: 使用Python命令编译resource.qrc文件，命令为 <code>pyside6-rcc resources.qrc -o resources_rc.py</code></p>
+<p><strong>modules/ui_functions.py</strong>: 仅为与用户界面相关的功能</p>
+<p><strong>modules/ui_main.py</strong>: Qt Designer导出的界面文件。可编译命令：<code>pyside6-uic main.ui&gt; ui_main.py</code></p>
+<p>需要将原文中 <code>import resources_rc</code> 改为 <code>from. Resoucers_rc import *</code></p>
+<p><strong>images/</strong>: 将图片和图标放在此处。 <code>pyside6-rcc resources.qrc -o resources_rc.py</code>.</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Pyside6</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Numpy基础</title>
+    <url>/2021/06/29/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/Numpy%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/Numpy%E5%9F%BA%E7%A1%80.png"></p>
+<span id="more"></span>
+<h2 id="一ndarray实例">一、ndarray实例</h2>
+<ul>
+<li><p>np.array()——生成数组</p></li>
+<li>.axis——表示数据维度</li>
+<li>.rank——轴数量</li>
+<li>.ndim——秩</li>
+<li>.shape——n行m列</li>
+<li>.size——元素个数，=n*m</li>
+<li>.dtype——元素类型</li>
+<li><p>.itemsize——每个元素大小，字节为单位</p></li>
+</ul>
+<h2 id="二ndarry数据类型">二、ndarry数据类型</h2>
+<ul>
+<li>bool——True/False</li>
+<li>intc——与C语言int类型一致，int32/int64</li>
+<li><p>intp——用于索引的整数，与C中ssize_t一致，int32/int64</p></li>
+<li>int8——字节整数，[-128, 127]</li>
+<li>int16——16位整数，[-32768, 32767]</li>
+<li>int32——32位整数，[-2^31, 2^31-1]</li>
+<li><p>int64——64位整数，[-2^63, 2^63-1]</p></li>
+<li>uint8——8位无符号整数，[0, 255]</li>
+<li>uint16——[0, 65535]</li>
+<li>uint32——[0, 2^32-1]</li>
+<li><p>uint64——[0, 2^64-1]</p></li>
+<li>float16——16位半精度浮点，1位符号位，5位指数，10位尾数</li>
+<li>float32——32位半精度浮点，1位符号位，8位指数，23位尾数</li>
+<li><p>float64——64位半精度浮点，1位符号位，11位指数，52位尾数</p></li>
+<li>complex64——复数，实部虚部各32位浮点</li>
+<li><p>complex128——复数，实部虚部各64位浮点</p></li>
+</ul>
+<h2 id="三数组创建">三、数组创建</h2>
+<h3 id="继承">1. 继承</h3>
+<ul>
+<li>np.array(list/tumple)</li>
+</ul>
+<h3 id="初始化">2. 初始化</h3>
+<ul>
+<li>np.arange(n)——0, n-1整数</li>
+<li>np.ones(shape)</li>
+<li>np.zeros(shape)</li>
+<li>np.full(shape, val)</li>
+<li>np.eye(n)——n*n单位阵</li>
+<li>np.ones_like(a)——根据a的形状形成数组</li>
+<li>np.zeros_like(a)</li>
+<li>np.full_like(a, val)</li>
+</ul>
+<h3 id="其他函数">3. 其他函数</h3>
+<ul>
+<li>np.linspace()——根据起止数据等间隔填充数据</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 10不包括在数组内</span></span><br><span class="line">a = np.linspace(<span class="number">1</span>, <span class="number">10</span>, <span class="number">4</span>, endpoint=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>np.concatenate()——两个或多个合并</li>
+</ul>
+<h2 id="四维度变换">四、维度变换</h2>
+<ul>
+<li>.reshape(shape)——原数组不变</li>
+<li>.resize(shape)——原数组改变</li>
+<li>.swapaxes(ax1, ax2)——调换维度</li>
+<li>.flatten()——数组降为一维，原数组不变</li>
+</ul>
+<h2 id="五类型变换">五、类型变换</h2>
+<ul>
+<li>.astype()，会产生新数组</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = np.ones((<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>), dtype=np.<span class="built_in">int</span>)</span><br><span class="line">b = a.astype(np.<span class="built_in">float</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>.tolist()，转换为列表</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ls = a.tolist()</span><br></pre></td></tr></table></figure>
+<h2 id="六索引和切片">六、索引和切片</h2>
+<ul>
+<li>一维数组切片</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = np.array([<span class="number">9</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>])</span><br><span class="line"><span class="comment"># 取出8，6</span></span><br><span class="line">a[<span class="number">1</span>: <span class="number">4</span>: <span class="number">2</span>]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>多维数组切片</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = np.arange(<span class="number">24</span>).reshape((<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>))</span><br><span class="line"><span class="comment"># 取出第三维度的第0,2轴</span></span><br><span class="line">a[:, :, ::<span class="number">2</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="七函数">七、函数</h2>
+<ul>
+<li>.mean()——平均</li>
+<li>np.abs(x) / np.fabs(x)——绝对值</li>
+<li>np.sqrt(x)——平方根</li>
+<li>np.square(x)——平方</li>
+<li>np.log(x) / np.log10(x) / np.log2(x)</li>
+<li>np.ceil(x) / np.floor(x)——计算各元素ceiling或floor</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Python数据分析</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Numpy</tag>
+        <tag>数据分析</tag>
       </tags>
   </entry>
   <entry>
@@ -1038,59 +1484,8 @@
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Pycharm</tag>
         <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MXNet+Gluoncv环境搭建</title>
-    <url>/2021/06/29/PyQt5/MXNet-Gluoncv%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>MXNet+Gluoncv环境搭建</p>
-<span id="more"></span>
-<h2 id="linux下">Linux下</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># MXNet+Gluoncv+CUDA10.0</span></span><br><span class="line">$ pip install --upgrade mxnet-cu100mkl gluoncv -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com</span><br></pre></td></tr></table></figure>
-<h2 id="macos下">macOS下</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># MxNet+Gluoncv</span></span><br><span class="line">$ pip install --upgrade mxnet gluoncv -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装OpenCV-headless（解决Gluoncv中与PyQt5中OpenCV冲突）</span></span><br><span class="line">$ pip install opencv-contrib-python-headless -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com</span><br></pre></td></tr></table></figure>
-<h2 id="windows下对cuda版本要求严格">Windows下（对CUDA版本要求严格）</h2>
-<h3 id="安装前须知">安装前须知</h3>
-<ul>
-<li><p>CUDA版本一定为：<code>CUDA 10.1</code></p></li>
-<li><div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1">$ <span class="ex">nvcc</span> --version</a></code></pre></div></li>
-<li>cuDNN版本一定对应 <code>CUDA 10.1</code></li>
-<li>安装MXNet版本一定为 1.5.0`</li>
-<li><p>Anaconda新建环境，选择 <code>Python 3.6</code></p></li>
-</ul>
-<h3 id="安装步骤">安装步骤</h3>
-<ul>
-<li>安装<code>Microsoft Visual Studio</code></li>
-<li>安装<code>NVIDIA CUDA-Toolkit</code>，选择<code>10.1</code> 版本，环境变量添加<code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1</code></li>
-<li>下载<code>NVIDIA cuDNN</code>，解压到<code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\</code></li>
-<li>Anaconda新建环境，选择<code>Python 3.6</code></li>
-<li>安装MXNet</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pip install mxnet-cu101==1.5.0</span><br></pre></td></tr></table></figure>
-<h3 id="安装中可能出现的问题">安装中可能出现的问题</h3>
-<p><strong>出现 OSError: [WinError 126] 找不到指定的模块：</strong></p>
-<ul>
-<li>安装微软运行库</li>
-</ul>
-<p><strong>libmxnet.dll was not found：</strong></p>
-<ul>
-<li>创建Python3.6环境，重新<code>pip install mxnet-cu101==1.5.0</code></li>
-</ul>
-<h2 id="参考">【参考】</h2>
-<p>[1] https://zhuanlan.zhihu.com/p/91554516</p>
-<p>[2] https://blog.csdn.net/huanghe_zhiyuan/article/details/108298193</p>
-]]></content>
-      <categories>
-        <category>MXNet</category>
-      </categories>
-      <tags>
-        <tag>macOS</tag>
-        <tag>Windows</tag>
-        <tag>MXNet</tag>
-        <tag>Gluoncv</tag>
-        <tag>环境搭建</tag>
+        <tag>Pycharm</tag>
       </tags>
   </entry>
   <entry>
@@ -1114,271 +1509,8 @@
         <category>Python</category>
       </categories>
       <tags>
+        <tag>Python</tag>
         <tag>Pycharm</tag>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PyQt5开发环境配置</title>
-    <url>/2021/06/29/PyQt5/PyQt5%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>PyQt5开发环境配置</p>
-<span id="more"></span>
-<h2 id="环境">1. 环境</h2>
-<ul>
-<li>包管理器：Anaconda3</li>
-<li><p>IDE：PyCharm</p></li>
-<li><p>PyQt5模块：</p></li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line">$ pip install pyqt5</span><br><span class="line"><span class="comment"># 卸载</span></span><br><span class="line">$ pip uninstall pyqt5</span><br></pre></td></tr></table></figure>
-<h2 id="qtdesigner-pyuic">2. QtDesigner &amp; PyUIC</h2>
-<ul>
-<li>QtDesigner，可视化UI编辑器</li>
-<li>PyUIC，将.ui文件转化为.py文件，以供Python主程序调用。</li>
-</ul>
-<h3 id="windows下">Windows下：</h3>
-<p>PyCharm——Preferences——Tools——External Tools——加号</p>
-<h4 id="qtdesigner">1. QtDesigner：</h4>
-<ul>
-<li>Name：<code>QtDesigner</code></li>
-<li>Program：<code>C:\ProgramData\&#123;Anaconda安装路径&#125;\Library\bin\designer.exe</code></li>
-<li>Working directory：<code>$FileDir$</code></li>
-</ul>
-<h3 id="pyuic">2. PyUIC：</h3>
-<ul>
-<li>Name：<code>PyUIC</code></li>
-<li>Program：<code>C:\ProgramData\&#123;Anaconda安装路径&#125;&#125;\python.exe</code></li>
-<li>Arguments：<code>-m PyQt5.uic.pyuic $FileName$ -o $FileNameWithoutExtension$.py</code></li>
-<li>Working directory：<code>$FileDir$</code></li>
-</ul>
-<h3 id="macos下">MacOS下：</h3>
-<p>PyCharm——Preferences——Tools——External Tools——加号</p>
-<h4 id="qtdesigner-1">1. QtDesigner：</h4>
-<ul>
-<li>Name：<code>QtDesigner</code></li>
-<li>Program：<code>/Users/用户名/opt/anaconda3/bin/Designer.app</code></li>
-<li>Working directory：<code>$FileDir$</code></li>
-</ul>
-<h4 id="pyuic-1">2. PyUIC</h4>
-<ul>
-<li>Name：<code>PyUIC</code></li>
-<li>Program：<code>/Users/用户名/opt/anaconda3/bin/python.app</code></li>
-<li>Arguments：<code>-m PyQt5.uic.pyuic $FileName$ -o $FileNameWithoutExtension$.py</code></li>
-<li>Working directory：<code>$FileDir$</code></li>
-</ul>
-<h2 id="logo_rc报错问题">3. logo_rc报错问题</h2>
-<p>【问题描述】界面中添加logo，使用PyUIC转换后，以下语句报错</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> logo_rc</span><br></pre></td></tr></table></figure>
-<p>【解决方法】将<code>xx.qrc</code>文件转换为<code>.py</code>文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pyrcc5 xx.qrc -o xx_rc.py</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>PyQt</category>
-      </categories>
-      <tags>
-        <tag>macOS</tag>
-        <tag>Windows</tag>
-        <tag>PyQt</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>视频处理中的延迟问题</title>
-    <url>/2021/06/29/PyQt5/%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86%E4%B8%AD%E7%9A%84%E5%BB%B6%E8%BF%9F%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>OpenCV在摄像机每次获取新帧时，总是先把上一次读取的帧拿出来先用，再把新帧加入缓存，所以要想获取最新的帧，一定要连续读两次才能读到最新帧。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">flag, image = self.cap.read()</span><br><span class="line">flag, image = self.cap.read()</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>PyQt</category>
-      </categories>
-      <tags>
-        <tag>PyQt</tag>
-        <tag>OpenCV</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PyQt5扩展库</title>
-    <url>/2021/06/29/PyQt5/PyQt5%E6%89%A9%E5%B1%95%E5%BA%93/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h2 id="待更新...">待更新...</h2>
-<span id="more"></span>
-<h2 id="qchart库">QChart库</h2>
-<h3 id="安装">安装</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pip install PyQtChart</span><br></pre></td></tr></table></figure>
-<h3 id="使用">使用</h3>
-<p>https://blog.csdn.net/u011218356/article/details/88957823</p>
-]]></content>
-      <categories>
-        <category>PyQt</category>
-      </categories>
-      <tags>
-        <tag>macOS</tag>
-        <tag>Windows</tag>
-        <tag>PyQt</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PyQt5控件及用法</title>
-    <url>/2021/06/29/PyQt5/PyQt5%E6%8E%A7%E4%BB%B6%E5%8F%8A%E7%94%A8%E6%B3%95/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h2 id="待整理...">待整理...</h2>
-<span id="more"></span>
-<h3 id="ui使用方法">UI使用方法</h3>
-<p>https://my.oschina.net/u/4322686/blog/3448663</p>
-<h3 id="combobox">comboBox</h3>
-<p>currentText()获得文本</p>
-<p>currentIndex()获得下标</p>
-<p>self.comboBox.currentIndexChanged.connect() comboBox的事件选中函数</p>
-<h3 id="qlineedittextedit">QlineEdit、textEdit</h3>
-<h3 id="qcheckbox">QCheckBox</h3>
-<p>https://www.jb51.net/article/181600.htm</p>
-<h3 id="qchart">Qchart</h3>
-<p>https://blog.csdn.net/u011218356/article/details/88957823</p>
-]]></content>
-      <categories>
-        <category>PyQt</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>PyQt</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PPT 设置图片透明背景</title>
-    <url>/2021/11/03/PPT%E4%BD%BF%E7%94%A8/PPT%E8%AE%BE%E7%BD%AE%E5%9B%BE%E7%89%87%E9%80%8F%E6%98%8E%E8%83%8C%E6%99%AF/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><blockquote>
-<p>做 PPT 使用现成的模板添加内容，经常遇到在添加图片的时候，图片有背景颜色， PPT 模板的背景可能是白色，可能是其他浅颜色，总之很不好看。</p>
-</blockquote>
-<blockquote>
-<p>本文主要介绍 PPT 中设置图片透明背景的方法。</p>
-</blockquote>
-<span id="more"></span>
-<p>如下图，PPT 中插入一张白色背景图片，和 PPT 模板背景有色差。</p>
-<p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/image-20211103173325763.png" alt="PPT 中插入有背景的图片" style="zoom: 50%;"></p>
-<p><strong>第一步，</strong>选中图片 —— 格式</p>
-<p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/image-20211103173613976.png" alt="第一步，图片格式" style="zoom:67%;"></p>
-<p><strong>第二步，</strong>颜色 —— 设置透明色</p>
-<p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/image-20211103173703704.png" alt="第二步，设置透明色" style="zoom:67%;"></p>
-<p><strong>第三步，</strong>删除背景，点击图片背景。</p>
-<p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/image-20211103173855302.png" alt="第三步，删除背景" style="zoom:67%;"></p>
-]]></content>
-      <categories>
-        <category>Office</category>
-      </categories>
-      <tags>
-        <tag>PPT</tag>
-        <tag>使用技巧</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Pyside6踩坑记（持续更新中...）</title>
-    <url>/2021/11/28/PythonGUI%E7%BC%96%E7%A8%8B/Pyside6%E8%B8%A9%E5%9D%91%E8%AE%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><blockquote>
-<p>使用 Pyside6 的记录</p>
-</blockquote>
-<span id="more"></span>
-<h2 id="壹丨环境配置">壹丨环境配置</h2>
-<p>第一步，Pycharm 中新建工程，命名 <code>MasterFusion</code></p>
-<p>第二步，pip 安装pyside6</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install PySide6</span><br></pre></td></tr></table></figure>
-<p>第三步，配置 QtDesigner</p>
-<p>Settings —— Tools —— External Tools —— 加号</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># name</span></span><br><span class="line">QtDesigner6</span><br><span class="line"></span><br><span class="line"><span class="comment"># Program</span></span><br><span class="line">C:\Users\MasterMao\anaconda3\envs\MasterFusion\Lib\site-packages\PySide6\designer.exe</span><br><span class="line"></span><br><span class="line"><span class="comment"># Working directory</span></span><br><span class="line">$FileDir$</span><br></pre></td></tr></table></figure>
-<p>文件资源管理器定位到 <code>C:\Users\MasterMao\anaconda3\envs\MasterFusion\Lib\site-packages\PySide6</code>，新建文件夹 <code>./bin</code>，将PySide6根目录下 的<code>uic.exe</code>、<code>Qt6Core.dll</code> 拷贝到 <code>bin</code> 目录下</p>
-<h2 id="贰丨使用-pydracula-模板">贰丨使用 PyDracula 模板</h2>
-<p>项目地址：https://github.com/Wanderson-Magalhaes/Modern_GUI_PyDracula_PySide6_or_PyQt6</p>
-<p>文件说明：</p>
-<blockquote>
-<p><strong>main.py</strong>: 初始化文件</p>
-<p><strong>main.ui</strong>: Qt Designer 工程文件</p>
-<p><strong>resouces.qrc</strong>: Qt Designer 资源文件，使用 Designer 添加资源</p>
-<p><strong>setup.py</strong>: 使用 cx-Freeze 编译程序</p>
-<p><strong>themes/</strong>: 主题文件</p>
-<p><strong>modules/</strong>: PyDracula GUI 的模块</p>
-<p><strong>modules/app_funtions.py</strong>: 此处添加应用程序</p>
-<p><strong>modules/app_settings.py</strong>: 用户界面全局变量</p>
-<p><strong>modules/resources_rc.py</strong>: 使用Python命令编译resource.qrc文件，命令为 <code>pyside6-rcc resources.qrc -o resources_rc.py</code></p>
-<p><strong>modules/ui_functions.py</strong>: 仅为与用户界面相关的功能</p>
-<p><strong>modules/ui_main.py</strong>: Qt Designer导出的界面文件。可编译命令：<code>pyside6-uic main.ui&gt; ui_main.py</code></p>
-<p>需要将原文中 <code>import resources_rc</code> 改为 <code>from. Resoucers_rc import *</code></p>
-<p><strong>images/</strong>: 将图片和图标放在此处。 <code>pyside6-rcc resources.qrc -o resources_rc.py</code>.</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>Pyside6</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>回归问题评价指标</title>
-    <url>/2021/06/29/Python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%98%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>回归问题评价指标</p>
-<span id="more"></span>
-<h2 id="前言">前言</h2>
-<p>对于分类问题而言，评价指标为准确率；</p>
-<p>对于回归问题而言，评价指标有：MSE、RMSE、MAE、R-Squared</p>
-<h2 id="均方误差mse">均方误差（MSE）</h2>
-<p><span class="math display">\[
-MSE=\frac{1}{N}\sum^{N}_{i=1}(y^i_{true}-y^i_{pred})^2
-\]</span></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">mse = np.<span class="built_in">sum</span>((y_pred - y_true) ** <span class="number">2</span>) / <span class="built_in">len</span>(y_true)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_squared_error</span><br><span class="line">mae = mean_squared_error(y_true,y_pred)</span><br></pre></td></tr></table></figure>
-<h2 id="均方根误差rmse">均方根误差（RMSE）</h2>
-<p><span class="math display">\[
-RMSE=\sqrt{\frac{1}{N}\sum^{N}_{i=1}(y^i_{true}-y^i_{pred})^2}
-\]</span></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">rmse = mse ** <span class="number">0.5</span></span><br></pre></td></tr></table></figure>
-<h2 id="平均绝对误差mae">平均绝对误差（MAE）</h2>
-<p><span class="math display">\[
-MAE=\frac{1}{N}\sum^{N}_{i=1}|y^i_{true}-y^i_{pred}|
-\]</span></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">mae = np.<span class="built_in">sum</span>(np.absolute(y_pred - y_true)) / <span class="built_in">len</span>(y_true)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_absolute_error</span><br><span class="line">mae = mean_absolute_error(y_true,y_pred)</span><br></pre></td></tr></table></figure>
-<h2 id="r方r-squared">R方（R-Squared）</h2>
-<p><span class="math display">\[
-R^2=1-\frac{\sum_i(y^i_{pred}-y^i_{true})^2}{\sum_i(y^i_{true}-\bar{y})^2}
-\]</span></p>
-<p>含义：预测值对于真值的拟合好坏程度，<span class="math inline">\(R^2\in(-\infty,1]\)</span></p>
-<ul>
-<li>R方=1，所有预测值=真值</li>
-<li>R方=0，可能”所有预测值等于真值平均“</li>
-<li>R方&lt;0，终究是错付了</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">R2 = <span class="number">1</span> - mse / np.var(y_true)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> r2_score</span><br><span class="line">R2 = r2_score(y_true,y_pred)</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Python深度学习</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>回归问题</tag>
-        <tag>模式识别</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>模型训练可视化工具——TensorboardX</title>
-    <url>/2021/06/29/Python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%B7%A5%E5%85%B7%E2%80%94%E2%80%94TensorboardX/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>模型训练可视化工具——TensorboardX</p>
-<span id="more"></span>
-<h2 id="安装">安装</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pip install tensorboardX</span><br><span class="line">$ pip install tensorboard</span><br><span class="line"><span class="comment"># 使用GPU的情况下，需要安装</span></span><br><span class="line">$ pip install tensorflow-gpu==2.3.0</span><br></pre></td></tr></table></figure>
-<p>版本需要和cuda版本一致，否则报cudart64_110.dll not found错误</p>
-<p>https://blog.csdn.net/weixin_42764932/article/details/113038416</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看TensorFlow版本：</span></span><br><span class="line">$ python</span><br><span class="line">$ import tensorflow as tf</span><br><span class="line">$ tf.__version__</span><br></pre></td></tr></table></figure>
-<h2 id="使用">使用</h2>
-<p>在与<code>runs</code>同级目录下执行：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ tensorboard --logdir runs</span><br></pre></td></tr></table></figure>
-<h2 id="更多教程">更多教程</h2>
-<p>https://www.jianshu.com/p/46eb3004beca</p>
-<p>https://blog.csdn.net/bigbennyguo/article/details/87956434</p>
-]]></content>
-      <categories>
-        <category>Python深度学习</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>回归问题</tag>
-        <tag>模式识别</tag>
       </tags>
   </entry>
   <entry>
@@ -1404,308 +1536,8 @@ R^2=1-\frac{\sum_i(y^i_{pred}-y^i_{true})^2}{\sum_i(y^i_{true}-\bar{y})^2}
       </categories>
       <tags>
         <tag>Python</tag>
+        <tag>数据分析</tag>
         <tag>Seaborn</tag>
-        <tag>数据分析</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Numpy基础</title>
-    <url>/2021/06/29/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/Numpy%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/Numpy%E5%9F%BA%E7%A1%80.png"></p>
-<span id="more"></span>
-<h2 id="一ndarray实例">一、ndarray实例</h2>
-<ul>
-<li><p>np.array()——生成数组</p></li>
-<li>.axis——表示数据维度</li>
-<li>.rank——轴数量</li>
-<li>.ndim——秩</li>
-<li>.shape——n行m列</li>
-<li>.size——元素个数，=n*m</li>
-<li>.dtype——元素类型</li>
-<li><p>.itemsize——每个元素大小，字节为单位</p></li>
-</ul>
-<h2 id="二ndarry数据类型">二、ndarry数据类型</h2>
-<ul>
-<li>bool——True/False</li>
-<li>intc——与C语言int类型一致，int32/int64</li>
-<li><p>intp——用于索引的整数，与C中ssize_t一致，int32/int64</p></li>
-<li>int8——字节整数，[-128, 127]</li>
-<li>int16——16位整数，[-32768, 32767]</li>
-<li>int32——32位整数，[-2^31, 2^31-1]</li>
-<li><p>int64——64位整数，[-2^63, 2^63-1]</p></li>
-<li>uint8——8位无符号整数，[0, 255]</li>
-<li>uint16——[0, 65535]</li>
-<li>uint32——[0, 2^32-1]</li>
-<li><p>uint64——[0, 2^64-1]</p></li>
-<li>float16——16位半精度浮点，1位符号位，5位指数，10位尾数</li>
-<li>float32——32位半精度浮点，1位符号位，8位指数，23位尾数</li>
-<li><p>float64——64位半精度浮点，1位符号位，11位指数，52位尾数</p></li>
-<li>complex64——复数，实部虚部各32位浮点</li>
-<li><p>complex128——复数，实部虚部各64位浮点</p></li>
-</ul>
-<h2 id="三数组创建">三、数组创建</h2>
-<h3 id="继承">1. 继承</h3>
-<ul>
-<li>np.array(list/tumple)</li>
-</ul>
-<h3 id="初始化">2. 初始化</h3>
-<ul>
-<li>np.arange(n)——0, n-1整数</li>
-<li>np.ones(shape)</li>
-<li>np.zeros(shape)</li>
-<li>np.full(shape, val)</li>
-<li>np.eye(n)——n*n单位阵</li>
-<li>np.ones_like(a)——根据a的形状形成数组</li>
-<li>np.zeros_like(a)</li>
-<li>np.full_like(a, val)</li>
-</ul>
-<h3 id="其他函数">3. 其他函数</h3>
-<ul>
-<li>np.linspace()——根据起止数据等间隔填充数据</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 10不包括在数组内</span></span><br><span class="line">a = np.linspace(<span class="number">1</span>, <span class="number">10</span>, <span class="number">4</span>, endpoint=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>np.concatenate()——两个或多个合并</li>
-</ul>
-<h2 id="四维度变换">四、维度变换</h2>
-<ul>
-<li>.reshape(shape)——原数组不变</li>
-<li>.resize(shape)——原数组改变</li>
-<li>.swapaxes(ax1, ax2)——调换维度</li>
-<li>.flatten()——数组降为一维，原数组不变</li>
-</ul>
-<h2 id="五类型变换">五、类型变换</h2>
-<ul>
-<li>.astype()，会产生新数组</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = np.ones((<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>), dtype=np.<span class="built_in">int</span>)</span><br><span class="line">b = a.astype(np.<span class="built_in">float</span>)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>.tolist()，转换为列表</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ls = a.tolist()</span><br></pre></td></tr></table></figure>
-<h2 id="六索引和切片">六、索引和切片</h2>
-<ul>
-<li>一维数组切片</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = np.array([<span class="number">9</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>])</span><br><span class="line"><span class="comment"># 取出8，6</span></span><br><span class="line">a[<span class="number">1</span>: <span class="number">4</span>: <span class="number">2</span>]</span><br></pre></td></tr></table></figure>
-<ul>
-<li>多维数组切片</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = np.arange(<span class="number">24</span>).reshape((<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>))</span><br><span class="line"><span class="comment"># 取出第三维度的第0,2轴</span></span><br><span class="line">a[:, :, ::<span class="number">2</span>]</span><br></pre></td></tr></table></figure>
-<h2 id="七函数">七、函数</h2>
-<ul>
-<li>.mean()——平均</li>
-<li>np.abs(x) / np.fabs(x)——绝对值</li>
-<li>np.sqrt(x)——平方根</li>
-<li>np.square(x)——平方</li>
-<li>np.log(x) / np.log10(x) / np.log2(x)</li>
-<li>np.ceil(x) / np.floor(x)——计算各元素ceiling或floor</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Python数据分析</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>数据分析</tag>
-        <tag>Numpy</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Cloudflare系列使用</title>
-    <url>/2021/10/18/Hexo/Cloudflare%E7%B3%BB%E5%88%97%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><blockquote>
-<p>年少不知 Cloudflare 好，错把鹅云当做宝。</p>
-<p>Cloudflare 是一家米国的跨国科技企业，提供CDN、优化工具、安全、分析以及应用等服务。Cloudflare 在 CDN 加速领域很有名气，提供免费和付费的加速服务和网站保护服务。Cloudflare 提供不同类型的套餐，即使是免费用户，Cloudflare 提供的功能也很全面。</p>
-</blockquote>
-<blockquote>
-<p>本文主要介绍最近使用 Cloudflare 实现的一些功能，包括：DNS 管理、Cloudflare Pages、配置 Hexo 百度收录、Notion 个人域名访问。</p>
-</blockquote>
-<p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/cloudflare%E7%B3%BB%E5%88%97%E4%BD%BF%E7%94%A8.svg"></p>
-<span id="more"></span>
-<h2 id="壹丨cloudflare-管理-dns">壹丨Cloudflare 管理 DNS</h2>
-<blockquote>
-<p>与阿里云解析功能类似，在 Cloudflare 中可以设置【使用 Cloudflare 代理流量】或【仅限 DNS 解析】</p>
-</blockquote>
-<p>Cloudflare 网址：https://www.cloudflare.com</p>
-<p>记录类型介绍：</p>
-<ul>
-<li>CNAME 记录：别名记录，将域名解析到另外一个域名；</li>
-<li>A 记录：指定主机名（或域名）对应的 IP 地址，即当访问此域名的时候，直接指向 IP 地址的主机；</li>
-<li>TXT 记录：为某个主机名或域名设置说明，可以用来验证对域名的管理权；</li>
-<li>MX 记录：邮件交换记录，一般用于将某个域名的电子邮件指向对应邮件服务器。</li>
-</ul>
-<h2 id="贰丨cloudflare-pages">贰丨Cloudflare Pages</h2>
-<blockquote>
-<p>Cloudflare Pages 是一个 JAMstack 平台，为前端开发人员提供协作和部署服务，支持 Hugo、JekyII、React、Vue、Gatsby 等框架。</p>
-</blockquote>
-<p>Cloudflare Pages 网址：https://pages.cloudflare.com</p>
-<h4 id="项目创建">1. 项目创建：</h4>
-<p>创建项目 —— 登录 Github —— 选择 git 仓库</p>
-<h4 id="构建与部署">2. 构建与部署：</h4>
-<blockquote>
-<p>使用Hexo创建博客，执行 <code>hexo g</code> 命令时，将 <code>~/hexo-site/source/</code> 文件夹下 <code>.md</code>、<code>.html</code>、<code>.js</code> 等文件渲染，放入 <code>~/hexo-site/public/</code> 文件夹下，执行 <code>hexo deploy</code> 命令将 <code>~/hexo-site/public/</code> 文件夹下的内容推到 git 仓库。</p>
-<p>即 Cloudflare Pages 从 Github 导入的文件就是生成网页的源文件，所以 —— <strong>构建参数不需要设置</strong></p>
-</blockquote>
-<p>构建配置：</p>
-<ul>
-<li>框架预设：None</li>
-<li>构建命令：空</li>
-<li>构建输出目录：空</li>
-<li>根目录（高级）：空</li>
-</ul>
-<p>配置完后将自动部署……</p>
-<h4 id="自定义域">3. 自定义域</h4>
-<p>第一步，项目 —— 自定义域 —— 设置自定义域；</p>
-<p>第二步，Cloudflare 中：DNS —— 添加记录 —— 设置 CNAME 记录。</p>
-<h4 id="https">4. HTTPS</h4>
-<p>使用 Cloudflare 代理可以直接开启强制 HTTPS，在 Cloudflare Pages 中是默认配置的。</p>
-<h2 id="叁丨配置-hexo-百度收录">叁丨配置 Hexo 百度收录</h2>
-<blockquote>
-<p>试过很多次，都无法实现百度收录，据说百度无法从 Github 爬取内容。目前已经放弃百度收录，如果博客部署在 Coding、Gitee 等国内代码托管网站，可以试试以下步骤。</p>
-</blockquote>
-<p>百度搜索资源平台 - 快速收录网址：https://ziyuan.baidu.com/dailysubmit/index</p>
-<p>第一步，用户中心 —— 站点管理 —— 添加网站；实践证明：填入 <code>https://www.mastermao.cn</code>，添加 CNAME 记录验证，是比较容易成功的；</p>
-<p>第二步，sitemap 提交，个人 blog 使用 npm 安装相关插件、配置 <code>_config.yml</code> ，然后重新生成博客，在网页端提交即可；</p>
-<p>第三步，设置自动提交，修改 <code>_config.yml</code> 配置，具体不再赘述，详见参考 [2]：</p>
-<h2 id="肆丨notion-个人域名访问">肆丨Notion 个人域名访问</h2>
-<blockquote>
-<p>Notion 是一款电子笔记软件，堪称电子笔记界的天花板的存在。</p>
-<p>Notion 不仅可以用来写电子笔记，还可以直接将电子笔记公开链接，生成个人网页；</p>
-<p>Notion 目前并未提供自定义个人域名的功能，但可以使用 Cloudflare 手动配置。</p>
-</blockquote>
-<h4 id="notion-公开链接">1. Notion 公开链接</h4>
-<p>第一步，设置喜好域名。Notion 中，Settings &amp; Members —— Settings —— Domain —— 填入喜好的字段，如填入 “mastermao” ，则公开链接的格式就是：<code>mastermao.notion.site/xxxxx</code>；</p>
-<p>第二步，公开链接。转到公开页，右上角 Share —— Share to web，并可设置 Show link options，生成的公开链接盛出备用。</p>
-<h4 id="创建规则-转发-url">2. 创建规则 —— 转发 URL</h4>
-<p>Cloudflare 中，规则 —— 创建页面规则：</p>
-<ul>
-<li>如果 URL 匹配：填入想设置成的域名</li>
-<li>则设置为：选择转发 URL、301 - 永久重定向、填入 Notion 公开链接</li>
-<li>保存</li>
-</ul>
-<p>经过实测，可设置的域名限制比较宽松，子域名（ <code>notion.mastermao.cn</code>）、子页面（ <code>mastermao.cn/notion</code> ）都可以使用。</p>
-<blockquote>
-<p>错误示例：</p>
-<p>博客导航栏的地址链接，以画廊为例，地址为：<code>mastermao.cn/gallery/</code>，当把 Notion 转发 URL 设置为 <code>mastermao.cn/notion/</code> 时，实践证明，生成的页面无法点击，无效。</p>
-</blockquote>
-<h4 id="hexo页面内引用">3. Hexo页面内引用</h4>
-<p>使用一条 HTML 代码将自定义的 Notion 链接引用：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">center</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://notion.mastermao.cn&quot;</span>&gt;</span>这是我的Notion<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">center</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>后续可以考虑换成图标等……</p>
-<blockquote>
-<p>做到这里突然发现，我做转发 URL 图啥呢？</p>
-<p>针对直接使用顶级域名访问 Notion 是很便利的，除此之外可以设置子域名或子页面访问，或在页面中引用链接使用。</p>
-</blockquote>
-<h2 id="参考">参考</h2>
-<blockquote>
-<p>[1] 知乎，<span class="citation" data-cites="江湖人士">@江湖人士</span>，<a href="https://zhuanlan.zhihu.com/p/82909515">cloudflare使用入门教程，国外最好免费CDN</a></p>
-<p>[2] 知乎，<span class="citation" data-cites="随风">@随风</span>，<a href="https://zhuanlan.zhihu.com/p/128033054">Hexo博客提交百度收录SEO</a></p>
-<p>[3] 哔哩哔哩，@ VSeducation，<a href="https://www.bilibili.com/read/cv10994288">如何利用 Notion 搭建个人主页|博客</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Cloudflare</tag>
-        <tag>Notion</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Windows下Pycharm使用Ubuntu虚拟环境</title>
-    <url>/2021/06/26/Python%E7%8E%AF%E5%A2%83%E7%9B%B8%E5%85%B3/Windows%E4%B8%8BPycharm%E4%BD%BF%E7%94%A8Ubuntu%E7%8E%AF%E5%A2%83/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/Windows%E4%B8%8BPycharm%E4%BD%BF%E7%94%A8Ubuntu%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83.png"></p>
-<span id="more"></span>
-<p>Windows下Ubuntu子系统安装参考：</p>
-<h2 id="一ubuntu配置">一、Ubuntu配置</h2>
-<h3 id="更新包">1. 更新包</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
-<h3 id="修改ssh配置">2. 修改ssh配置</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo dpkg-reconfigure openssh-server</span><br><span class="line">$ sudo vi /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
-<p>修改：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Port 22</span></span><br><span class="line">Port 555</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="comment"># PasswordAuthentication no</span></span><br><span class="line">PasswordAuthentication yes</span><br></pre></td></tr></table></figure>
-<h3 id="启动ssh">3. 启动ssh</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo service ssh --full-restart</span><br></pre></td></tr></table></figure>
-<h3 id="安装anaconda">4. 安装Anaconda</h3>
-<ul>
-<li><p>打开Anaconda网站：<a href="https://www.anaconda.com/products/individual#Downloads">Anaconda | Individual Edition</a></p></li>
-<li>下载 “64-Bit (x86) Installer (544 MB)”</li>
-<li><p>将 <code>Anaconda3-2021.05-Linux-x86_64.sh</code> 移动到<code>C:\Users\用户名</code></p></li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ bash Anaconda3-2021.05-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
-<p>新开一个Terminal</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看conda版本</span></span><br><span class="line">$ conda -V</span><br><span class="line"><span class="comment"># 查看pip版本</span></span><br><span class="line">$ pip -V</span><br></pre></td></tr></table></figure>
-<h3 id="修改镜像源">5. 修改镜像源</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo nano ~/.condarc</span><br></pre></td></tr></table></figure>
-<p>修改：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">channels:</span><br><span class="line">  - defaults</span><br><span class="line">show_channel_urls: <span class="literal">true</span></span><br><span class="line">default_channels:</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2</span><br><span class="line">custom_channels:</span><br><span class="line">  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br></pre></td></tr></table></figure>
-<h3 id="取消自动进入base环境">6. 取消自动进入base环境</h3>
-<p>Ubuntu安装Anaconda后，每次终端启动都会进入base环境。退出conda命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ conda deactivate</span><br></pre></td></tr></table></figure>
-<p>上述命令需要每次执行，可添加配置：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ conda config --<span class="built_in">set</span> auto_activate_base <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-<h3 id="新建环境">7. 新建环境</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ conda create -n <span class="built_in">test</span> python=3.9</span><br><span class="line"><span class="comment"># 激活虚拟环境</span></span><br><span class="line">$ conda activate <span class="built_in">test</span></span><br><span class="line"><span class="comment"># 退出虚拟环境</span></span><br><span class="line">$ conda deactivate</span><br></pre></td></tr></table></figure>
-<h2 id="二pycharm配置">二、Pycharm配置</h2>
-<h3 id="测试">1. 测试</h3>
-<p>打开Pycharm终端</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh ubuntu用户名@127.0.0.1 -p 555</span><br></pre></td></tr></table></figure>
-<h3 id="配置">2. 配置</h3>
-<ul>
-<li><p>Tools——Deployment——Configuration——增加SFTP连接</p></li>
-<li>New server name——起个名</li>
-<li>SSH configuration——右侧三个点
-<ul>
-<li>Host：127.0.0.1Port：555</li>
-<li>User name：Ubuntu用户名</li>
-<li>Authentication type：Password</li>
-<li>Password：Ubuntu密码</li>
-<li>点击Test Connection测试一下连接</li>
-</ul></li>
-<li><p>SSH configuration——选择刚刚创建的连接——OK</p></li>
-</ul>
-<h3 id="新建工程">3. 新建工程</h3>
-<ul>
-<li>File——New Project</li>
-<li>Pure Python
-<ul>
-<li>Location：起个名</li>
-<li>勾选：Previously configured interpreter</li>
-</ul></li>
-<li>Interpreter右侧...
-<ul>
-<li>选择：SSH Interpreter</li>
-<li>Host：127.0.0.1</li>
-<li>Port：555</li>
-<li>Username：用户名</li>
-</ul></li>
-<li>Next
-<ul>
-<li>Password：密码</li>
-</ul></li>
-<li>Next
-<ul>
-<li>Interpreter：/home/用户名/anaconda3/envs/test/bin/python</li>
-</ul></li>
-</ul>
-<h2 id="三结语">三、结语</h2>
-<p>emmmmm。。。。。</p>
-<ul>
-<li>好像直接执行程序是不能用的T.T</li>
-<li>在Pycharm的Terminal里面执行 <code>python main.py</code> 可以执行</li>
-<li>最后，也没发现这种方法对现在的工作有啥用。。哈哈。。。</li>
-</ul>
-<p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/049FD363.png"></p>
-]]></content>
-      <categories>
-        <category>Pycharm</category>
-      </categories>
-      <tags>
-        <tag>Windows</tag>
-        <tag>Pycharm</tag>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -1903,8 +1735,81 @@ R^2=1-\frac{\sum_i(y^i_{pred}-y^i_{true})^2}{\sum_i(y^i_{true}-\bar{y})^2}
       </categories>
       <tags>
         <tag>Python</tag>
-        <tag>Seaborn</tag>
         <tag>数据分析</tag>
+        <tag>Seaborn</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>回归问题评价指标</title>
+    <url>/2021/06/29/Python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%98%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>回归问题评价指标</p>
+<span id="more"></span>
+<h2 id="前言">前言</h2>
+<p>对于分类问题而言，评价指标为准确率；</p>
+<p>对于回归问题而言，评价指标有：MSE、RMSE、MAE、R-Squared</p>
+<h2 id="均方误差mse">均方误差（MSE）</h2>
+<p><span class="math display">\[
+MSE=\frac{1}{N}\sum^{N}_{i=1}(y^i_{true}-y^i_{pred})^2
+\]</span></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">mse = np.<span class="built_in">sum</span>((y_pred - y_true) ** <span class="number">2</span>) / <span class="built_in">len</span>(y_true)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_squared_error</span><br><span class="line">mae = mean_squared_error(y_true,y_pred)</span><br></pre></td></tr></table></figure>
+<h2 id="均方根误差rmse">均方根误差（RMSE）</h2>
+<p><span class="math display">\[
+RMSE=\sqrt{\frac{1}{N}\sum^{N}_{i=1}(y^i_{true}-y^i_{pred})^2}
+\]</span></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">rmse = mse ** <span class="number">0.5</span></span><br></pre></td></tr></table></figure>
+<h2 id="平均绝对误差mae">平均绝对误差（MAE）</h2>
+<p><span class="math display">\[
+MAE=\frac{1}{N}\sum^{N}_{i=1}|y^i_{true}-y^i_{pred}|
+\]</span></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">mae = np.<span class="built_in">sum</span>(np.absolute(y_pred - y_true)) / <span class="built_in">len</span>(y_true)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_absolute_error</span><br><span class="line">mae = mean_absolute_error(y_true,y_pred)</span><br></pre></td></tr></table></figure>
+<h2 id="r方r-squared">R方（R-Squared）</h2>
+<p><span class="math display">\[
+R^2=1-\frac{\sum_i(y^i_{pred}-y^i_{true})^2}{\sum_i(y^i_{true}-\bar{y})^2}
+\]</span></p>
+<p>含义：预测值对于真值的拟合好坏程度，<span class="math inline">\(R^2\in(-\infty,1]\)</span></p>
+<ul>
+<li>R方=1，所有预测值=真值</li>
+<li>R方=0，可能”所有预测值等于真值平均“</li>
+<li>R方&lt;0，终究是错付了</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">R2 = <span class="number">1</span> - mse / np.var(y_true)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> r2_score</span><br><span class="line">R2 = r2_score(y_true,y_pred)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Python深度学习</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>回归问题</tag>
+        <tag>模式识别</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>模型训练可视化工具——TensorboardX</title>
+    <url>/2021/06/29/Python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%B7%A5%E5%85%B7%E2%80%94%E2%80%94TensorboardX/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>模型训练可视化工具——TensorboardX</p>
+<span id="more"></span>
+<h2 id="安装">安装</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pip install tensorboardX</span><br><span class="line">$ pip install tensorboard</span><br><span class="line"><span class="comment"># 使用GPU的情况下，需要安装</span></span><br><span class="line">$ pip install tensorflow-gpu==2.3.0</span><br></pre></td></tr></table></figure>
+<p>版本需要和cuda版本一致，否则报cudart64_110.dll not found错误</p>
+<p>https://blog.csdn.net/weixin_42764932/article/details/113038416</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看TensorFlow版本：</span></span><br><span class="line">$ python</span><br><span class="line">$ import tensorflow as tf</span><br><span class="line">$ tf.__version__</span><br></pre></td></tr></table></figure>
+<h2 id="使用">使用</h2>
+<p>在与<code>runs</code>同级目录下执行：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ tensorboard --logdir runs</span><br></pre></td></tr></table></figure>
+<h2 id="更多教程">更多教程</h2>
+<p>https://www.jianshu.com/p/46eb3004beca</p>
+<p>https://blog.csdn.net/bigbennyguo/article/details/87956434</p>
+]]></content>
+      <categories>
+        <category>Python深度学习</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>回归问题</tag>
+        <tag>模式识别</tag>
       </tags>
   </entry>
   <entry>
@@ -1949,6 +1854,121 @@ R^2=1-\frac{\sum_i(y^i_{pred}-y^i_{true})^2}{\sum_i(y^i_{true}-\bar{y})^2}
       </tags>
   </entry>
   <entry>
+    <title>Python报错总结</title>
+    <url>/2021/06/29/Python%E7%8E%AF%E5%A2%83%E7%9B%B8%E5%85%B3/Python%E6%8A%A5%E9%94%99%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>Python报错总结</p>
+<span id="more"></span>
+<h2 id="unicodedecodeerror-utf-8-codec-cant-decode-byte-0x80-in-position-3131-invalid-start-byte解决办法">1. UnicodeDecodeError: 'utf-8' codec can't decode byte 0x80 in position 3131: invalid start byte解决办法</h2>
+<p>【问题描述】Mac OS上使用Python3读取文件过程中出现了UnicodeDecodeError: 'utf-8' codec can't decode byte 0x80 in position 3131: invalid start byte情况。</p>
+<p>【原因】OS X系统在文件夹中存在隐藏文件.DS_Store文件，影响了文件读取。（.DS_Store是macOS文件目录中的隐藏文件，保存着文件夹的自定义属性，如文件的图标、位置、背景色等。）</p>
+<p>【解决办法】删除.DS_Store文件。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看.DS_Store文件</span></span><br><span class="line">$ ls -a</span><br><span class="line"><span class="comment"># 删除文件</span></span><br><span class="line">$ rm .DS_Store</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>macOS</tag>
+        <tag>Python</tag>
+        <tag>Error</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Windows下Pycharm使用Ubuntu虚拟环境</title>
+    <url>/2021/06/26/Python%E7%8E%AF%E5%A2%83%E7%9B%B8%E5%85%B3/Windows%E4%B8%8BPycharm%E4%BD%BF%E7%94%A8Ubuntu%E7%8E%AF%E5%A2%83/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/Windows%E4%B8%8BPycharm%E4%BD%BF%E7%94%A8Ubuntu%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83.png"></p>
+<span id="more"></span>
+<p>Windows下Ubuntu子系统安装参考：</p>
+<h2 id="一ubuntu配置">一、Ubuntu配置</h2>
+<h3 id="更新包">1. 更新包</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
+<h3 id="修改ssh配置">2. 修改ssh配置</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo dpkg-reconfigure openssh-server</span><br><span class="line">$ sudo vi /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+<p>修改：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Port 22</span></span><br><span class="line">Port 555</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="comment"># PasswordAuthentication no</span></span><br><span class="line">PasswordAuthentication yes</span><br></pre></td></tr></table></figure>
+<h3 id="启动ssh">3. 启动ssh</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo service ssh --full-restart</span><br></pre></td></tr></table></figure>
+<h3 id="安装anaconda">4. 安装Anaconda</h3>
+<ul>
+<li><p>打开Anaconda网站：<a href="https://www.anaconda.com/products/individual#Downloads">Anaconda | Individual Edition</a></p></li>
+<li>下载 “64-Bit (x86) Installer (544 MB)”</li>
+<li><p>将 <code>Anaconda3-2021.05-Linux-x86_64.sh</code> 移动到<code>C:\Users\用户名</code></p></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ bash Anaconda3-2021.05-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
+<p>新开一个Terminal</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看conda版本</span></span><br><span class="line">$ conda -V</span><br><span class="line"><span class="comment"># 查看pip版本</span></span><br><span class="line">$ pip -V</span><br></pre></td></tr></table></figure>
+<h3 id="修改镜像源">5. 修改镜像源</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo nano ~/.condarc</span><br></pre></td></tr></table></figure>
+<p>修改：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">channels:</span><br><span class="line">  - defaults</span><br><span class="line">show_channel_urls: <span class="literal">true</span></span><br><span class="line">default_channels:</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2</span><br><span class="line">custom_channels:</span><br><span class="line">  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br></pre></td></tr></table></figure>
+<h3 id="取消自动进入base环境">6. 取消自动进入base环境</h3>
+<p>Ubuntu安装Anaconda后，每次终端启动都会进入base环境。退出conda命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ conda deactivate</span><br></pre></td></tr></table></figure>
+<p>上述命令需要每次执行，可添加配置：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ conda config --<span class="built_in">set</span> auto_activate_base <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<h3 id="新建环境">7. 新建环境</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ conda create -n <span class="built_in">test</span> python=3.9</span><br><span class="line"><span class="comment"># 激活虚拟环境</span></span><br><span class="line">$ conda activate <span class="built_in">test</span></span><br><span class="line"><span class="comment"># 退出虚拟环境</span></span><br><span class="line">$ conda deactivate</span><br></pre></td></tr></table></figure>
+<h2 id="二pycharm配置">二、Pycharm配置</h2>
+<h3 id="测试">1. 测试</h3>
+<p>打开Pycharm终端</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh ubuntu用户名@127.0.0.1 -p 555</span><br></pre></td></tr></table></figure>
+<h3 id="配置">2. 配置</h3>
+<ul>
+<li><p>Tools——Deployment——Configuration——增加SFTP连接</p></li>
+<li>New server name——起个名</li>
+<li>SSH configuration——右侧三个点
+<ul>
+<li>Host：127.0.0.1Port：555</li>
+<li>User name：Ubuntu用户名</li>
+<li>Authentication type：Password</li>
+<li>Password：Ubuntu密码</li>
+<li>点击Test Connection测试一下连接</li>
+</ul></li>
+<li><p>SSH configuration——选择刚刚创建的连接——OK</p></li>
+</ul>
+<h3 id="新建工程">3. 新建工程</h3>
+<ul>
+<li>File——New Project</li>
+<li>Pure Python
+<ul>
+<li>Location：起个名</li>
+<li>勾选：Previously configured interpreter</li>
+</ul></li>
+<li>Interpreter右侧...
+<ul>
+<li>选择：SSH Interpreter</li>
+<li>Host：127.0.0.1</li>
+<li>Port：555</li>
+<li>Username：用户名</li>
+</ul></li>
+<li>Next
+<ul>
+<li>Password：密码</li>
+</ul></li>
+<li>Next
+<ul>
+<li>Interpreter：/home/用户名/anaconda3/envs/test/bin/python</li>
+</ul></li>
+</ul>
+<h2 id="三结语">三、结语</h2>
+<p>emmmmm。。。。。</p>
+<ul>
+<li>好像直接执行程序是不能用的T.T</li>
+<li>在Pycharm的Terminal里面执行 <code>python main.py</code> 可以执行</li>
+<li>最后，也没发现这种方法对现在的工作有啥用。。哈哈。。。</li>
+</ul>
+<p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/049FD363.png"></p>
+]]></content>
+      <categories>
+        <category>Pycharm</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+        <tag>Python</tag>
+        <tag>Pycharm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>解决PyCharm安装慢问题</title>
     <url>/2022/01/04/Python%E7%8E%AF%E5%A2%83%E7%9B%B8%E5%85%B3/%E8%A7%A3%E5%86%B3PyCharm%E5%AE%89%E8%A3%85%E6%85%A2%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><blockquote>
@@ -1986,24 +2006,107 @@ R^2=1-\frac{\sum_i(y^i_{pred}-y^i_{true})^2}{\sum_i(y^i_{true}-\bar{y})^2}
         <category>Pycharm</category>
       </categories>
       <tags>
-        <tag>Pycharm</tag>
         <tag>Python</tag>
+        <tag>Pycharm</tag>
       </tags>
   </entry>
   <entry>
-    <title>美图秀秀开启高DPI</title>
-    <url>/2021/12/26/Windows%E7%9B%B8%E5%85%B3/%E7%BE%8E%E5%9B%BE%E7%A7%80%E7%A7%80%E9%AB%98DPI/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><blockquote>
-<p>使用2K、4K屏幕时，类似美图秀秀、央视影音这种软件显示的非常小，原因是没有适配高DPI，可以手动开启。</p>
-</blockquote>
+    <title>Python串口通信</title>
+    <url>/2021/06/29/Python%E7%A1%AC%E4%BB%B6%E7%BC%96%E7%A8%8B/Python%E4%B8%B2%E5%8F%A3%E9%80%9A%E4%BF%A1/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h2 id="安装serial模块">安装Serial模块</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pip install serial</span><br><span class="line">$ pip install pyserial</span><br></pre></td></tr></table></figure>
+<h2 id="安装串口驱动">安装串口驱动</h2>
+<p>驱动程序：PL2303HXD_G_Driver_v2.0.0_20191112.pkg</p>
+<p>串口消失，重新安装CH340驱动并重启：CH34x_Install_V1.5.pkg</p>
+<h2 id="查看串口号">查看串口号</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Windows下</span></span><br><span class="line"><span class="comment"># 设备管理器中查看</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Mac/Linux下</span></span><br><span class="line">$ <span class="built_in">cd</span> /dev</span><br><span class="line">$ ls tty.*</span><br></pre></td></tr></table></figure>
+<h2 id="常见用法">常见用法</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 打开第一个串口</span></span><br><span class="line">my_serial = serial.Serial(<span class="number">0</span>)</span><br><span class="line"><span class="comment"># 设置串口地址、波特率</span></span><br><span class="line">my_serial = serial.Serial(‘COM1’, <span class="number">115200</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看串口标识</span></span><br><span class="line"><span class="built_in">print</span>(my_serial.portstr) </span><br><span class="line"><span class="comment"># 串口是否打开</span></span><br><span class="line">ser.isOpen()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开串口</span></span><br><span class="line">my_serial.<span class="built_in">open</span>() </span><br><span class="line"><span class="comment"># 关闭串口</span></span><br><span class="line">my_serial.close()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 串口写数据</span></span><br><span class="line">my_serial.write(<span class="string">&quot;hello&quot;</span>)</span><br><span class="line"><span class="comment"># 串口读数据</span></span><br><span class="line">data = my_serial.read() <span class="comment"># 读一个字符</span></span><br><span class="line">data = my_serial.read(<span class="number">20</span>) <span class="comment"># 读20个字符</span></span><br><span class="line">data = my_serial.readline() <span class="comment"># 读一行，读至/n</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Pyhton硬件编程</category>
+      </categories>
+      <tags>
+        <tag>macOS</tag>
+        <tag>Python</tag>
+        <tag>硬件编程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>macOS下Arduino编程</title>
+    <url>/2021/06/29/Python%E7%A1%AC%E4%BB%B6%E7%BC%96%E7%A8%8B/macOS%E4%B8%8BArduino%E7%BC%96%E7%A8%8B/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h4 id="软件安装官网">1. 软件安装，官网</h4>
+<h4 id="库文件使用">2. 库文件使用</h4>
+<p>应用程序——Arduino——显示包内容——Contents——Java——libraries，将库文件夹移动到这里</p>
+<h4 id="查看串口地址">3. 查看串口地址</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ls /dev/cu.usbserial-*</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>C/C++</category>
+      </categories>
+      <tags>
+        <tag>macOS</tag>
+        <tag>硬件编程</tag>
+        <tag>C/C++</tag>
+        <tag>Ardunio</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Windows下Ubuntu子系统配置</title>
+    <url>/2021/07/11/Windows%E7%9B%B8%E5%85%B3/Windows%E4%B8%8BUbuntu%E5%AD%90%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/Windows%E4%B8%8BUbuntu%E5%AD%90%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE.png"></p>
 <span id="more"></span>
-<p>快捷方式——右键“属性”——兼容性——更改高DPI设置——高DPI缩放替代——勾选替代高DPI缩放行为——缩放执行选择“系统（增强）”</p>
-<figure>
-<img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/image-20211217185849972.png" alt="image-20211217185849972"><figcaption>image-20211217185849972</figcaption>
-</figure>
+<h2 id="一预先操作">一、预先操作</h2>
+<ul>
+<li>Windows下：设置——应用——应用和功能——程序或功能——启用或关闭Windows功能——勾选“适用于Linux的Windows子系统”——重启</li>
+</ul>
+<p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/image-20210626183417980.png" alt="image-20210626183417980" style="zoom:50%;"></p>
+<ul>
+<li>Windows下：Microsoft Store——安装Ubuntu20.04 LTS</li>
+</ul>
+<p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/image-20210626183718148.png" alt="image-20210626183718148" style="zoom: 33%;"></p>
+<ul>
+<li>Windows下：Microsoft Store——安装Windows Terminal</li>
+</ul>
+<p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/image-20210626183628209.png" alt="image-20210626183628209" style="zoom:33%;"></p>
+<h2 id="二ubuntu配置">二、Ubuntu配置</h2>
+<h3 id="启动ubuntu20.04-lts初始设置设置用户名和密码其他会自动完成">1. 启动Ubuntu20.04 LTS，初始设置（设置用户名和密码，其他会自动完成）</h3>
+<h3 id="启动windows-terminal">2. 启动Windows Terminal</h3>
+<ul>
+<li>设置默认开启Ubuntu：顶栏下三角——设置——启动——默认配置文件——选择Ubuntu</li>
+<li>美化：配置文件——Ubuntu——外观——随喜好设置</li>
+</ul>
+<h3 id="修改清华镜像源">3. 修改清华镜像源</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo nano /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+<p>使用#注释掉原来的镜像，添加：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 预发布软件源，不建议启用</span></span><br><span class="line"><span class="comment"># deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse</span></span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse</span></span><br></pre></td></tr></table></figure>
+<p>参考：<a href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/">ubuntu | 镜像站使用帮助 | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror</a></p>
+<h2 id="三linux子系统文件结构">三、Linux子系统文件结构</h2>
+<p>打开Terminal时，显示：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mastermao@MasterMao:/mnt/c/Users/MasterMao$</span><br></pre></td></tr></table></figure>
+<p>很明显，当前目录是挂载点，位置是C盘用户名下，和Ubuntu用户目录是不同的。</p>
+<p>返回根目录</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~</span><br></pre></td></tr></table></figure>
+<p>这意味着，当配置github或者coding的ssh时，正确目录应该是</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/.ssh</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Win 10</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Windows美化</title>
+    <url>/2021/06/29/Windows%E7%9B%B8%E5%85%B3/Windows%E7%BE%8E%E5%8C%96/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h2 id="占坑...">占坑...</h2>
+<span id="more"></span>
+<p>https://www.52pojie.cn/forum.php?mod=viewthread&amp;tid=1296297&amp;ctid=1853</p>
+]]></content>
+      <categories>
+        <category>Windows</category>
       </categories>
       <tags>
         <tag>Windows</tag>
@@ -2043,43 +2146,6 @@ R^2=1-\frac{\sum_i(y^i_{pred}-y^i_{true})^2}{\sum_i(y^i_{true}-\bar{y})^2}
       <tags>
         <tag>Windows</tag>
         <tag>使用技巧</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Windows美化</title>
-    <url>/2021/06/29/Windows%E7%9B%B8%E5%85%B3/Windows%E7%BE%8E%E5%8C%96/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h2 id="占坑...">占坑...</h2>
-<span id="more"></span>
-<p>https://www.52pojie.cn/forum.php?mod=viewthread&amp;tid=1296297&amp;ctid=1853</p>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>Windows</tag>
-        <tag>使用技巧</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python串口通信</title>
-    <url>/2021/06/29/Python%E7%A1%AC%E4%BB%B6%E7%BC%96%E7%A8%8B/Python%E4%B8%B2%E5%8F%A3%E9%80%9A%E4%BF%A1/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h2 id="安装serial模块">安装Serial模块</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pip install serial</span><br><span class="line">$ pip install pyserial</span><br></pre></td></tr></table></figure>
-<h2 id="安装串口驱动">安装串口驱动</h2>
-<p>驱动程序：PL2303HXD_G_Driver_v2.0.0_20191112.pkg</p>
-<p>串口消失，重新安装CH340驱动并重启：CH34x_Install_V1.5.pkg</p>
-<h2 id="查看串口号">查看串口号</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Windows下</span></span><br><span class="line"><span class="comment"># 设备管理器中查看</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Mac/Linux下</span></span><br><span class="line">$ <span class="built_in">cd</span> /dev</span><br><span class="line">$ ls tty.*</span><br></pre></td></tr></table></figure>
-<h2 id="常见用法">常见用法</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 打开第一个串口</span></span><br><span class="line">my_serial = serial.Serial(<span class="number">0</span>)</span><br><span class="line"><span class="comment"># 设置串口地址、波特率</span></span><br><span class="line">my_serial = serial.Serial(‘COM1’, <span class="number">115200</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看串口标识</span></span><br><span class="line"><span class="built_in">print</span>(my_serial.portstr) </span><br><span class="line"><span class="comment"># 串口是否打开</span></span><br><span class="line">ser.isOpen()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开串口</span></span><br><span class="line">my_serial.<span class="built_in">open</span>() </span><br><span class="line"><span class="comment"># 关闭串口</span></span><br><span class="line">my_serial.close()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 串口写数据</span></span><br><span class="line">my_serial.write(<span class="string">&quot;hello&quot;</span>)</span><br><span class="line"><span class="comment"># 串口读数据</span></span><br><span class="line">data = my_serial.read() <span class="comment"># 读一个字符</span></span><br><span class="line">data = my_serial.read(<span class="number">20</span>) <span class="comment"># 读20个字符</span></span><br><span class="line">data = my_serial.readline() <span class="comment"># 读一行，读至/n</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Pyhton硬件编程</category>
-      </categories>
-      <tags>
-        <tag>macOS</tag>
-        <tag>Python</tag>
-        <tag>硬件编程</tag>
       </tags>
   </entry>
   <entry>
@@ -2246,22 +2312,23 @@ R^2=1-\frac{\sum_i(y^i_{pred}-y^i_{true})^2}{\sum_i(y^i_{true}-\bar{y})^2}
       </tags>
   </entry>
   <entry>
-    <title>macOS下Arduino编程</title>
-    <url>/2021/06/29/Python%E7%A1%AC%E4%BB%B6%E7%BC%96%E7%A8%8B/macOS%E4%B8%8BArduino%E7%BC%96%E7%A8%8B/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h4 id="软件安装官网">1. 软件安装，官网</h4>
-<h4 id="库文件使用">2. 库文件使用</h4>
-<p>应用程序——Arduino——显示包内容——Contents——Java——libraries，将库文件夹移动到这里</p>
-<h4 id="查看串口地址">3. 查看串口地址</h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ls /dev/cu.usbserial-*</span><br></pre></td></tr></table></figure>
+    <title>美图秀秀开启高DPI</title>
+    <url>/2021/12/26/Windows%E7%9B%B8%E5%85%B3/%E7%BE%8E%E5%9B%BE%E7%A7%80%E7%A7%80%E9%AB%98DPI/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><blockquote>
+<p>使用2K、4K屏幕时，类似美图秀秀、央视影音这种软件显示的非常小，原因是没有适配高DPI，可以手动开启。</p>
+</blockquote>
+<span id="more"></span>
+<p>快捷方式——右键“属性”——兼容性——更改高DPI设置——高DPI缩放替代——勾选替代高DPI缩放行为——缩放执行选择“系统（增强）”</p>
+<figure>
+<img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/image-20211217185849972.png" alt="image-20211217185849972"><figcaption>image-20211217185849972</figcaption>
+</figure>
 ]]></content>
       <categories>
-        <category>C/C++</category>
+        <category>Win 10</category>
       </categories>
       <tags>
-        <tag>macOS</tag>
-        <tag>硬件编程</tag>
-        <tag>C/C++</tag>
-        <tag>Ardunio</tag>
+        <tag>Windows</tag>
+        <tag>使用技巧</tag>
       </tags>
   </entry>
   <entry>
@@ -2301,50 +2368,27 @@ R^2=1-\frac{\sum_i(y^i_{pred}-y^i_{true})^2}{\sum_i(y^i_{true}-\bar{y})^2}
       </tags>
   </entry>
   <entry>
-    <title>Windows下Ubuntu子系统配置</title>
-    <url>/2021/07/11/Windows%E7%9B%B8%E5%85%B3/Windows%E4%B8%8BUbuntu%E5%AD%90%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/Windows%E4%B8%8BUbuntu%E5%AD%90%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE.png"></p>
+    <title>修复4K屏幕下《英雄联盟》指针过小问题</title>
+    <url>/2021/06/01/%E8%8B%B1%E9%9B%84%E8%81%94%E7%9B%9F/%E4%BF%AE%E5%A4%8D4K%E5%B1%8F%E5%B9%95%E4%B8%8B%E8%8B%B1%E9%9B%84%E8%81%94%E7%9B%9F%E6%8C%87%E9%92%88%E8%BF%87%E5%B0%8F%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><blockquote>
+<p>4K屏幕下，《英雄联盟》鼠标指针小的可怜，经常对线时找不到指针、打团找不到指针、补兵找不到指针、商店购物发现钱不够（啊，不是）</p>
+</blockquote>
+<blockquote>
+<p>本教程将《英雄联盟》游戏中鼠标指针放大</p>
+</blockquote>
 <span id="more"></span>
-<h2 id="一预先操作">一、预先操作</h2>
-<ul>
-<li>Windows下：设置——应用——应用和功能——程序或功能——启用或关闭Windows功能——勾选“适用于Linux的Windows子系统”——重启</li>
-</ul>
-<p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/image-20210626183417980.png" alt="image-20210626183417980" style="zoom:50%;"></p>
-<ul>
-<li>Windows下：Microsoft Store——安装Ubuntu20.04 LTS</li>
-</ul>
-<p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/image-20210626183718148.png" alt="image-20210626183718148" style="zoom: 33%;"></p>
-<ul>
-<li>Windows下：Microsoft Store——安装Windows Terminal</li>
-</ul>
-<p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/image-20210626183628209.png" alt="image-20210626183628209" style="zoom:33%;"></p>
-<h2 id="二ubuntu配置">二、Ubuntu配置</h2>
-<h3 id="启动ubuntu20.04-lts初始设置设置用户名和密码其他会自动完成">1. 启动Ubuntu20.04 LTS，初始设置（设置用户名和密码，其他会自动完成）</h3>
-<h3 id="启动windows-terminal">2. 启动Windows Terminal</h3>
-<ul>
-<li>设置默认开启Ubuntu：顶栏下三角——设置——启动——默认配置文件——选择Ubuntu</li>
-<li>美化：配置文件——Ubuntu——外观——随喜好设置</li>
-</ul>
-<h3 id="修改清华镜像源">3. 修改清华镜像源</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo nano /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
-<p>使用#注释掉原来的镜像，添加：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 预发布软件源，不建议启用</span></span><br><span class="line"><span class="comment"># deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse</span></span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse</span></span><br></pre></td></tr></table></figure>
-<p>参考：<a href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/">ubuntu | 镜像站使用帮助 | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror</a></p>
-<h2 id="三linux子系统文件结构">三、Linux子系统文件结构</h2>
-<p>打开Terminal时，显示：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mastermao@MasterMao:/mnt/c/Users/MasterMao$</span><br></pre></td></tr></table></figure>
-<p>很明显，当前目录是挂载点，位置是C盘用户名下，和Ubuntu用户目录是不同的。</p>
-<p>返回根目录</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~</span><br></pre></td></tr></table></figure>
-<p>这意味着，当配置github或者coding的ssh时，正确目录应该是</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/.ssh</span><br></pre></td></tr></table></figure>
+<p><strong>第一步</strong>，打开 <code>英雄联盟/Game/Config/game.cfg</code>，添加：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[General]</span><br><span class="line">+ CursorOverride=0</span><br><span class="line">+ CursorScale=3.0000</span><br></pre></td></tr></table></figure>
+<p><code>CursorScale</code> 控制放大倍数，<code>3.0000</code> 表示放大到 <code>300%</code></p>
+<p><strong>第二步</strong>，打开 <code>英雄联盟/Game/Config/PersistedSettings.json</code> ，修改：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;CursorOverride&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;value&quot;</span>: <span class="string">&quot;0&quot;</span></span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;CursorScale&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;value&quot;</span>: <span class="string">&quot;3.0000&quot;</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p><strong>第三步</strong>，设置 <code>英雄联盟/Game/Config/PersistedSettings.json</code> 文件为<strong>只读</strong>文件</p>
+<p><strong>finally</strong>，enjoy！</p>
 ]]></content>
-      <categories>
-        <category>Win 10</category>
-      </categories>
       <tags>
         <tag>Windows</tag>
-        <tag>Ubuntu</tag>
+        <tag>英雄联盟</tag>
+        <tag>游戏</tag>
       </tags>
   </entry>
   <entry>
@@ -2396,27 +2440,54 @@ R^2=1-\frac{\sum_i(y^i_{pred}-y^i_{true})^2}{\sum_i(y^i_{true}-\bar{y})^2}
       </tags>
   </entry>
   <entry>
-    <title>修复4K屏幕下《英雄联盟》指针过小问题</title>
-    <url>/2021/06/01/%E8%8B%B1%E9%9B%84%E8%81%94%E7%9B%9F/%E4%BF%AE%E5%A4%8D4K%E5%B1%8F%E5%B9%95%E4%B8%8B%E8%8B%B1%E9%9B%84%E8%81%94%E7%9B%9F%E6%8C%87%E9%92%88%E8%BF%87%E5%B0%8F%E9%97%AE%E9%A2%98/</url>
+    <title>黑苹果安装 &amp; 使用问题总结</title>
+    <url>/2021/06/29/%E9%BB%91%E8%8B%B9%E6%9E%9C/%E9%BB%91%E8%8B%B9%E6%9E%9C%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><blockquote>
-<p>4K屏幕下，《英雄联盟》鼠标指针小的可怜，经常对线时找不到指针、打团找不到指针、补兵找不到指针、商店购物发现钱不够（啊，不是）</p>
-</blockquote>
-<blockquote>
-<p>本教程将《英雄联盟》游戏中鼠标指针放大</p>
+<p>本文总结了黑苹果安装和使用过程中遇到的问题，安装问题与安装主机的 CPU 型号有关，使用问题是 macOS 通用的。</p>
 </blockquote>
 <span id="more"></span>
-<p><strong>第一步</strong>，打开 <code>英雄联盟/Game/Config/game.cfg</code>，添加：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[General]</span><br><span class="line">+ CursorOverride=0</span><br><span class="line">+ CursorScale=3.0000</span><br></pre></td></tr></table></figure>
-<p><code>CursorScale</code> 控制放大倍数，<code>3.0000</code> 表示放大到 <code>300%</code></p>
-<p><strong>第二步</strong>，打开 <code>英雄联盟/Game/Config/PersistedSettings.json</code> ，修改：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;CursorOverride&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;value&quot;</span>: <span class="string">&quot;0&quot;</span></span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;CursorScale&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;value&quot;</span>: <span class="string">&quot;3.0000&quot;</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-<p><strong>第三步</strong>，设置 <code>英雄联盟/Game/Config/PersistedSettings.json</code> 文件为<strong>只读</strong>文件</p>
-<p><strong>finally</strong>，enjoy！</p>
+<h2 id="壹丨安装问题安装过程卡加号">壹丨【安装问题】安装过程卡加号</h2>
+<h4 id="原因">原因：</h4>
+<p>drivers64UEFI 里的一个 efi 文件有问题</p>
+<h4 id="解决方法">解决方法：</h4>
+<p>第一步，<code>/EFI/CLOVER/drivers64UEFI/</code> 下</p>
+<ul>
+<li>删除 <code>OsxAptioFix2Drv-64.efi</code></li>
+<li>删除 <code>OsxLowMemFixDrv-64.efi</code></li>
+</ul>
+<p>第二步，<code>config.plist</code> 中删掉 <code>slide=XXX</code></p>
+<p>第三步，如果仍旧无法启动, 表明内核请求分配的空间仍旧太大：</p>
+<ul>
+<li>将 <code>CsrActiveConfig</code> 设置成 <code>0x67</code></li>
+</ul>
+<h2 id="贰丨安装问题正常安装完成后开机出现死循环报错amfidenying-core-dump-for-pid-too-many-corpses-being-created">贰丨【安装问题】正常安装完成后开机出现死循环，报错：AMFI:Denying core dump for pid *** too many corpses being created</h2>
+<h4 id="解决方法-1">解决方法：</h4>
+<p>第一步，第一次重启安装后，一直进入 <code>preboot</code> 来安装，会重启几次，安装完成后可以进入系统，但只能从 <code>preboot</code> 进入</p>
+<p>第二步，在 <code>config.plist</code> 中把以下这段删除（不隐藏 <code>preboot</code>）</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&lt;key&gt;</span><br><span class="line">	Hide</span><br><span class="line">&lt;/key&gt;</span><br><span class="line">&lt;array&gt;</span><br><span class="line">	&lt;string&gt;</span><br><span class="line">		Preboot</span><br><span class="line">	&lt;/string&gt;</span><br><span class="line">&lt;/array&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="叁丨安装问题-xxx-安装副本损坏">叁丨【安装问题】“ xxx 安装副本损坏”</h2>
+<h4 id="解决方法-2">解决方法：</h4>
+<p>终端修改 date</p>
+<blockquote>
+<p>PS：实践发现，每次使用不同安装包修改的 date 是不同的，但规律是修改到一年前的此时此刻。</p>
+</blockquote>
+<h2 id="肆丨安装问题睡眠睡死取消睡眠后自动重启">肆丨【安装问题】睡眠睡死、取消睡眠后自动重启</h2>
+<h4 id="解决方法-3">解决方法：</h4>
+<p>定制 USB</p>
+<p>参考：https://blog.csdn.net/LeoForBest/article/details/103247824</p>
+<h2 id="伍丨使用问题xxx-is-not-in-the-sudoers-file.-this-incident-will-be-reported.">伍丨【使用问题】xxx is not in the sudoers file. This incident will be reported.</h2>
+<h4 id="问题描述">问题描述：</h4>
+<p>Linux或Mac中，使用sudo命令，提示“xxx is not in the sudoers file. This incident will be reported.”</p>
+<h4 id="解决方法-4">解决方法：</h4>
+<p>修改/etc/sudoers文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 添加文件写权限</span></span><br><span class="line">$ sudo chmod u+w /etc/sudoers</span><br><span class="line"><span class="comment"># 编辑/etc/sudoers文件</span></span><br><span class="line">$ nano /etc/sudoers</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改如下内容：</span></span><br><span class="line">root ALL=(ALL) ALL</span><br><span class="line">xxx ALL=(ALL) ALL <span class="comment"># xxx是用户名</span></span><br><span class="line"><span class="comment"># ctrl+x、y、回车</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 撤销文件写权限</span></span><br><span class="line">sudo chmod u-w /etc/sudoers</span><br></pre></td></tr></table></figure>
 ]]></content>
+      <categories>
+        <category>黑苹果</category>
+      </categories>
       <tags>
-        <tag>Windows</tag>
-        <tag>英雄联盟</tag>
-        <tag>游戏</tag>
+        <tag>macOS</tag>
+        <tag>黑苹果</tag>
       </tags>
   </entry>
   <entry>
@@ -2494,57 +2565,6 @@ R^2=1-\frac{\sum_i(y^i_{pred}-y^i_{true})^2}{\sum_i(y^i_{true}-\bar{y})^2}
       </tags>
   </entry>
   <entry>
-    <title>黑苹果安装 &amp; 使用问题总结</title>
-    <url>/2021/06/29/%E9%BB%91%E8%8B%B9%E6%9E%9C/%E9%BB%91%E8%8B%B9%E6%9E%9C%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><blockquote>
-<p>本文总结了黑苹果安装和使用过程中遇到的问题，安装问题与安装主机的 CPU 型号有关，使用问题是 macOS 通用的。</p>
-</blockquote>
-<span id="more"></span>
-<h2 id="壹丨安装问题安装过程卡加号">壹丨【安装问题】安装过程卡加号</h2>
-<h4 id="原因">原因：</h4>
-<p>drivers64UEFI 里的一个 efi 文件有问题</p>
-<h4 id="解决方法">解决方法：</h4>
-<p>第一步，<code>/EFI/CLOVER/drivers64UEFI/</code> 下</p>
-<ul>
-<li>删除 <code>OsxAptioFix2Drv-64.efi</code></li>
-<li>删除 <code>OsxLowMemFixDrv-64.efi</code></li>
-</ul>
-<p>第二步，<code>config.plist</code> 中删掉 <code>slide=XXX</code></p>
-<p>第三步，如果仍旧无法启动, 表明内核请求分配的空间仍旧太大：</p>
-<ul>
-<li>将 <code>CsrActiveConfig</code> 设置成 <code>0x67</code></li>
-</ul>
-<h2 id="贰丨安装问题正常安装完成后开机出现死循环报错amfidenying-core-dump-for-pid-too-many-corpses-being-created">贰丨【安装问题】正常安装完成后开机出现死循环，报错：AMFI:Denying core dump for pid *** too many corpses being created</h2>
-<h4 id="解决方法-1">解决方法：</h4>
-<p>第一步，第一次重启安装后，一直进入 <code>preboot</code> 来安装，会重启几次，安装完成后可以进入系统，但只能从 <code>preboot</code> 进入</p>
-<p>第二步，在 <code>config.plist</code> 中把以下这段删除（不隐藏 <code>preboot</code>）</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&lt;key&gt;</span><br><span class="line">	Hide</span><br><span class="line">&lt;/key&gt;</span><br><span class="line">&lt;array&gt;</span><br><span class="line">	&lt;string&gt;</span><br><span class="line">		Preboot</span><br><span class="line">	&lt;/string&gt;</span><br><span class="line">&lt;/array&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="叁丨安装问题-xxx-安装副本损坏">叁丨【安装问题】“ xxx 安装副本损坏”</h2>
-<h4 id="解决方法-2">解决方法：</h4>
-<p>终端修改 date</p>
-<blockquote>
-<p>PS：实践发现，每次使用不同安装包修改的 date 是不同的，但规律是修改到一年前的此时此刻。</p>
-</blockquote>
-<h2 id="肆丨安装问题睡眠睡死取消睡眠后自动重启">肆丨【安装问题】睡眠睡死、取消睡眠后自动重启</h2>
-<h4 id="解决方法-3">解决方法：</h4>
-<p>定制 USB</p>
-<p>参考：https://blog.csdn.net/LeoForBest/article/details/103247824</p>
-<h2 id="伍丨使用问题xxx-is-not-in-the-sudoers-file.-this-incident-will-be-reported.">伍丨【使用问题】xxx is not in the sudoers file. This incident will be reported.</h2>
-<h4 id="问题描述">问题描述：</h4>
-<p>Linux或Mac中，使用sudo命令，提示“xxx is not in the sudoers file. This incident will be reported.”</p>
-<h4 id="解决方法-4">解决方法：</h4>
-<p>修改/etc/sudoers文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 添加文件写权限</span></span><br><span class="line">$ sudo chmod u+w /etc/sudoers</span><br><span class="line"><span class="comment"># 编辑/etc/sudoers文件</span></span><br><span class="line">$ nano /etc/sudoers</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改如下内容：</span></span><br><span class="line">root ALL=(ALL) ALL</span><br><span class="line">xxx ALL=(ALL) ALL <span class="comment"># xxx是用户名</span></span><br><span class="line"><span class="comment"># ctrl+x、y、回车</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 撤销文件写权限</span></span><br><span class="line">sudo chmod u-w /etc/sudoers</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>黑苹果</category>
-      </categories>
-      <tags>
-        <tag>macOS</tag>
-        <tag>黑苹果</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>联想Y50-70黑苹果安装总结</title>
     <url>/2021/06/29/%E9%BB%91%E8%8B%B9%E6%9E%9C/%E8%81%94%E6%83%B3Y50-70%E9%BB%91%E8%8B%B9%E6%9E%9C%E5%AE%89%E8%A3%85/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>联想Y50-70黑苹果安装总结</p>
@@ -2606,26 +2626,6 @@ R^2=1-\frac{\sum_i(y^i_{pred}-y^i_{true})^2}{\sum_i(y^i_{true}-\bar{y})^2}
       <tags>
         <tag>使用技巧</tag>
         <tag>黑苹果</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python报错总结</title>
-    <url>/2021/06/29/Python%E7%8E%AF%E5%A2%83%E7%9B%B8%E5%85%B3/Python%E6%8A%A5%E9%94%99%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>Python报错总结</p>
-<span id="more"></span>
-<h2 id="unicodedecodeerror-utf-8-codec-cant-decode-byte-0x80-in-position-3131-invalid-start-byte解决办法">1. UnicodeDecodeError: 'utf-8' codec can't decode byte 0x80 in position 3131: invalid start byte解决办法</h2>
-<p>【问题描述】Mac OS上使用Python3读取文件过程中出现了UnicodeDecodeError: 'utf-8' codec can't decode byte 0x80 in position 3131: invalid start byte情况。</p>
-<p>【原因】OS X系统在文件夹中存在隐藏文件.DS_Store文件，影响了文件读取。（.DS_Store是macOS文件目录中的隐藏文件，保存着文件夹的自定义属性，如文件的图标、位置、背景色等。）</p>
-<p>【解决办法】删除.DS_Store文件。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看.DS_Store文件</span></span><br><span class="line">$ ls -a</span><br><span class="line"><span class="comment"># 删除文件</span></span><br><span class="line">$ rm .DS_Store</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>macOS</tag>
-        <tag>Python</tag>
-        <tag>Error</tag>
       </tags>
   </entry>
 </search>
