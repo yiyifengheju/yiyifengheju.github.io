@@ -11,16 +11,17 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="code-acp0FCvKY7">
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:300,300italic,400,400italic,700,700italic%7CSource+Code+Pro:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.mastermao.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.mastermao.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeInLeft","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 <meta name="description" content="针对NexT主题的进一步美化，包括：设置背景图片、博客文本透明化、设置圆角、添加音乐播放插件等。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo美化">
@@ -86,6 +87,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -100,11 +102,37 @@
         <li class="menu-item menu-item-gallery"><a href="/gallery/" rel="section"><i class="fa fa-camera fa-fw"></i>画廊</a></li>
         <li class="menu-item menu-item-photo"><a href="/photoalbum/" rel="section"><i class="fa fa-images fa-fw"></i>相册</a></li>
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user-secret fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
         
@@ -162,16 +190,16 @@
 </div>
   <div class="links-of-author site-overview-item animated">
       <span class="links-of-author-item">
-        <a href="https://notion.mastermao.cn/" title="Notion → https:&#x2F;&#x2F;notion.mastermao.cn" rel="noopener" target="_blank"><i class="fa fa-carrot fa-fw"></i>Notion</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://www.douban.com/people/maoaooWG/" title="douban → https:&#x2F;&#x2F;www.douban.com&#x2F;people&#x2F;maoaooWG&#x2F;" rel="noopener" target="_blank"><i class="fa fa-film fa-fw"></i>douban</a>
-      </span>
-      <span class="links-of-author-item">
         <a href="https://music.163.com/#/user/home?id=1782954983" title="NetEase → https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;1782954983" rel="noopener" target="_blank"><i class="fa fa-headphones fa-fw"></i>NetEase</a>
       </span>
       <span class="links-of-author-item">
+        <a href="https://500px.com.cn/MonsterMao" title="500px → https:&#x2F;&#x2F;500px.com.cn&#x2F;MonsterMao" rel="noopener" target="_blank"><i class="fab fa-500px fa-fw"></i>500px</a>
+      </span>
+      <span class="links-of-author-item">
         <a href="mailto:wego_mao@hotmail.com" title="E-Mail → mailto:wego_mao@hotmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/mastermao" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;mastermao" rel="noopener" target="_blank"><i class="fab fa-git-square fa-fw"></i>Gitee</a>
       </span>
   </div>
 
@@ -290,151 +318,149 @@
 </blockquote>
 <p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/Hexo%E7%BE%8E%E5%8C%96.svg"></p>
 <span id="more"></span>
-
-<h2 id="壹丨设置主题"><a href="#壹丨设置主题" class="headerlink" title="壹丨设置主题"></a>壹丨设置主题</h2><h4 id="1-设置背景图片"><a href="#1-设置背景图片" class="headerlink" title="1. 设置背景图片"></a>1. 设置背景图片</h4><ul>
+<h2 id="壹丨设置主题">壹丨设置主题</h2>
+<h4 id="设置背景图片">1. 设置背景图片</h4>
+<ul>
 <li>将背景图片放入 <code>~/hexo-site/themes/next/source/images/</code></li>
-<li>修改  <code>~/hexo-site/_config.next.yml</code> ：</li>
+<li>修改 <code>~/hexo-site/_config.next.yml</code> ：</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">+ custom_file_path:</span><br><span class="line">+   style: <span class="built_in">source</span>/_data/styles.styl</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>新建或修改 <code>~/hexo-site/source/_data/styles.styl</code>，添加：</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置背景图片</span></span><br><span class="line">body &#123;</span><br><span class="line">    <span class="attr">background</span>: url(<span class="regexp">/images/</span>background.jpg);</span><br><span class="line">    background-repeat: repeat-x;</span><br><span class="line">    background-attachment: fixed; <span class="comment">//不重复</span></span><br><span class="line">    background-size: cover;      <span class="comment">//填充</span></span><br><span class="line">    background-position: <span class="number">100</span>% <span class="number">100</span>%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-博客文本透明化"><a href="#2-博客文本透明化" class="headerlink" title="2. 博客文本透明化"></a>2. 博客文本透明化</h4><p>打开 <code>~/hexo-site/source/_data/styles.styl</code>，添加：</p>
+<h4 id="博客文本透明化">2. 博客文本透明化</h4>
+<p>打开 <code>~/hexo-site/source/_data/styles.styl</code>，添加：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 博客内容透明化</span></span><br><span class="line"><span class="comment">//文章内容的透明度设置</span></span><br><span class="line">.post-block &#123;</span><br><span class="line">  <span class="attr">opacity</span>: <span class="number">0.85</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//侧边框的透明度设置</span></span><br><span class="line">.sidebar &#123;</span><br><span class="line">  <span class="attr">opacity</span>: <span class="number">0.85</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//菜单栏的透明度设置</span></span><br><span class="line">.header-inner &#123;</span><br><span class="line">  <span class="attr">background</span>: rgba(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">0.85</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//搜索框（local-search）的透明度设置</span></span><br><span class="line">.popup &#123;</span><br><span class="line">  <span class="attr">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-设置界面圆角"><a href="#3-设置界面圆角" class="headerlink" title="3. 设置界面圆角"></a>3. 设置界面圆角</h4><ul>
-<li>修改  <code>~/hexo-site/_config.next.yml</code> ：</li>
+<h4 id="设置界面圆角">3. 设置界面圆角</h4>
+<ul>
+<li>修改 <code>~/hexo-site/_config.next.yml</code> ：</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">+ custom_file_path:</span><br><span class="line">+   variable: <span class="built_in">source</span>/_data/variables.styl</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>新建或修改 <code>~/hexo-site/source/_data/variables.styl</code>，添加：</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 圆角设置</span></span><br><span class="line">$border-radius-inner     = 12px 12px 12px 12px;</span><br><span class="line">$border-radius           = 12px;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="贰丨音乐播放"><a href="#贰丨音乐播放" class="headerlink" title="贰丨音乐播放"></a>贰丨音乐播放</h2><h4 id="1-网易云音乐外链播放"><a href="#1-网易云音乐外链播放" class="headerlink" title="1. 网易云音乐外链播放"></a>1. 网易云音乐外链播放</h4><ul>
+<h2 id="贰丨音乐播放">贰丨音乐播放</h2>
+<h4 id="网易云音乐外链播放">1. 网易云音乐外链播放</h4>
+<ul>
 <li>网页版 —— 生成外链播放器</li>
 <li>直接粘贴到页面</li>
 </ul>
-<h4 id="2-使用-Hexo-Tag-APlayer-插件"><a href="#2-使用-Hexo-Tag-APlayer-插件" class="headerlink" title="2. 使用 Hexo-Tag-APlayer 插件"></a>2. 使用 <code>Hexo-Tag-APlayer</code> 插件</h4><p>APlayer 官网：<a target="_blank" rel="noopener" href="https://aplayer.js.org/#/">APlayer</a></p>
+<h4 id="使用-hexo-tag-aplayer-插件">2. 使用 <code>Hexo-Tag-APlayer</code> 插件</h4>
+<p>APlayer 官网：<a target="_blank" rel="noopener" href="https://aplayer.js.org/#/">APlayer</a></p>
 <p><code>Hexo-Tag-APlayer</code> 项目开源地址：<a target="_blank" rel="noopener" href="https://github.com/MoePlayer/hexo-tag-aplayer">Hexo-Tag-APlayer</a></p>
 <p>第一步，安装：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --save hexo-tag-aplayer</span><br></pre></td></tr></table></figure>
-
 <p>第二步，启用 <code>MetingJS</code>：</p>
 <ul>
 <li>修改 <code>~/hexo-site/_config.yml</code>，添加：</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">+ aplayer:</span><br><span class="line">+   meting: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
 <p>第三步，添加音乐：</p>
 <ul>
 <li>在网易云音乐中找到歌曲 <code>id</code>，歌曲id=31192230为例，markdown文件中添加：</li>
 </ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% meting &quot;3986040&quot; &quot;netease&quot; &quot;song&quot; &quot;theme:#555&quot; &quot;mutex:true&quot; &quot;listmaxheight:340px&quot; &quot;preload:auto&quot; %&#125;</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>歌单id=6922083348为例，添加：</li>
 </ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% meting &quot;6922083348&quot; &quot;netease&quot; &quot;playlist&quot; &quot;theme:#555&quot; &quot;mutex:true&quot; &quot;listmaxheight:340px&quot; &quot;preload:auto&quot; %&#125;</span><br></pre></td></tr></table></figure>
-
 <p>参数表</p>
 <table>
 <thead>
-<tr>
-<th align="center">选项</th>
-<th align="center">默认值</th>
-<th align="center">描述</th>
+<tr class="header">
+<th style="text-align: center;">选项</th>
+<th style="text-align: center;">默认值</th>
+<th style="text-align: center;">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">id</td>
-<td align="center"><strong>必须值</strong></td>
-<td align="center">歌曲 id / 播放列表 id / 相册 id / 搜索关键字</td>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">id</td>
+<td style="text-align: center;"><strong>必须值</strong></td>
+<td style="text-align: center;">歌曲 id / 播放列表 id / 相册 id / 搜索关键字</td>
 </tr>
-<tr>
-<td align="center">server</td>
-<td align="center"><strong>必须值</strong></td>
-<td align="center">音乐平台: <code>netease</code>, <code>tencent</code>, <code>kugou</code>, <code>xiami</code>, <code>baidu</code></td>
+<tr class="even">
+<td style="text-align: center;">server</td>
+<td style="text-align: center;"><strong>必须值</strong></td>
+<td style="text-align: center;">音乐平台: <code>netease</code>, <code>tencent</code>, <code>kugou</code>, <code>xiami</code>, <code>baidu</code></td>
 </tr>
-<tr>
-<td align="center">type</td>
-<td align="center"><strong>必须值</strong></td>
-<td align="center"><code>song</code>, <code>playlist</code>, <code>album</code>, <code>search</code>, <code>artist</code></td>
+<tr class="odd">
+<td style="text-align: center;">type</td>
+<td style="text-align: center;"><strong>必须值</strong></td>
+<td style="text-align: center;"><code>song</code>, <code>playlist</code>, <code>album</code>, <code>search</code>, <code>artist</code></td>
 </tr>
-<tr>
-<td align="center">fixed</td>
-<td align="center"><code>false</code></td>
-<td align="center">开启固定模式</td>
+<tr class="even">
+<td style="text-align: center;">fixed</td>
+<td style="text-align: center;"><code>false</code></td>
+<td style="text-align: center;">开启固定模式</td>
 </tr>
-<tr>
-<td align="center">mini</td>
-<td align="center"><code>false</code></td>
-<td align="center">开启迷你模式</td>
+<tr class="odd">
+<td style="text-align: center;">mini</td>
+<td style="text-align: center;"><code>false</code></td>
+<td style="text-align: center;">开启迷你模式</td>
 </tr>
-<tr>
-<td align="center">loop</td>
-<td align="center"><code>all</code></td>
-<td align="center">列表循环模式：<code>all</code>, <code>one</code>,<code>none</code></td>
+<tr class="even">
+<td style="text-align: center;">loop</td>
+<td style="text-align: center;"><code>all</code></td>
+<td style="text-align: center;">列表循环模式：<code>all</code>, <code>one</code>,<code>none</code></td>
 </tr>
-<tr>
-<td align="center">order</td>
-<td align="center"><code>list</code></td>
-<td align="center">列表播放模式： <code>list</code>, <code>random</code></td>
+<tr class="odd">
+<td style="text-align: center;">order</td>
+<td style="text-align: center;"><code>list</code></td>
+<td style="text-align: center;">列表播放模式： <code>list</code>, <code>random</code></td>
 </tr>
-<tr>
-<td align="center">volume</td>
-<td align="center">0.7</td>
-<td align="center">播放器音量</td>
+<tr class="even">
+<td style="text-align: center;">volume</td>
+<td style="text-align: center;">0.7</td>
+<td style="text-align: center;">播放器音量</td>
 </tr>
-<tr>
-<td align="center">lrctype</td>
-<td align="center">0</td>
-<td align="center">歌词格式类型</td>
+<tr class="odd">
+<td style="text-align: center;">lrctype</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">歌词格式类型</td>
 </tr>
-<tr>
-<td align="center">listfolded</td>
-<td align="center"><code>false</code></td>
-<td align="center">指定音乐播放列表是否折叠</td>
+<tr class="even">
+<td style="text-align: center;">listfolded</td>
+<td style="text-align: center;"><code>false</code></td>
+<td style="text-align: center;">指定音乐播放列表是否折叠</td>
 </tr>
-<tr>
-<td align="center">storagename</td>
-<td align="center"><code>metingjs</code></td>
-<td align="center">LocalStorage 中存储播放器设定的键名</td>
+<tr class="odd">
+<td style="text-align: center;">storagename</td>
+<td style="text-align: center;"><code>metingjs</code></td>
+<td style="text-align: center;">LocalStorage 中存储播放器设定的键名</td>
 </tr>
-<tr>
-<td align="center">autoplay</td>
-<td align="center"><code>true</code></td>
-<td align="center">自动播放，移动端浏览器暂时不支持此功能</td>
+<tr class="even">
+<td style="text-align: center;">autoplay</td>
+<td style="text-align: center;"><code>true</code></td>
+<td style="text-align: center;">自动播放，移动端浏览器暂时不支持此功能</td>
 </tr>
-<tr>
-<td align="center">mutex</td>
-<td align="center"><code>true</code></td>
-<td align="center">该选项开启时，如果同页面有其他 aplayer 播放，该播放器会暂停</td>
+<tr class="odd">
+<td style="text-align: center;">mutex</td>
+<td style="text-align: center;"><code>true</code></td>
+<td style="text-align: center;">该选项开启时，如果同页面有其他 aplayer 播放，该播放器会暂停</td>
 </tr>
-<tr>
-<td align="center">listmaxheight</td>
-<td align="center"><code>340px</code></td>
-<td align="center">播放列表的最大长度</td>
+<tr class="even">
+<td style="text-align: center;">listmaxheight</td>
+<td style="text-align: center;"><code>340px</code></td>
+<td style="text-align: center;">播放列表的最大长度</td>
 </tr>
-<tr>
-<td align="center">preload</td>
-<td align="center"><code>auto</code></td>
-<td align="center">音乐文件预载入模式，可选项： <code>none</code>, <code>metadata</code>, <code>auto</code></td>
+<tr class="odd">
+<td style="text-align: center;">preload</td>
+<td style="text-align: center;"><code>auto</code></td>
+<td style="text-align: center;">音乐文件预载入模式，可选项： <code>none</code>, <code>metadata</code>, <code>auto</code></td>
 </tr>
-<tr>
-<td align="center">theme</td>
-<td align="center"><code>#ad7a86</code></td>
-<td align="center">播放器风格色彩设置</td>
+<tr class="even">
+<td style="text-align: center;">theme</td>
+<td style="text-align: center;"><code>#ad7a86</code></td>
+<td style="text-align: center;">播放器风格色彩设置</td>
 </tr>
-</tbody></table>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
-<p>[1] CSDN，@hushhw，<a target="_blank" rel="noopener" href="https://blog.csdn.net/hushhw/article/details/88092728">Hexo 主题插入音乐之 aplayer 音乐播放器</a></p>
+</tbody>
+</table>
+<h2 id="参考">参考</h2>
+<blockquote>
+<p>[1] CSDN，<span class="citation" data-cites="hushhw">@hushhw</span>，<a target="_blank" rel="noopener" href="https://blog.csdn.net/hushhw/article/details/88092728">Hexo 主题插入音乐之 aplayer 音乐播放器</a></p>
 <p>[2] Github，<a target="_blank" rel="noopener" href="https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md">hexo-tag-aplayer 中文文档</a></p>
 </blockquote>
 
@@ -495,7 +521,7 @@
 
 
 <div class="copyright">
-  &copy; 2021 – 
+  &copy; 2021.08 – 
   <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -520,8 +546,6 @@
       </span>
     </span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
-  </div>
 
     </div>
   </footer>
@@ -532,9 +556,12 @@
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 
   
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
 
 
 
@@ -547,6 +574,15 @@
 
 
 
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/quicklink@2.2.0/dist/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://www.mastermao.cn/2021/08/20/Hexo/Hexo%E7%BE%8E%E5%8C%96/"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
 
 
 

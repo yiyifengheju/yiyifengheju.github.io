@@ -11,16 +11,17 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="code-acp0FCvKY7">
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:300,300italic,400,400italic,700,700italic%7CSource+Code+Pro:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.mastermao.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.mastermao.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeInLeft","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 <meta name="description" content="年少不知 Cloudflare 好，错把鹅云当做宝。 Cloudflare 是一家米国的跨国科技企业，提供CDN、优化工具、安全、分析以及应用等服务。Cloudflare 在 CDN 加速领域很有名气，提供免费和付费的加速服务和网站保护服务。Cloudflare 提供不同类型的套餐，即使是免费用户，Cloudflare 提供的功能也很全面。   本文主要介绍最近使用 Cloudflare 实现的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cloudflare系列使用">
@@ -87,6 +88,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -101,11 +103,37 @@
         <li class="menu-item menu-item-gallery"><a href="/gallery/" rel="section"><i class="fa fa-camera fa-fw"></i>画廊</a></li>
         <li class="menu-item menu-item-photo"><a href="/photoalbum/" rel="section"><i class="fa fa-images fa-fw"></i>相册</a></li>
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user-secret fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
         
@@ -163,16 +191,16 @@
 </div>
   <div class="links-of-author site-overview-item animated">
       <span class="links-of-author-item">
-        <a href="https://notion.mastermao.cn/" title="Notion → https:&#x2F;&#x2F;notion.mastermao.cn" rel="noopener" target="_blank"><i class="fa fa-carrot fa-fw"></i>Notion</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://www.douban.com/people/maoaooWG/" title="douban → https:&#x2F;&#x2F;www.douban.com&#x2F;people&#x2F;maoaooWG&#x2F;" rel="noopener" target="_blank"><i class="fa fa-film fa-fw"></i>douban</a>
-      </span>
-      <span class="links-of-author-item">
         <a href="https://music.163.com/#/user/home?id=1782954983" title="NetEase → https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;1782954983" rel="noopener" target="_blank"><i class="fa fa-headphones fa-fw"></i>NetEase</a>
       </span>
       <span class="links-of-author-item">
+        <a href="https://500px.com.cn/MonsterMao" title="500px → https:&#x2F;&#x2F;500px.com.cn&#x2F;MonsterMao" rel="noopener" target="_blank"><i class="fab fa-500px fa-fw"></i>500px</a>
+      </span>
+      <span class="links-of-author-item">
         <a href="mailto:wego_mao@hotmail.com" title="E-Mail → mailto:wego_mao@hotmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/mastermao" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;mastermao" rel="noopener" target="_blank"><i class="fab fa-git-square fa-fw"></i>Gitee</a>
       </span>
   </div>
 
@@ -295,11 +323,11 @@
 </blockquote>
 <p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/cloudflare%E7%B3%BB%E5%88%97%E4%BD%BF%E7%94%A8.svg"></p>
 <span id="more"></span>
-
-<h2 id="壹丨Cloudflare-管理-DNS"><a href="#壹丨Cloudflare-管理-DNS" class="headerlink" title="壹丨Cloudflare 管理 DNS"></a>壹丨Cloudflare 管理 DNS</h2><blockquote>
+<h2 id="壹丨cloudflare-管理-dns">壹丨Cloudflare 管理 DNS</h2>
+<blockquote>
 <p>与阿里云解析功能类似，在 Cloudflare 中可以设置【使用 Cloudflare 代理流量】或【仅限 DNS 解析】</p>
 </blockquote>
-<p>Cloudflare 网址：<a target="_blank" rel="noopener" href="https://www.cloudflare.com/">https://www.cloudflare.com</a></p>
+<p>Cloudflare 网址：https://www.cloudflare.com</p>
 <p>记录类型介绍：</p>
 <ul>
 <li>CNAME 记录：别名记录，将域名解析到另外一个域名；</li>
@@ -307,14 +335,17 @@
 <li>TXT 记录：为某个主机名或域名设置说明，可以用来验证对域名的管理权；</li>
 <li>MX 记录：邮件交换记录，一般用于将某个域名的电子邮件指向对应邮件服务器。</li>
 </ul>
-<h2 id="贰丨Cloudflare-Pages"><a href="#贰丨Cloudflare-Pages" class="headerlink" title="贰丨Cloudflare Pages"></a>贰丨Cloudflare Pages</h2><blockquote>
+<h2 id="贰丨cloudflare-pages">贰丨Cloudflare Pages</h2>
+<blockquote>
 <p>Cloudflare Pages 是一个 JAMstack 平台，为前端开发人员提供协作和部署服务，支持 Hugo、JekyII、React、Vue、Gatsby 等框架。</p>
 </blockquote>
-<p>Cloudflare Pages 网址：<a target="_blank" rel="noopener" href="https://pages.cloudflare.com/">https://pages.cloudflare.com</a></p>
-<h4 id="1-项目创建："><a href="#1-项目创建：" class="headerlink" title="1. 项目创建："></a>1. 项目创建：</h4><p>创建项目 —— 登录 Github —— 选择 git 仓库</p>
-<h4 id="2-构建与部署："><a href="#2-构建与部署：" class="headerlink" title="2. 构建与部署："></a>2. 构建与部署：</h4><blockquote>
+<p>Cloudflare Pages 网址：https://pages.cloudflare.com</p>
+<h4 id="项目创建">1. 项目创建：</h4>
+<p>创建项目 —— 登录 Github —— 选择 git 仓库</p>
+<h4 id="构建与部署">2. 构建与部署：</h4>
+<blockquote>
 <p>使用Hexo创建博客，执行 <code>hexo g</code> 命令时，将 <code>~/hexo-site/source/</code> 文件夹下 <code>.md</code>、<code>.html</code>、<code>.js</code> 等文件渲染，放入 <code>~/hexo-site/public/</code> 文件夹下，执行 <code>hexo deploy</code> 命令将 <code>~/hexo-site/public/</code> 文件夹下的内容推到 git 仓库。</p>
-<p>即 Cloudflare Pages 从 Github 导入的文件就是生成网页的源文件，所以 —— <strong>构建参数不需要设置</strong> </p>
+<p>即 Cloudflare Pages 从 Github 导入的文件就是生成网页的源文件，所以 —— <strong>构建参数不需要设置</strong></p>
 </blockquote>
 <p>构建配置：</p>
 <ul>
@@ -324,24 +355,30 @@
 <li>根目录（高级）：空</li>
 </ul>
 <p>配置完后将自动部署……</p>
-<h4 id="3-自定义域"><a href="#3-自定义域" class="headerlink" title="3. 自定义域"></a>3. 自定义域</h4><p>第一步，项目 —— 自定义域 —— 设置自定义域；</p>
+<h4 id="自定义域">3. 自定义域</h4>
+<p>第一步，项目 —— 自定义域 —— 设置自定义域；</p>
 <p>第二步，Cloudflare 中：DNS —— 添加记录 —— 设置 CNAME 记录。</p>
-<h4 id="4-HTTPS"><a href="#4-HTTPS" class="headerlink" title="4. HTTPS"></a>4. HTTPS</h4><p>使用 Cloudflare 代理可以直接开启强制 HTTPS，在 Cloudflare Pages 中是默认配置的。</p>
-<h2 id="叁丨配置-Hexo-百度收录"><a href="#叁丨配置-Hexo-百度收录" class="headerlink" title="叁丨配置 Hexo 百度收录"></a>叁丨配置 Hexo 百度收录</h2><blockquote>
+<h4 id="https">4. HTTPS</h4>
+<p>使用 Cloudflare 代理可以直接开启强制 HTTPS，在 Cloudflare Pages 中是默认配置的。</p>
+<h2 id="叁丨配置-hexo-百度收录">叁丨配置 Hexo 百度收录</h2>
+<blockquote>
 <p>试过很多次，都无法实现百度收录，据说百度无法从 Github 爬取内容。目前已经放弃百度收录，如果博客部署在 Coding、Gitee 等国内代码托管网站，可以试试以下步骤。</p>
 </blockquote>
-<p>百度搜索资源平台 - 快速收录网址：<a target="_blank" rel="noopener" href="https://ziyuan.baidu.com/dailysubmit/index">https://ziyuan.baidu.com/dailysubmit/index</a></p>
+<p>百度搜索资源平台 - 快速收录网址：https://ziyuan.baidu.com/dailysubmit/index</p>
 <p>第一步，用户中心 —— 站点管理 —— 添加网站；实践证明：填入 <code>https://www.mastermao.cn</code>，添加 CNAME 记录验证，是比较容易成功的；</p>
 <p>第二步，sitemap 提交，个人 blog 使用 npm 安装相关插件、配置 <code>_config.yml</code> ，然后重新生成博客，在网页端提交即可；</p>
 <p>第三步，设置自动提交，修改 <code>_config.yml</code> 配置，具体不再赘述，详见参考 [2]：</p>
-<h2 id="肆丨Notion-个人域名访问"><a href="#肆丨Notion-个人域名访问" class="headerlink" title="肆丨Notion 个人域名访问"></a>肆丨Notion 个人域名访问</h2><blockquote>
+<h2 id="肆丨notion-个人域名访问">肆丨Notion 个人域名访问</h2>
+<blockquote>
 <p>Notion 是一款电子笔记软件，堪称电子笔记界的天花板的存在。</p>
 <p>Notion 不仅可以用来写电子笔记，还可以直接将电子笔记公开链接，生成个人网页；</p>
 <p>Notion 目前并未提供自定义个人域名的功能，但可以使用 Cloudflare 手动配置。</p>
 </blockquote>
-<h4 id="1-Notion-公开链接"><a href="#1-Notion-公开链接" class="headerlink" title="1. Notion 公开链接"></a>1. Notion 公开链接</h4><p>第一步，设置喜好域名。Notion 中，Settings &amp; Members —— Settings —— Domain —— 填入喜好的字段，如填入 “mastermao” ，则公开链接的格式就是：<code>mastermao.notion.site/xxxxx</code>；</p>
+<h4 id="notion-公开链接">1. Notion 公开链接</h4>
+<p>第一步，设置喜好域名。Notion 中，Settings &amp; Members —— Settings —— Domain —— 填入喜好的字段，如填入 “mastermao” ，则公开链接的格式就是：<code>mastermao.notion.site/xxxxx</code>；</p>
 <p>第二步，公开链接。转到公开页，右上角 Share —— Share to web，并可设置 Show link options，生成的公开链接盛出备用。</p>
-<h4 id="2-创建规则-——-转发-URL"><a href="#2-创建规则-——-转发-URL" class="headerlink" title="2. 创建规则 —— 转发 URL"></a>2. 创建规则 —— 转发 URL</h4><p>Cloudflare 中，规则 —— 创建页面规则：</p>
+<h4 id="创建规则-转发-url">2. 创建规则 —— 转发 URL</h4>
+<p>Cloudflare 中，规则 —— 创建页面规则：</p>
 <ul>
 <li>如果 URL 匹配：填入想设置成的域名</li>
 <li>则设置为：选择转发 URL、301 - 永久重定向、填入 Notion 公开链接</li>
@@ -352,17 +389,18 @@
 <p>错误示例：</p>
 <p>博客导航栏的地址链接，以画廊为例，地址为：<code>mastermao.cn/gallery/</code>，当把 Notion 转发 URL 设置为 <code>mastermao.cn/notion/</code> 时，实践证明，生成的页面无法点击，无效。</p>
 </blockquote>
-<h4 id="3-Hexo页面内引用"><a href="#3-Hexo页面内引用" class="headerlink" title="3. Hexo页面内引用"></a>3. Hexo页面内引用</h4><p>使用一条 HTML 代码将自定义的 Notion 链接引用：</p>
+<h4 id="hexo页面内引用">3. Hexo页面内引用</h4>
+<p>使用一条 HTML 代码将自定义的 Notion 链接引用：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">center</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://notion.mastermao.cn&quot;</span>&gt;</span>这是我的Notion<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">center</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>后续可以考虑换成图标等……</p>
 <blockquote>
 <p>做到这里突然发现，我做转发 URL 图啥呢？</p>
 <p>针对直接使用顶级域名访问 Notion 是很便利的，除此之外可以设置子域名或子页面访问，或在页面中引用链接使用。</p>
 </blockquote>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
-<p>[1] 知乎，@江湖人士，<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/82909515">cloudflare使用入门教程，国外最好免费CDN</a></p>
-<p>[2] 知乎，@随风，<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/128033054">Hexo博客提交百度收录SEO</a></p>
+<h2 id="参考">参考</h2>
+<blockquote>
+<p>[1] 知乎，<span class="citation" data-cites="江湖人士">@江湖人士</span>，<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/82909515">cloudflare使用入门教程，国外最好免费CDN</a></p>
+<p>[2] 知乎，<span class="citation" data-cites="随风">@随风</span>，<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/128033054">Hexo博客提交百度收录SEO</a></p>
 <p>[3] 哔哩哔哩，@ VSeducation，<a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv10994288">如何利用 Notion 搭建个人主页|博客</a></p>
 </blockquote>
 
@@ -424,7 +462,7 @@
 
 
 <div class="copyright">
-  &copy; 2021 – 
+  &copy; 2021.08 – 
   <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -449,8 +487,6 @@
       </span>
     </span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
-  </div>
 
     </div>
   </footer>
@@ -461,9 +497,12 @@
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 
   
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
 
 
 
@@ -476,6 +515,15 @@
 
 
 
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/quicklink@2.2.0/dist/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://www.mastermao.cn/2021/10/18/Hexo/Cloudflare%E7%B3%BB%E5%88%97%E4%BD%BF%E7%94%A8/"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
 
 
 

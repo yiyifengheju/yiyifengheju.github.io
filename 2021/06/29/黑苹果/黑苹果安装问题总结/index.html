@@ -11,16 +11,17 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="code-acp0FCvKY7">
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:300,300italic,400,400italic,700,700italic%7CSource+Code+Pro:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.mastermao.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.mastermao.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeInLeft","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 <meta name="description" content="本文总结了黑苹果安装和使用过程中遇到的问题，安装问题与安装主机的 CPU 型号有关，使用问题是 macOS 通用的。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="黑苹果安装 &amp; 使用问题总结">
@@ -84,6 +85,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -98,11 +100,37 @@
         <li class="menu-item menu-item-gallery"><a href="/gallery/" rel="section"><i class="fa fa-camera fa-fw"></i>画廊</a></li>
         <li class="menu-item menu-item-photo"><a href="/photoalbum/" rel="section"><i class="fa fa-images fa-fw"></i>相册</a></li>
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user-secret fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
         
@@ -160,16 +188,16 @@
 </div>
   <div class="links-of-author site-overview-item animated">
       <span class="links-of-author-item">
-        <a href="https://notion.mastermao.cn/" title="Notion → https:&#x2F;&#x2F;notion.mastermao.cn" rel="noopener" target="_blank"><i class="fa fa-carrot fa-fw"></i>Notion</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://www.douban.com/people/maoaooWG/" title="douban → https:&#x2F;&#x2F;www.douban.com&#x2F;people&#x2F;maoaooWG&#x2F;" rel="noopener" target="_blank"><i class="fa fa-film fa-fw"></i>douban</a>
-      </span>
-      <span class="links-of-author-item">
         <a href="https://music.163.com/#/user/home?id=1782954983" title="NetEase → https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;1782954983" rel="noopener" target="_blank"><i class="fa fa-headphones fa-fw"></i>NetEase</a>
       </span>
       <span class="links-of-author-item">
+        <a href="https://500px.com.cn/MonsterMao" title="500px → https:&#x2F;&#x2F;500px.com.cn&#x2F;MonsterMao" rel="noopener" target="_blank"><i class="fab fa-500px fa-fw"></i>500px</a>
+      </span>
+      <span class="links-of-author-item">
         <a href="mailto:wego_mao@hotmail.com" title="E-Mail → mailto:wego_mao@hotmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/mastermao" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;mastermao" rel="noopener" target="_blank"><i class="fab fa-git-square fa-fw"></i>Gitee</a>
       </span>
   </div>
 
@@ -287,9 +315,11 @@
 <p>本文总结了黑苹果安装和使用过程中遇到的问题，安装问题与安装主机的 CPU 型号有关，使用问题是 macOS 通用的。</p>
 </blockquote>
 <span id="more"></span>
-
-<h2 id="壹丨【安装问题】安装过程卡加号"><a href="#壹丨【安装问题】安装过程卡加号" class="headerlink" title="壹丨【安装问题】安装过程卡加号"></a>壹丨【安装问题】安装过程卡加号</h2><h4 id="原因："><a href="#原因：" class="headerlink" title="原因："></a>原因：</h4><p>drivers64UEFI 里的一个 efi 文件有问题</p>
-<h4 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h4><p>第一步，<code>/EFI/CLOVER/drivers64UEFI/</code> 下</p>
+<h2 id="壹丨安装问题安装过程卡加号">壹丨【安装问题】安装过程卡加号</h2>
+<h4 id="原因">原因：</h4>
+<p>drivers64UEFI 里的一个 efi 文件有问题</p>
+<h4 id="解决方法">解决方法：</h4>
+<p>第一步，<code>/EFI/CLOVER/drivers64UEFI/</code> 下</p>
 <ul>
 <li>删除 <code>OsxAptioFix2Drv-64.efi</code></li>
 <li>删除 <code>OsxLowMemFixDrv-64.efi</code></li>
@@ -299,24 +329,27 @@
 <ul>
 <li>将 <code>CsrActiveConfig</code> 设置成 <code>0x67</code></li>
 </ul>
-<h2 id="贰丨【安装问题】正常安装完成后开机出现死循环，报错：AMFI-Denying-core-dump-for-pid-too-many-corpses-being-created"><a href="#贰丨【安装问题】正常安装完成后开机出现死循环，报错：AMFI-Denying-core-dump-for-pid-too-many-corpses-being-created" class="headerlink" title="贰丨【安装问题】正常安装完成后开机出现死循环，报错：AMFI:Denying core dump for pid *** too many corpses being created"></a>贰丨【安装问题】正常安装完成后开机出现死循环，报错：AMFI:Denying core dump for pid *** too many corpses being created</h2><h4 id="解决方法：-1"><a href="#解决方法：-1" class="headerlink" title="解决方法："></a>解决方法：</h4><p>第一步，第一次重启安装后，一直进入 <code>preboot</code> 来安装，会重启几次，安装完成后可以进入系统，但只能从 <code>preboot</code> 进入</p>
+<h2 id="贰丨安装问题正常安装完成后开机出现死循环报错amfidenying-core-dump-for-pid-too-many-corpses-being-created">贰丨【安装问题】正常安装完成后开机出现死循环，报错：AMFI:Denying core dump for pid *** too many corpses being created</h2>
+<h4 id="解决方法-1">解决方法：</h4>
+<p>第一步，第一次重启安装后，一直进入 <code>preboot</code> 来安装，会重启几次，安装完成后可以进入系统，但只能从 <code>preboot</code> 进入</p>
 <p>第二步，在 <code>config.plist</code> 中把以下这段删除（不隐藏 <code>preboot</code>）</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;key&gt;</span><br><span class="line">	Hide</span><br><span class="line">&lt;/key&gt;</span><br><span class="line">&lt;array&gt;</span><br><span class="line">	&lt;string&gt;</span><br><span class="line">		Preboot</span><br><span class="line">	&lt;/string&gt;</span><br><span class="line">&lt;/array&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="叁丨【安装问题】“-xxx-安装副本损坏”"><a href="#叁丨【安装问题】“-xxx-安装副本损坏”" class="headerlink" title="叁丨【安装问题】“ xxx 安装副本损坏”"></a>叁丨【安装问题】“ xxx 安装副本损坏”</h2><h4 id="解决方法：-2"><a href="#解决方法：-2" class="headerlink" title="解决方法："></a>解决方法：</h4><p>终端修改 date</p>
+<h2 id="叁丨安装问题-xxx-安装副本损坏">叁丨【安装问题】“ xxx 安装副本损坏”</h2>
+<h4 id="解决方法-2">解决方法：</h4>
+<p>终端修改 date</p>
 <blockquote>
 <p>PS：实践发现，每次使用不同安装包修改的 date 是不同的，但规律是修改到一年前的此时此刻。</p>
 </blockquote>
-<h2 id="肆丨【安装问题】睡眠睡死、取消睡眠后自动重启"><a href="#肆丨【安装问题】睡眠睡死、取消睡眠后自动重启" class="headerlink" title="肆丨【安装问题】睡眠睡死、取消睡眠后自动重启"></a>肆丨【安装问题】睡眠睡死、取消睡眠后自动重启</h2><h4 id="解决方法：-3"><a href="#解决方法：-3" class="headerlink" title="解决方法："></a>解决方法：</h4><p>定制 USB</p>
-<p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/LeoForBest/article/details/103247824">https://blog.csdn.net/LeoForBest/article/details/103247824</a></p>
-<h2 id="伍丨【使用问题】xxx-is-not-in-the-sudoers-file-This-incident-will-be-reported"><a href="#伍丨【使用问题】xxx-is-not-in-the-sudoers-file-This-incident-will-be-reported" class="headerlink" title="伍丨【使用问题】xxx is not in the sudoers file. This incident will be reported."></a>伍丨【使用问题】xxx is not in the sudoers file. This incident will be reported.</h2><h4 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h4><p>Linux或Mac中，使用sudo命令，提示“xxx is not in the sudoers file. This incident will be reported.”</p>
-<h4 id="解决方法：-4"><a href="#解决方法：-4" class="headerlink" title="解决方法："></a>解决方法：</h4><p>修改/etc/sudoers文件</p>
+<h2 id="肆丨安装问题睡眠睡死取消睡眠后自动重启">肆丨【安装问题】睡眠睡死、取消睡眠后自动重启</h2>
+<h4 id="解决方法-3">解决方法：</h4>
+<p>定制 USB</p>
+<p>参考：https://blog.csdn.net/LeoForBest/article/details/103247824</p>
+<h2 id="伍丨使用问题xxx-is-not-in-the-sudoers-file.-this-incident-will-be-reported.">伍丨【使用问题】xxx is not in the sudoers file. This incident will be reported.</h2>
+<h4 id="问题描述">问题描述：</h4>
+<p>Linux或Mac中，使用sudo命令，提示“xxx is not in the sudoers file. This incident will be reported.”</p>
+<h4 id="解决方法-4">解决方法：</h4>
+<p>修改/etc/sudoers文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加文件写权限</span></span><br><span class="line">$ sudo chmod u+w /etc/sudoers</span><br><span class="line"><span class="comment"># 编辑/etc/sudoers文件</span></span><br><span class="line">$ nano /etc/sudoers</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改如下内容：</span></span><br><span class="line">root ALL=(ALL) ALL</span><br><span class="line">xxx ALL=(ALL) ALL <span class="comment"># xxx是用户名</span></span><br><span class="line"><span class="comment"># ctrl+x、y、回车</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 撤销文件写权限</span></span><br><span class="line">sudo chmod u-w /etc/sudoers</span><br></pre></td></tr></table></figure>
-
-
-
 
     </div>
 
@@ -375,7 +408,7 @@
 
 
 <div class="copyright">
-  &copy; 2021 – 
+  &copy; 2021.08 – 
   <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -400,8 +433,6 @@
       </span>
     </span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
-  </div>
 
     </div>
   </footer>
@@ -412,9 +443,12 @@
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 
   
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
 
 
 
@@ -427,6 +461,15 @@
 
 
 
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/quicklink@2.2.0/dist/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://www.mastermao.cn/2021/06/29/%E9%BB%91%E8%8B%B9%E6%9E%9C/%E9%BB%91%E8%8B%B9%E6%9E%9C%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
 
 
 

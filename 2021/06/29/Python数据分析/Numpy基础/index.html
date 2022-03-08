@@ -11,16 +11,17 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="code-acp0FCvKY7">
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:300,300italic,400,400italic,700,700italic%7CSource+Code+Pro:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.mastermao.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.mastermao.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeInLeft","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 <meta property="og:type" content="article">
 <meta property="og:title" content="Numpy基础">
 <meta property="og:url" content="https://www.mastermao.cn/2021/06/29/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/Numpy%E5%9F%BA%E7%A1%80/index.html">
@@ -85,6 +86,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -99,11 +101,37 @@
         <li class="menu-item menu-item-gallery"><a href="/gallery/" rel="section"><i class="fa fa-camera fa-fw"></i>画廊</a></li>
         <li class="menu-item menu-item-photo"><a href="/photoalbum/" rel="section"><i class="fa fa-images fa-fw"></i>相册</a></li>
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user-secret fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
         
@@ -161,16 +189,16 @@
 </div>
   <div class="links-of-author site-overview-item animated">
       <span class="links-of-author-item">
-        <a href="https://notion.mastermao.cn/" title="Notion → https:&#x2F;&#x2F;notion.mastermao.cn" rel="noopener" target="_blank"><i class="fa fa-carrot fa-fw"></i>Notion</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://www.douban.com/people/maoaooWG/" title="douban → https:&#x2F;&#x2F;www.douban.com&#x2F;people&#x2F;maoaooWG&#x2F;" rel="noopener" target="_blank"><i class="fa fa-film fa-fw"></i>douban</a>
-      </span>
-      <span class="links-of-author-item">
         <a href="https://music.163.com/#/user/home?id=1782954983" title="NetEase → https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;1782954983" rel="noopener" target="_blank"><i class="fa fa-headphones fa-fw"></i>NetEase</a>
       </span>
       <span class="links-of-author-item">
+        <a href="https://500px.com.cn/MonsterMao" title="500px → https:&#x2F;&#x2F;500px.com.cn&#x2F;MonsterMao" rel="noopener" target="_blank"><i class="fab fa-500px fa-fw"></i>500px</a>
+      </span>
+      <span class="links-of-author-item">
         <a href="mailto:wego_mao@hotmail.com" title="E-Mail → mailto:wego_mao@hotmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/mastermao" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;mastermao" rel="noopener" target="_blank"><i class="fab fa-git-square fa-fw"></i>Gitee</a>
       </span>
   </div>
 
@@ -286,55 +314,43 @@
     <div class="post-body" itemprop="articleBody">
         <p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/Numpy%E5%9F%BA%E7%A1%80.png"></p>
 <span id="more"></span>
-
-<h2 id="一、ndarray实例"><a href="#一、ndarray实例" class="headerlink" title="一、ndarray实例"></a>一、ndarray实例</h2><ul>
-<li><p>np.array()——生成数组</p>
-</li>
-<li><p>.axis——表示数据维度</p>
-</li>
-<li><p>.rank——轴数量</p>
-</li>
-<li><p>.ndim——秩</p>
-</li>
-<li><p>.shape——n行m列</p>
-</li>
-<li><p>.size——元素个数，=n*m</p>
-</li>
-<li><p>.dtype——元素类型</p>
-</li>
-<li><p>.itemsize——每个元素大小，字节为单位</p>
-</li>
+<h2 id="一ndarray实例">一、ndarray实例</h2>
+<ul>
+<li><p>np.array()——生成数组</p></li>
+<li>.axis——表示数据维度</li>
+<li>.rank——轴数量</li>
+<li>.ndim——秩</li>
+<li>.shape——n行m列</li>
+<li>.size——元素个数，=n*m</li>
+<li>.dtype——元素类型</li>
+<li><p>.itemsize——每个元素大小，字节为单位</p></li>
 </ul>
-<h2 id="二、ndarry数据类型"><a href="#二、ndarry数据类型" class="headerlink" title="二、ndarry数据类型"></a>二、ndarry数据类型</h2><ul>
+<h2 id="二ndarry数据类型">二、ndarry数据类型</h2>
+<ul>
 <li>bool——True/False</li>
 <li>intc——与C语言int类型一致，int32/int64</li>
-<li>intp——用于索引的整数，与C中ssize_t一致，int32/int64</li>
-</ul>
-<ul>
+<li><p>intp——用于索引的整数，与C中ssize_t一致，int32/int64</p></li>
 <li>int8——字节整数，[-128, 127]</li>
 <li>int16——16位整数，[-32768, 32767]</li>
 <li>int32——32位整数，[-2^31, 2^31-1]</li>
-<li>int64——64位整数，[-2^63, 2^63-1]</li>
-</ul>
-<ul>
+<li><p>int64——64位整数，[-2^63, 2^63-1]</p></li>
 <li>uint8——8位无符号整数，[0, 255]</li>
 <li>uint16——[0, 65535]</li>
 <li>uint32——[0, 2^32-1]</li>
-<li>uint64——[0, 2^64-1]</li>
-</ul>
-<ul>
+<li><p>uint64——[0, 2^64-1]</p></li>
 <li>float16——16位半精度浮点，1位符号位，5位指数，10位尾数</li>
 <li>float32——32位半精度浮点，1位符号位，8位指数，23位尾数</li>
-<li>float64——64位半精度浮点，1位符号位，11位指数，52位尾数</li>
-</ul>
-<ul>
+<li><p>float64——64位半精度浮点，1位符号位，11位指数，52位尾数</p></li>
 <li>complex64——复数，实部虚部各32位浮点</li>
-<li>complex128——复数，实部虚部各64位浮点</li>
+<li><p>complex128——复数，实部虚部各64位浮点</p></li>
 </ul>
-<h2 id="三、数组创建"><a href="#三、数组创建" class="headerlink" title="三、数组创建"></a>三、数组创建</h2><h3 id="1-继承"><a href="#1-继承" class="headerlink" title="1. 继承"></a>1. 继承</h3><ul>
+<h2 id="三数组创建">三、数组创建</h2>
+<h3 id="继承">1. 继承</h3>
+<ul>
 <li>np.array(list/tumple)</li>
 </ul>
-<h3 id="2-初始化"><a href="#2-初始化" class="headerlink" title="2. 初始化"></a>2. 初始化</h3><ul>
+<h3 id="初始化">2. 初始化</h3>
+<ul>
 <li>np.arange(n)——0, n-1整数</li>
 <li>np.ones(shape)</li>
 <li>np.zeros(shape)</li>
@@ -344,41 +360,41 @@
 <li>np.zeros_like(a)</li>
 <li>np.full_like(a, val)</li>
 </ul>
-<h3 id="3-其他函数"><a href="#3-其他函数" class="headerlink" title="3. 其他函数"></a>3. 其他函数</h3><ul>
+<h3 id="其他函数">3. 其他函数</h3>
+<ul>
 <li>np.linspace()——根据起止数据等间隔填充数据</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 10不包括在数组内</span></span><br><span class="line">a = np.linspace(<span class="number">1</span>, <span class="number">10</span>, <span class="number">4</span>, endpoint=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>np.concatenate()——两个或多个合并</li>
 </ul>
-<h2 id="四、维度变换"><a href="#四、维度变换" class="headerlink" title="四、维度变换"></a>四、维度变换</h2><ul>
+<h2 id="四维度变换">四、维度变换</h2>
+<ul>
 <li>.reshape(shape)——原数组不变</li>
 <li>.resize(shape)——原数组改变</li>
 <li>.swapaxes(ax1, ax2)——调换维度</li>
 <li>.flatten()——数组降为一维，原数组不变</li>
 </ul>
-<h2 id="五、类型变换"><a href="#五、类型变换" class="headerlink" title="五、类型变换"></a>五、类型变换</h2><ul>
+<h2 id="五类型变换">五、类型变换</h2>
+<ul>
 <li>.astype()，会产生新数组</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = np.ones((<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>), dtype=np.<span class="built_in">int</span>)</span><br><span class="line">b = a.astype(np.<span class="built_in">float</span>)</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>.tolist()，转换为列表</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls = a.tolist()</span><br></pre></td></tr></table></figure>
-
-<h2 id="六、索引和切片"><a href="#六、索引和切片" class="headerlink" title="六、索引和切片"></a>六、索引和切片</h2><ul>
+<h2 id="六索引和切片">六、索引和切片</h2>
+<ul>
 <li>一维数组切片</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([<span class="number">9</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>])</span><br><span class="line"><span class="comment"># 取出8，6</span></span><br><span class="line">a[<span class="number">1</span>: <span class="number">4</span>: <span class="number">2</span>]</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>多维数组切片</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = np.arange(<span class="number">24</span>).reshape((<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>))</span><br><span class="line"><span class="comment"># 取出第三维度的第0,2轴</span></span><br><span class="line">a[:, :, ::<span class="number">2</span>]</span><br></pre></td></tr></table></figure>
-
-<h2 id="七、函数"><a href="#七、函数" class="headerlink" title="七、函数"></a>七、函数</h2><ul>
+<h2 id="七函数">七、函数</h2>
+<ul>
 <li>.mean()——平均</li>
 <li>np.abs(x) / np.fabs(x)——绝对值</li>
 <li>np.sqrt(x)——平方根</li>
@@ -445,7 +461,7 @@
 
 
 <div class="copyright">
-  &copy; 2021 – 
+  &copy; 2021.08 – 
   <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -470,8 +486,6 @@
       </span>
     </span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
-  </div>
 
     </div>
   </footer>
@@ -482,9 +496,12 @@
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 
   
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
 
 
 
@@ -497,6 +514,15 @@
 
 
 
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/quicklink@2.2.0/dist/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://www.mastermao.cn/2021/06/29/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/Numpy%E5%9F%BA%E7%A1%80/"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
 
 
 

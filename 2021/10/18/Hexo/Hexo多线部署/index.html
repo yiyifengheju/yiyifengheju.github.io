@@ -11,16 +11,17 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="code-acp0FCvKY7">
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:300,300italic,400,400italic,700,700italic%7CSource+Code+Pro:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.mastermao.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.mastermao.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeInLeft","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 <meta name="description" content="网页托管服务很多，如 Github Pages、Gitee Pages、Coding 持续集成、Cloudflare Pages 等…… Coding、Gitee 为国内服务提供商，需要实名认证，其中 Coding 和鹅云联系密切，需要 超大量 的认证工作，没个三五天搞不完…… Cloudflare Pages、Github Pages 为国外服务提供商，相对而言访问速度较慢……   本文对比上">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo多线部署">
@@ -86,6 +87,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -100,11 +102,37 @@
         <li class="menu-item menu-item-gallery"><a href="/gallery/" rel="section"><i class="fa fa-camera fa-fw"></i>画廊</a></li>
         <li class="menu-item menu-item-photo"><a href="/photoalbum/" rel="section"><i class="fa fa-images fa-fw"></i>相册</a></li>
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user-secret fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
         
@@ -162,16 +190,16 @@
 </div>
   <div class="links-of-author site-overview-item animated">
       <span class="links-of-author-item">
-        <a href="https://notion.mastermao.cn/" title="Notion → https:&#x2F;&#x2F;notion.mastermao.cn" rel="noopener" target="_blank"><i class="fa fa-carrot fa-fw"></i>Notion</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://www.douban.com/people/maoaooWG/" title="douban → https:&#x2F;&#x2F;www.douban.com&#x2F;people&#x2F;maoaooWG&#x2F;" rel="noopener" target="_blank"><i class="fa fa-film fa-fw"></i>douban</a>
-      </span>
-      <span class="links-of-author-item">
         <a href="https://music.163.com/#/user/home?id=1782954983" title="NetEase → https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;1782954983" rel="noopener" target="_blank"><i class="fa fa-headphones fa-fw"></i>NetEase</a>
       </span>
       <span class="links-of-author-item">
+        <a href="https://500px.com.cn/MonsterMao" title="500px → https:&#x2F;&#x2F;500px.com.cn&#x2F;MonsterMao" rel="noopener" target="_blank"><i class="fab fa-500px fa-fw"></i>500px</a>
+      </span>
+      <span class="links-of-author-item">
         <a href="mailto:wego_mao@hotmail.com" title="E-Mail → mailto:wego_mao@hotmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/mastermao" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;mastermao" rel="noopener" target="_blank"><i class="fab fa-git-square fa-fw"></i>Gitee</a>
       </span>
   </div>
 
@@ -295,86 +323,99 @@
 </blockquote>
 <p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/Hexo%E5%A4%9A%E7%BA%BF%E9%83%A8%E7%BD%B2.svg"></p>
 <span id="more"></span>
-
-<h2 id="壹丨网页托管服务部署对比"><a href="#壹丨网页托管服务部署对比" class="headerlink" title="壹丨网页托管服务部署对比"></a>壹丨网页托管服务部署对比</h2><h4 id="Coding-部署"><a href="#Coding-部署" class="headerlink" title="Coding 部署"></a>Coding 部署</h4><p>操作流程如思维导图所示。部署过程很繁琐，需要配置鹅云权限、实名认证，且在添加自定义域名后，激活 SSL 证书时，还需要一顿认证操作……</p>
+<h2 id="壹丨网页托管服务部署对比">壹丨网页托管服务部署对比</h2>
+<h4 id="coding-部署">Coding 部署</h4>
+<p>操作流程如思维导图所示。部署过程很繁琐，需要配置鹅云权限、实名认证，且在添加自定义域名后，激活 SSL 证书时，还需要一顿认证操作……</p>
 <table>
 <thead>
-<tr>
-<th align="center">优点</th>
-<th align="center">缺点</th>
+<tr class="header">
+<th style="text-align: center;">优点</th>
+<th style="text-align: center;">缺点</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">速度快<br>可被百度爬取<br>鹅云提供免费 SSL</td>
-<td align="center">需要认证的太多<br> 新建网站服务器需要选在香港<br>SSL 申请下来不会用<br>构建过程漫长</td>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">速度快<br>可被百度爬取<br>鹅云提供免费 SSL</td>
+<td style="text-align: center;">需要认证的太多<br> 新建网站服务器需要选在香港<br>SSL 申请下来不会用<br>构建过程漫长</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>神坑：</p>
 <ul>
-<li>新建网站服务器需要选在香港，否则：<ul>
+<li>新建网站服务器需要选在香港，否则：
+<ul>
 <li>域名需要备案</li>
 <li>阿里云提供免费备案，但需要备案码：</li>
-<li>买云服务器免费赠送备案码——<ul>
+<li>买云服务器免费赠送备案码——
+<ul>
 <li>云服务器一年几千</li>
-</ul>
-</li>
-<li>备案码可单独购买——<ul>
+</ul></li>
+<li>备案码可单独购买——
+<ul>
 <li>100一个</li>
-</ul>
-</li>
+</ul></li>
 <li>尼玛……</li>
-</ul>
-</li>
-<li>SSL 申请下来不会用：<ul>
+</ul></li>
+<li>SSL 申请下来不会用：
+<ul>
 <li>关闭 Cloudflare 后，网站彻底不能打开；</li>
-<li>阿里云可以上传证书——<ul>
-<li>使用时需要搭配云服务器<ul>
+<li>阿里云可以上传证书——
+<ul>
+<li>使用时需要搭配云服务器
+<ul>
 <li>云服务器一年几千</li>
-</ul>
-</li>
-</ul>
-</li>
+</ul></li>
+</ul></li>
 <li>尼玛……</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h4 id="Github-Pages-部署"><a href="#Github-Pages-部署" class="headerlink" title="Github Pages 部署"></a>Github Pages 部署</h4><table>
+<h4 id="github-pages-部署">Github Pages 部署</h4>
+<table>
 <thead>
-<tr>
-<th align="center">优点</th>
-<th align="center">缺点</th>
+<tr class="header">
+<th style="text-align: center;">优点</th>
+<th style="text-align: center;">缺点</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">部署简单<br>构建速度快</td>
-<td align="center">访问速度慢<br>不能被百度收录</td>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">部署简单<br>构建速度快</td>
+<td style="text-align: center;">访问速度慢<br>不能被百度收录</td>
 </tr>
-</tbody></table>
-<h4 id="Cloudflare-Pages-部署"><a href="#Cloudflare-Pages-部署" class="headerlink" title="Cloudflare Pages 部署"></a>Cloudflare Pages 部署</h4><table>
+</tbody>
+</table>
+<h4 id="cloudflare-pages-部署">Cloudflare Pages 部署</h4>
+<table>
 <thead>
-<tr>
-<th align="center">优点</th>
-<th align="center">缺点</th>
+<tr class="header">
+<th style="text-align: center;">优点</th>
+<th style="text-align: center;">缺点</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">部署简单<br>部署&amp;自定义域名一条龙<br>速度还行</td>
-<td align="center">不能被百度收录</td>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">部署简单<br>部署&amp;自定义域名一条龙<br>速度还行</td>
+<td style="text-align: center;">不能被百度收录</td>
 </tr>
-</tbody></table>
-<h4 id="Gitee-Pages部署"><a href="#Gitee-Pages部署" class="headerlink" title="Gitee Pages部署"></a>Gitee Pages部署</h4><table>
+</tbody>
+</table>
+<h4 id="gitee-pages部署">Gitee Pages部署</h4>
+<table>
 <thead>
-<tr>
-<th align="center">优点</th>
-<th align="center">缺点</th>
+<tr class="header">
+<th style="text-align: center;">优点</th>
+<th style="text-align: center;">缺点</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">部署简单</td>
-<td align="center">需要上传整个仓库<br>部署后页面样式全丢</td>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">部署简单</td>
+<td style="text-align: center;">需要上传整个仓库<br>部署后页面样式全丢</td>
 </tr>
-</tbody></table>
-<h2 id="贰丨双线部署方法（已放弃）"><a href="#贰丨双线部署方法（已放弃）" class="headerlink" title="贰丨双线部署方法（已放弃）"></a>贰丨双线部署方法（已放弃）</h2><blockquote>
+</tbody>
+</table>
+<h2 id="贰丨双线部署方法已放弃">贰丨双线部署方法（已放弃）</h2>
+<blockquote>
 <p>双线部署，就是国内 IP 访问国内源站，国外 IP 访问国外源站。</p>
 </blockquote>
 <p>以 Coding 和 Cloudflare Pages 为例：</p>
@@ -443,7 +484,7 @@
 
 
 <div class="copyright">
-  &copy; 2021 – 
+  &copy; 2021.08 – 
   <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -468,8 +509,6 @@
       </span>
     </span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
-  </div>
 
     </div>
   </footer>
@@ -480,9 +519,12 @@
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 
   
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
 
 
 
@@ -495,6 +537,15 @@
 
 
 
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/quicklink@2.2.0/dist/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://www.mastermao.cn/2021/10/18/Hexo/Hexo%E5%A4%9A%E7%BA%BF%E9%83%A8%E7%BD%B2/"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
 
 
 

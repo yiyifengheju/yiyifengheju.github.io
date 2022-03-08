@@ -11,16 +11,17 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="code-acp0FCvKY7">
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:300,300italic,400,400italic,700,700italic%7CSource+Code+Pro:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.mastermao.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.mastermao.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeInLeft","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 <meta name="description" content="PJAX，即 PushState + Ajax，封装成一个 jQuery 扩展以方便使用。PJAX 主要用来解决 HTML 页面局部刷新 url 不更新和不支持后退和前进的问题，提升用户体验。NexT 主题集成了 PJAX 功能，理论上在主题配置文件中打开即可；但当页面添加了一些第三方插件时，局部刷新无法加载插件，导致插件失效。 本文主要介绍了 NexT 主题下启用 PJAX ，并实现切换界面音">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NexT主题启用PJAX（已解决插件失效问题）">
@@ -89,6 +90,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -103,11 +105,37 @@
         <li class="menu-item menu-item-gallery"><a href="/gallery/" rel="section"><i class="fa fa-camera fa-fw"></i>画廊</a></li>
         <li class="menu-item menu-item-photo"><a href="/photoalbum/" rel="section"><i class="fa fa-images fa-fw"></i>相册</a></li>
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user-secret fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
         
@@ -165,16 +193,16 @@
 </div>
   <div class="links-of-author site-overview-item animated">
       <span class="links-of-author-item">
-        <a href="https://notion.mastermao.cn/" title="Notion → https:&#x2F;&#x2F;notion.mastermao.cn" rel="noopener" target="_blank"><i class="fa fa-carrot fa-fw"></i>Notion</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://www.douban.com/people/maoaooWG/" title="douban → https:&#x2F;&#x2F;www.douban.com&#x2F;people&#x2F;maoaooWG&#x2F;" rel="noopener" target="_blank"><i class="fa fa-film fa-fw"></i>douban</a>
-      </span>
-      <span class="links-of-author-item">
         <a href="https://music.163.com/#/user/home?id=1782954983" title="NetEase → https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;1782954983" rel="noopener" target="_blank"><i class="fa fa-headphones fa-fw"></i>NetEase</a>
       </span>
       <span class="links-of-author-item">
+        <a href="https://500px.com.cn/MonsterMao" title="500px → https:&#x2F;&#x2F;500px.com.cn&#x2F;MonsterMao" rel="noopener" target="_blank"><i class="fab fa-500px fa-fw"></i>500px</a>
+      </span>
+      <span class="links-of-author-item">
         <a href="mailto:wego_mao@hotmail.com" title="E-Mail → mailto:wego_mao@hotmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/mastermao" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;mastermao" rel="noopener" target="_blank"><i class="fab fa-git-square fa-fw"></i>Gitee</a>
       </span>
   </div>
 
@@ -294,73 +322,64 @@
 </blockquote>
 <p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/NexT%E4%B8%BB%E9%A2%98%E5%90%AF%E7%94%A8PJAX.svg"></p>
 <span id="more"></span>
-
 <p><strong>当前环境：</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ npm -v</span><br><span class="line">6.14.14</span><br><span class="line">$ hexo -v</span><br><span class="line">NexT version 8.7.0</span><br><span class="line">hexo: 5.4.0</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="壹丨什么是-PJAX？"><a href="#壹丨什么是-PJAX？" class="headerlink" title="壹丨什么是 PJAX？"></a>壹丨什么是 PJAX？</h2><p>PJAX，即 PushState + Ajax，封装成一个 jQuery 扩展以方便使用。PJAX 主要用来解决 HTML 页面局部刷新 url 不更新和不支持后退和前进的问题，提升用户体验。</p>
+<h2 id="壹丨什么是-pjax">壹丨什么是 PJAX？</h2>
+<p>PJAX，即 PushState + Ajax，封装成一个 jQuery 扩展以方便使用。PJAX 主要用来解决 HTML 页面局部刷新 url 不更新和不支持后退和前进的问题，提升用户体验。</p>
 <p>通俗来讲：</p>
 <p>没有 PJAX 时：点击页面上的按钮，网页将清除当前显示页，载入指向页的全部内容，加之网络延迟等原因，会出现短暂的整幅网页为空白页；</p>
 <p>开启 PJAX 时：点击页面上的按钮，指向页和当前页相同的元素，如导航栏、音乐播放器等不需要重新加载，而不同的局部页面内容将刷新并加载。</p>
-<h2 id="贰丨NexT主题使用-PJAX"><a href="#贰丨NexT主题使用-PJAX" class="headerlink" title="贰丨NexT主题使用 PJAX"></a>贰丨NexT主题使用 PJAX</h2><p>Hexo 的 NexT 主题已经集成 PJAX：</p>
+<h2 id="贰丨next主题使用-pjax">贰丨NexT主题使用 PJAX</h2>
+<p>Hexo 的 NexT 主题已经集成 PJAX：</p>
 <p>修改 <code>~/hexo-site/_config.next.yml</code> ：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- pjax: </span><br><span class="line">+ pjax: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
 <p>仅仅在主题文件中启用 PJAX 局部刷新后，一些插件会失效，本博客失效的插件有：gallery 视图插件 <code>hexo-next-photos</code> 、豆瓣电影插件 <code>hexo-douban</code> 、音乐插件 <code>aplayer</code> 、<code>meting</code> 。</p>
-<h2 id="叁丨解决插件失效问题"><a href="#叁丨解决插件失效问题" class="headerlink" title="叁丨解决插件失效问题"></a>叁丨解决插件失效问题</h2><blockquote>
+<h2 id="叁丨解决插件失效问题">叁丨解决插件失效问题</h2>
+<blockquote>
 <p>原理：在添加插件的位置重新加载CSS、JS文件。</p>
 </blockquote>
-<h3 id="1-APlayer、Meting-音乐插件——切换界面音乐不停"><a href="#1-APlayer、Meting-音乐插件——切换界面音乐不停" class="headerlink" title="1. APlayer、Meting 音乐插件——切换界面音乐不停"></a>1. APlayer、Meting 音乐插件——切换界面音乐不停</h3><p>这类可以通过修改 HTML 代码导入 CSS、JS 文件：</p>
+<h3 id="aplayermeting-音乐插件切换界面音乐不停">1. APlayer、Meting 音乐插件——切换界面音乐不停</h3>
+<p>这类可以通过修改 HTML 代码导入 CSS、JS 文件：</p>
 <p><strong>【侧边栏添加全局音乐播放插件】</strong></p>
-<p>第一步，修改 <code>~/hexo-site/_config.next.yml</code>  ：</p>
+<p>第一步，修改 <code>~/hexo-site/_config.next.yml</code> ：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- <span class="comment">#sidebar: source/_data/sidebar.njk</span></span><br><span class="line">+ sidebar: <span class="built_in">source</span>/_data/sidebar.njk</span><br></pre></td></tr></table></figure>
-
 <p>第二步，<code>~/hexo-site/source/_data/</code> 中，增加文件 <code>sidebar.njk</code> ，编辑如下：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span> </span><br><span class="line">        <span class="comment">&lt;!-- require APlayer --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- require MetingJS --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">p</span>&gt;</span> <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">meting-js</span> <span class="attr">server</span>=<span class="string">&quot;netease&quot;</span> <span class="attr">type</span>=<span class="string">&quot;playlist&quot;</span> <span class="attr">id</span>=<span class="string">&quot;6922083348&quot;</span> <span class="attr">autoplay</span>=<span class="string">&quot;true&quot;</span> <span class="attr">order</span>=<span class="string">&quot;random&quot;</span> <span class="attr">list-folded</span>=<span class="string">&quot;true&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">meting-js</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>重点是添加以下头文件：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- require APlayer --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- require MetingJS --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>其中<code>meting</code> 的参数不再赘述。</p>
 <p><strong>【post页面中添加播放器插件】</strong></p>
 <p>和上述类似，页面中直接添加：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span> </span><br><span class="line">        <span class="comment">&lt;!-- require APlayer --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- require MetingJS --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meting-js</span> <span class="attr">server</span>=<span class="string">&quot;netease&quot;</span> <span class="attr">type</span>=<span class="string">&quot;playlist&quot;</span> <span class="attr">id</span>=<span class="string">&quot;60198&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">meting-js</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-画廊插件-hexo-next-photos"><a href="#2-画廊插件-hexo-next-photos" class="headerlink" title="2. 画廊插件 hexo-next-photos"></a>2. 画廊插件 <code>hexo-next-photos</code></h3><p>使用图床模式，插件将 <code>~/hexo-site/node_modules/hexo-next-photos/lib/figureBed.js</code> 生成 <code>photo.js</code> ，丢到 <code>~/hexo-site/public/js/</code> 下，插件原版有个错误，会导致画廊多个空格条，修改 <code>figureBed.js</code> ：</p>
+<h3 id="画廊插件-hexo-next-photos">2. 画廊插件 <code>hexo-next-photos</code></h3>
+<p>使用图床模式，插件将 <code>~/hexo-site/node_modules/hexo-next-photos/lib/figureBed.js</code> 生成 <code>photo.js</code> ，丢到 <code>~/hexo-site/public/js/</code> 下，插件原版有个错误，会导致画廊多个空格条，修改 <code>figureBed.js</code> ：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- page: <span class="number">1</span>,</span><br><span class="line">+ page: <span class="number">0</span>,</span><br></pre></td></tr></table></figure>
-
 <p>插件失效解决原理：检测到 <code>ImageGrid</code> 的类，就重新加载一次CSS、JS。</p>
 <p>修改 <code>~/hexo-site/themes/next/source/js/pjax.js</code>，添加：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> pjax = <span class="keyword">new</span> Pjax(&#123;....)&#125;</span><br><span class="line">...</span><br><span class="line"><span class="comment">//添加以下代码</span></span><br><span class="line"><span class="keyword">var</span> dynamicLoading = &#123;</span><br><span class="line">    <span class="attr">css</span>: <span class="function"><span class="keyword">function</span>(<span class="params">path</span>)</span>&#123;</span><br><span class="line">    	<span class="keyword">if</span>(!path || path.length === <span class="number">0</span>)&#123;</span><br><span class="line">        	<span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">&#x27;argument &quot;path&quot; is required !&#x27;</span>);</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="keyword">var</span> head = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&#x27;head&#x27;</span>)[<span class="number">0</span>];</span><br><span class="line">    	<span class="keyword">var</span> link = <span class="built_in">document</span>.createElement(<span class="string">&#x27;link&#x27;</span>);</span><br><span class="line">    	link.href = path;</span><br><span class="line">    	link.rel = <span class="string">&#x27;stylesheet&#x27;</span>;</span><br><span class="line">    	link.type = <span class="string">&#x27;text/css&#x27;</span>;</span><br><span class="line">    	head.appendChild(link);</span><br><span class="line">	&#125;,</span><br><span class="line">    <span class="attr">js</span>: <span class="function"><span class="keyword">function</span>(<span class="params">path</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!path || path.length === <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">&#x27;argument &quot;path&quot; is required !&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> head = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&#x27;head&#x27;</span>)[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">&#x27;script&#x27;</span>);</span><br><span class="line">        script.src = path;</span><br><span class="line">        script.type = <span class="string">&#x27;text/javascript&#x27;</span>;</span><br><span class="line">        head.appendChild(script);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>然后再添加：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">&#x27;pjax:success&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">...</span><br><span class="line">NexT.utils.updateSidebarPosition();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加以下代码</span></span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;ImageGrid&quot;</span>))&#123;</span><br><span class="line">	<span class="comment">//动态加载 CSS 文件</span></span><br><span class="line">	dynamicLoading.css(<span class="string">&quot;/css/gallery.css&quot;</span>);</span><br><span class="line">	<span class="comment">//动态加载 JS 文件</span></span><br><span class="line">	dynamicLoading.js(<span class="string">&quot;/js/photo.js&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-豆瓣电影插件-hexo-douban"><a href="#3-豆瓣电影插件-hexo-douban" class="headerlink" title="3. 豆瓣电影插件 hexo-douban"></a>3. 豆瓣电影插件 <code>hexo-douban</code></h3><p>根据以上思路，只要在 <code>pjax.js</code> 中添加进要加载的 CSS、JS 即可，当然最重要的是找到要追踪的类名。</p>
-<p><strong>第一步</strong>，定位插件显示位置，位于 <code>&lt;div class=&quot;post-body animated fadeInDown&quot;&gt;</code> 下：</p>
-<img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/image-20210901004956477.png" alt style="zoom: 80%;">
-
+<h3 id="豆瓣电影插件-hexo-douban">3. 豆瓣电影插件 <code>hexo-douban</code></h3>
+<p>根据以上思路，只要在 <code>pjax.js</code> 中添加进要加载的 CSS、JS 即可，当然最重要的是找到要追踪的类名。</p>
+<p><strong>第一步</strong>，定位插件显示位置，位于 <code>&lt;div class="post-body animated fadeInDown"&gt;</code> 下：</p>
+<p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/image-20210901004956477.png" alt style="zoom: 80%;"></p>
 <p><strong>第二步</strong>，逐行分析：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">blockquote</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">blockquote</span>&gt;</span> <span class="comment">&lt;!--这是一开始的那个quote块--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">style</span>&gt;</span> <span class="comment">&lt;!--这是样式（CSS）文件&gt;</span></span><br><span class="line"><span class="comment">&lt;div class=&quot;hexo-douban-tabs&quot;&gt; ... &lt;/div&gt; &lt;!--这是显示豆瓣电影 在看/想看/已看 的div标签--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">div</span>&gt;</span> <span class="comment">&lt;!--这里放的是 首页/上一页/页码/下一页/尾页 的标签--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">script</span>&gt;</span> <span class="comment">&lt;!--这里是JS文件--&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>所以——把 <code>&lt;style&gt; ... &lt;/style&gt;</code> 内容保存为 <code>douban.styl</code> ，放在 <code>~/hexo-site/themes/next/source/css/</code> 下；把 <code>&lt;script&gt; ... &lt;/script&gt;</code> 保存为 <code>douban.js</code> ，放在 <code>~/hexo-site/themes/next/source/js/</code> 下；</p>
 <p>因为——在执行 <code>hexo g</code> 的时候，<code>~/hexo-site/themes/next/source/css/</code> 和 <code>~/hexo-site/themes/next/source/js/</code> 两个文件夹中的文件会拷贝到 <code>~/hexo-site/public/css</code> 和 <code>~/hexo-site/public/js</code> 文件夹下。</p>
 <p><strong>第三步</strong>，继续分析：</p>
 <p>包含 <code>envent</code> 的 <code>&lt;a&gt; &lt;/a&gt;</code> 标签在分别存放在两个类下：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;hexo-douban-tabs&quot;</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;hexo-douban-pagination&quot;</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/image-20210901020608704.png" alt style="zoom:80%;">
-
+<p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/image-20210901020608704.png" alt style="zoom:80%;"></p>
 <p>所以——在 <code>~/hexo-site/themes/next/source/js/pjax.js</code> 中添加：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;hexo-douban-tabs&quot;</span>))&#123;</span><br><span class="line">    <span class="comment">//动态加载 CSS 文件</span></span><br><span class="line">    dynamicLoading.css(<span class="string">&quot;/css/douban.css&quot;</span>);</span><br><span class="line">    dynamicLoading.js(<span class="string">&quot;/js/douban.js&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;hexo-douban-pagination&quot;</span>))&#123;</span><br><span class="line">    <span class="comment">//动态加载 CSS 文件</span></span><br><span class="line">    dynamicLoading.css(<span class="string">&quot;/css/douban.css&quot;</span>);</span><br><span class="line">    dynamicLoading.js(<span class="string">&quot;/js/douban.js&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="肆丨结语"><a href="#肆丨结语" class="headerlink" title="肆丨结语"></a>肆丨结语</h2><p>因为完全没学过前端的 HTML、JS、CSS 这些，所以起初被插件失效问题困扰很久很久。寻找解决办法的的过程是挺痛苦的：要不断地查资料、不断地尝试、不断地受挫、再不断地尝试……面对这些完全不懂的语法、元素，就像玩解谜游戏一样……</p>
+<h2 id="肆丨结语">肆丨结语</h2>
+<p>因为完全没学过前端的 HTML、JS、CSS 这些，所以起初被插件失效问题困扰很久很久。寻找解决办法的的过程是挺痛苦的：要不断地查资料、不断地尝试、不断地受挫、再不断地尝试……面对这些完全不懂的语法、元素，就像玩解谜游戏一样……</p>
 <p>我相信我是幸运的，总能站在巨人的肩膀，找到很有用的参考，并最终解决问题；幸运不常有，但基数够大的话，总会有的。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
+<h2 id="参考">参考</h2>
+<blockquote>
 <p>[1] FHB科学院，樊浩柏，<a target="_blank" rel="noopener" href="https://www.fanhaobai.com/2017/07/pjax.html">PJAX原理和使用</a></p>
-<p>[2] 米米的博客，张书樵，<a target="_blank" rel="noopener" href="https://zhangshuqiao.org/2020-06/NexT%E9%80%82%E9%85%8DPJAX%E7%9A%84%E6%96%B9%E6%A1%88/">NexT 适配 PJAX 的方案</a></p>
+<p>[2] 米米的博客，张书樵，<a target="_blank" rel="noopener" href="https://zhangshuqiao.org/2020-06/NexT适配PJAX的方案/">NexT 适配 PJAX 的方案</a></p>
 <p>[3] 程序员甜品店，Jefsky，<a target="_blank" rel="noopener" href="https://www.jefsky.com/archives/234.html">解决pjax加载页面导致js插件失效</a></p>
 <p>[4] 木皆之森，Raoby，<a target="_blank" rel="noopener" href="https://www.raobee.com/archives/254/">pjax无刷新加载后百度统计失效解决方案</a></p>
 <p>[5] 小乐的博客，XiaoLe，<a target="_blank" rel="noopener" href="https://www.xiaole88.com/post/55609.html">解决next主题开启pjax时使用hexo-blog-encrypt无效</a></p>
@@ -424,7 +443,7 @@
 
 
 <div class="copyright">
-  &copy; 2021 – 
+  &copy; 2021.08 – 
   <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -449,8 +468,6 @@
       </span>
     </span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
-  </div>
 
     </div>
   </footer>
@@ -461,9 +478,12 @@
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 
   
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
 
 
 
@@ -476,6 +496,15 @@
 
 
 
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/quicklink@2.2.0/dist/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://www.mastermao.cn/2021/08/31/Hexo/Hexo%E5%90%AF%E7%94%A8Pjax/"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
 
 
 
