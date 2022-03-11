@@ -130,7 +130,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A3%B9%E4%B8%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-text">壹丨环境配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B4%B0%E4%B8%A8%E4%BD%BF%E7%94%A8-pydracula-%E6%A8%A1%E6%9D%BF"><span class="nav-text">贰丨使用 PyDracula 模板</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A3%B9%E4%B8%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-text">壹丨环境配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B4%B0%E4%B8%A8%E4%BD%BF%E7%94%A8-PyDracula-%E6%A8%A1%E6%9D%BF"><span class="nav-text">贰丨使用 PyDracula 模板</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -145,7 +145,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -156,7 +156,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">39</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -295,16 +295,17 @@
 <p>使用 Pyside6 的记录</p>
 </blockquote>
 <span id="more"></span>
-<h2 id="壹丨环境配置">壹丨环境配置</h2>
-<p>第一步，Pycharm 中新建工程，命名 <code>MasterFusion</code></p>
+
+<h2 id="壹丨环境配置"><a href="#壹丨环境配置" class="headerlink" title="壹丨环境配置"></a>壹丨环境配置</h2><p>第一步，Pycharm 中新建工程，命名 <code>MasterFusion</code></p>
 <p>第二步，pip 安装pyside6</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install PySide6</span><br></pre></td></tr></table></figure>
+
 <p>第三步，配置 QtDesigner</p>
 <p>Settings —— Tools —— External Tools —— 加号</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># name</span></span><br><span class="line">QtDesigner6</span><br><span class="line"></span><br><span class="line"><span class="comment"># Program</span></span><br><span class="line">C:\Users\MasterMao\anaconda3\envs\MasterFusion\Lib\site-packages\PySide6\designer.exe</span><br><span class="line"></span><br><span class="line"><span class="comment"># Working directory</span></span><br><span class="line">$FileDir$</span><br></pre></td></tr></table></figure>
+
 <p>文件资源管理器定位到 <code>C:\Users\MasterMao\anaconda3\envs\MasterFusion\Lib\site-packages\PySide6</code>，新建文件夹 <code>./bin</code>，将PySide6根目录下 的<code>uic.exe</code>、<code>Qt6Core.dll</code> 拷贝到 <code>bin</code> 目录下</p>
-<h2 id="贰丨使用-pydracula-模板">贰丨使用 PyDracula 模板</h2>
-<p>项目地址：https://github.com/Wanderson-Magalhaes/Modern_GUI_PyDracula_PySide6_or_PyQt6</p>
+<h2 id="贰丨使用-PyDracula-模板"><a href="#贰丨使用-PyDracula-模板" class="headerlink" title="贰丨使用 PyDracula 模板"></a>贰丨使用 PyDracula 模板</h2><p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/Wanderson-Magalhaes/Modern_GUI_PyDracula_PySide6_or_PyQt6">https://github.com/Wanderson-Magalhaes/Modern_GUI_PyDracula_PySide6_or_PyQt6</a></p>
 <p>文件说明：</p>
 <blockquote>
 <p><strong>main.py</strong>: 初始化文件</p>
@@ -317,8 +318,8 @@
 <p><strong>modules/app_settings.py</strong>: 用户界面全局变量</p>
 <p><strong>modules/resources_rc.py</strong>: 使用Python命令编译resource.qrc文件，命令为 <code>pyside6-rcc resources.qrc -o resources_rc.py</code></p>
 <p><strong>modules/ui_functions.py</strong>: 仅为与用户界面相关的功能</p>
-<p><strong>modules/ui_main.py</strong>: Qt Designer导出的界面文件。可编译命令：<code>pyside6-uic main.ui&gt; ui_main.py</code></p>
-<p>需要将原文中 <code>import resources_rc</code> 改为 <code>from. Resoucers_rc import *</code></p>
+<p><strong>modules/ui_main.py</strong>: Qt Designer导出的界面文件。可编译命令：<code>pyside6-uic main.ui&gt; ui_main.py </code></p>
+<p>需要将原文中 <code>import resources_rc</code> 改为 <code>from. Resoucers_rc import *</code> </p>
 <p><strong>images/</strong>: 将图片和图标放在此处。 <code>pyside6-rcc resources.qrc -o resources_rc.py</code>.</p>
 </blockquote>
 
