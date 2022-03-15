@@ -150,7 +150,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-count">41</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -161,7 +161,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -347,7 +347,7 @@
 
 <h3 id="3-豆瓣电影插件-hexo-douban"><a href="#3-豆瓣电影插件-hexo-douban" class="headerlink" title="3. 豆瓣电影插件 hexo-douban"></a>3. 豆瓣电影插件 <code>hexo-douban</code></h3><p>根据以上思路，只要在 <code>pjax.js</code> 中添加进要加载的 CSS、JS 即可，当然最重要的是找到要追踪的类名。</p>
 <p><strong>第一步</strong>，定位插件显示位置，位于 <code>&lt;div class=&quot;post-body animated fadeInDown&quot;&gt;</code> 下：</p>
-<img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/image-20210901004956477.png" alt style="zoom: 80%;">
+<img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/image-20210901004956477.png" alt="" style="zoom: 80%;" />
 
 <p><strong>第二步</strong>，逐行分析：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">blockquote</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">blockquote</span>&gt;</span> <span class="comment">&lt;!--这是一开始的那个quote块--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">style</span>&gt;</span> <span class="comment">&lt;!--这是样式（CSS）文件&gt;</span></span><br><span class="line"><span class="comment">&lt;div class=&quot;hexo-douban-tabs&quot;&gt; ... &lt;/div&gt; &lt;!--这是显示豆瓣电影 在看/想看/已看 的div标签--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">div</span>&gt;</span> <span class="comment">&lt;!--这里放的是 首页/上一页/页码/下一页/尾页 的标签--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">script</span>&gt;</span> <span class="comment">&lt;!--这里是JS文件--&gt;</span></span><br></pre></td></tr></table></figure>
@@ -358,7 +358,7 @@
 <p>包含 <code>envent</code> 的 <code>&lt;a&gt; &lt;/a&gt;</code> 标签在分别存放在两个类下：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;hexo-douban-tabs&quot;</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;hexo-douban-pagination&quot;</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/image-20210901020608704.png" alt style="zoom:80%;">
+<img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/image-20210901020608704.png" alt="" style="zoom:80%;" />
 
 <p>所以——在 <code>~/hexo-site/themes/next/source/js/pjax.js</code> 中添加：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;hexo-douban-tabs&quot;</span>))&#123;</span><br><span class="line">    <span class="comment">//动态加载 CSS 文件</span></span><br><span class="line">    dynamicLoading.css(<span class="string">&quot;/css/douban.css&quot;</span>);</span><br><span class="line">    dynamicLoading.js(<span class="string">&quot;/js/douban.js&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;hexo-douban-pagination&quot;</span>))&#123;</span><br><span class="line">    <span class="comment">//动态加载 CSS 文件</span></span><br><span class="line">    dynamicLoading.css(<span class="string">&quot;/css/douban.css&quot;</span>);</span><br><span class="line">    dynamicLoading.js(<span class="string">&quot;/js/douban.js&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
