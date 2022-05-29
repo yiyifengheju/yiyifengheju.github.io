@@ -22,15 +22,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.mastermao.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeInLeft","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="模型训练可视化工具之TensorboardX">
+    <meta name="description" content="TensorboardX是一种将模型训练可视化的工具">
 <meta property="og:type" content="article">
 <meta property="og:title" content="模型训练可视化工具——TensorboardX">
 <meta property="og:url" content="https://www.mastermao.cn/2021/06/29/Python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%B7%A5%E5%85%B7%E2%80%94%E2%80%94TensorboardX/index.html">
 <meta property="og:site_name" content="一一风和橘">
-<meta property="og:description" content="模型训练可视化工具之TensorboardX">
+<meta property="og:description" content="TensorboardX是一种将模型训练可视化的工具">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-06-29T14:57:57.000Z">
-<meta property="article:modified_time" content="2022-03-11T22:20:06.524Z">
+<meta property="article:modified_time" content="2022-05-28T19:39:58.441Z">
 <meta property="article:author" content="MasterMao">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="回归问题">
@@ -146,18 +146,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">37</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -263,7 +263,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-03-12 06:20:06" itemprop="dateModified" datetime="2022-03-12T06:20:06+08:00">2022-03-12</time>
+      <time title="修改时间：2022-05-29 03:39:58" itemprop="dateModified" datetime="2022-05-29T03:39:58+08:00">2022-05-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -293,26 +293,33 @@
     
     <div class="post-body" itemprop="articleBody">
         <blockquote>
-<p> 模型训练可视化工具之TensorboardX</p>
+<p> TensorboardX是一种将模型训练可视化的工具</p>
 </blockquote>
 <span id="more"></span>
 
-<h2 id="壹丨安装"><a href="#壹丨安装" class="headerlink" title="壹丨安装"></a>壹丨安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ pip install tensorboardX</span><br><span class="line">$ pip install tensorboard</span><br><span class="line"><span class="comment"># 使用GPU的情况下，需要安装</span></span><br><span class="line">$ pip install tensorflow-gpu==2.3.0</span><br></pre></td></tr></table></figure>
+<h2 id="壹丨安装"><a href="#壹丨安装" class="headerlink" title="壹丨安装"></a>壹丨安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install tensorboardX</span><br></pre></td></tr></table></figure>
 
-<p>注：<strong>版本需要和cuda版本一致</strong>，否则报cudart64_110.dll not found错误，可翻阅以下链接查找</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42764932/article/details/113038416">https://blog.csdn.net/weixin_42764932/article/details/113038416</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看TensorFlow版本：</span></span><br><span class="line">$ python</span><br><span class="line">$ import tensorflow as tf</span><br><span class="line">$ tf.__version__</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install tensorboard</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用GPU的情况下，需要安装</span></span><br><span class="line">pip install tensorflow-gpu==2.3.0</span><br></pre></td></tr></table></figure>
 
-
-<h2 id="贰丨使用"><a href="#贰丨使用" class="headerlink" title="贰丨使用"></a>贰丨使用</h2><p>在与<code>runs</code>同级目录下执行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tensorboard --logdir runs</span><br></pre></td></tr></table></figure>
-
+<p><em><strong>Tips：版本需要和cuda版本一致</strong></em></p>
+<p>否则报 ‘cudart64_110.dll not found’ 错误，可根据参考[1]查找对应版本</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看TensorFlow版本</span></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="built_in">print</span>(tf.__version__)</span><br></pre></td></tr></table></figure>
 
 
-<h2 id="叁丨总结"><a href="#叁丨总结" class="headerlink" title="叁丨总结"></a>叁丨总结</h2><p>略去了TensorboardX的用法，个人觉得不咋好用，PyTorch训练可视化可以试试 <code>visdom</code></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/46eb3004beca">https://www.jianshu.com/p/46eb3004beca</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/bigbennyguo/article/details/87956434">https://blog.csdn.net/bigbennyguo/article/details/87956434</a></p>
+
+<h2 id="贰丨使用"><a href="#贰丨使用" class="headerlink" title="贰丨使用"></a>贰丨使用</h2><p>在与 <code>runs</code> 同级目录下执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tensorboard --logdir runs</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="叁丨总结"><a href="#叁丨总结" class="headerlink" title="叁丨总结"></a>叁丨总结</h2><p>用法详见参考[2-3]，个人觉得不好用，PyTorch训练可视化可以试试 <code>visdom</code> 。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
+<p>[1] CSDN，@我想静静，，<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42764932/article/details/113038416">cudart64_110.dll not found解决方法</a></p>
+<p>[2] 简书，@苗书宇，<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/46eb3004beca">Pytorch使用tensorboardX可视化。超详细！！！</a></p>
+<p>[3] CSDN，@imbennyguo，<a target="_blank" rel="noopener" href="https://blog.csdn.net/bigbennyguo/article/details/87956434">详解PyTorch项目使用TensorboardX进行训练可视化</a></p>
+</blockquote>
 
     </div>
 
@@ -345,8 +352,8 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/06/29/Python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%98%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/" rel="prev" title="回归问题评价指标">
-                  <i class="fa fa-chevron-left"></i> 回归问题评价指标
+                <a href="/2021/06/29/Python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%98%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/" rel="prev" title="机器学习评价指标（基础）">
+                  <i class="fa fa-chevron-left"></i> 机器学习评价指标（基础）
                 </a>
             </div>
             <div class="post-nav-item">

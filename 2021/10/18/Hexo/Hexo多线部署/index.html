@@ -22,16 +22,16 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.mastermao.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeInLeft","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="网页托管服务很多，如 Github Pages、Gitee Pages、Coding 持续集成、Cloudflare Pages 等…… Coding、Gitee 为国内服务提供商，需要实名认证，其中 Coding 和鹅云联系密切，需要 超大量 的认证工作，没个三五天搞不完…… Cloudflare Pages、Github Pages 为国外服务提供商，相对而言访问速度较慢……   本文对比上">
+    <meta name="description" content="网页托管服务很多，如 Github Pages、Gitee Pages、Coding 持续集成、Cloudflare Pages 、Vercel等…… Coding、Gitee 为国内服务提供商，需要实名认证，其中 Coding 和鹅云联系密切，需要 超大量 的认证工作，没个三五天搞不完。Cloudflare Pages、Github Pages、Vercel 为国外服务提供商，相对而言访问速度">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo多线部署">
 <meta property="og:url" content="https://www.mastermao.cn/2021/10/18/Hexo/Hexo%E5%A4%9A%E7%BA%BF%E9%83%A8%E7%BD%B2/index.html">
 <meta property="og:site_name" content="一一风和橘">
-<meta property="og:description" content="网页托管服务很多，如 Github Pages、Gitee Pages、Coding 持续集成、Cloudflare Pages 等…… Coding、Gitee 为国内服务提供商，需要实名认证，其中 Coding 和鹅云联系密切，需要 超大量 的认证工作，没个三五天搞不完…… Cloudflare Pages、Github Pages 为国外服务提供商，相对而言访问速度较慢……   本文对比上">
+<meta property="og:description" content="网页托管服务很多，如 Github Pages、Gitee Pages、Coding 持续集成、Cloudflare Pages 、Vercel等…… Coding、Gitee 为国内服务提供商，需要实名认证，其中 Coding 和鹅云联系密切，需要 超大量 的认证工作，没个三五天搞不完。Cloudflare Pages、Github Pages、Vercel 为国外服务提供商，相对而言访问速度">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/Hexo%E5%A4%9A%E7%BA%BF%E9%83%A8%E7%BD%B2.svg">
 <meta property="article:published_time" content="2021-10-17T16:45:40.000Z">
-<meta property="article:modified_time" content="2021-10-23T23:07:53.752Z">
+<meta property="article:modified_time" content="2022-05-28T14:43:09.784Z">
 <meta property="article:author" content="MasterMao">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="Cloudflare">
@@ -132,7 +132,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A3%B9%E4%B8%A8%E7%BD%91%E9%A1%B5%E6%89%98%E7%AE%A1%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2%E5%AF%B9%E6%AF%94"><span class="nav-text">壹丨网页托管服务部署对比</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Coding-%E9%83%A8%E7%BD%B2"><span class="nav-text">Coding 部署</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Github-Pages-%E9%83%A8%E7%BD%B2"><span class="nav-text">Github Pages 部署</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cloudflare-Pages-%E9%83%A8%E7%BD%B2"><span class="nav-text">Cloudflare Pages 部署</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gitee-Pages%E9%83%A8%E7%BD%B2"><span class="nav-text">Gitee Pages部署</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B4%B0%E4%B8%A8%E5%8F%8C%E7%BA%BF%E9%83%A8%E7%BD%B2%E6%96%B9%E6%B3%95%EF%BC%88%E5%B7%B2%E6%94%BE%E5%BC%83%EF%BC%89"><span class="nav-text">贰丨双线部署方法（已放弃）</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A3%B9%E4%B8%A8%E7%BD%91%E9%A1%B5%E6%89%98%E7%AE%A1%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2%E5%AF%B9%E6%AF%94"><span class="nav-text">壹丨网页托管服务部署对比</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Coding-%E9%83%A8%E7%BD%B2"><span class="nav-text">Coding 部署</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Github-Pages-%E9%83%A8%E7%BD%B2"><span class="nav-text">Github Pages 部署</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cloudflare-Pages-%E9%83%A8%E7%BD%B2"><span class="nav-text">Cloudflare Pages 部署</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gitee-Pages%E9%83%A8%E7%BD%B2"><span class="nav-text">Gitee Pages部署</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vercel"><span class="nav-text">Vercel</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B4%B0%E4%B8%A8%E5%8F%8C%E7%BA%BF%E9%83%A8%E7%BD%B2%E6%96%B9%E6%B3%95%EF%BC%88%E5%B7%B2%E6%94%BE%E5%BC%83%EF%BC%89"><span class="nav-text">贰丨双线部署方法（已放弃）</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -147,18 +147,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">37</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -264,7 +264,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2021-10-24 07:07:53" itemprop="dateModified" datetime="2021-10-24T07:07:53+08:00">2021-10-24</time>
+      <time title="修改时间：2022-05-28 22:43:09" itemprop="dateModified" datetime="2022-05-28T22:43:09+08:00">2022-05-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -294,12 +294,11 @@
     
     <div class="post-body" itemprop="articleBody">
         <blockquote>
-<p>网页托管服务很多，如 Github Pages、Gitee Pages、Coding 持续集成、Cloudflare Pages 等……</p>
-<p>Coding、Gitee 为国内服务提供商，需要实名认证，其中 Coding 和鹅云联系密切，需要 <strong>超大量</strong> 的认证工作，没个三五天搞不完……</p>
-<p>Cloudflare Pages、Github Pages 为国外服务提供商，相对而言访问速度较慢……</p>
+<p>网页托管服务很多，如 Github Pages、Gitee Pages、Coding 持续集成、Cloudflare Pages 、Vercel等……</p>
+<p>Coding、Gitee 为国内服务提供商，需要实名认证，其中 Coding 和鹅云联系密切，需要 <strong>超大量</strong> 的认证工作，没个三五天搞不完。Cloudflare Pages、Github Pages、Vercel 为国外服务提供商，相对而言访问速度较慢。</p>
 </blockquote>
 <blockquote>
-<p>本文对比上述四种网页托管服务在 Hexo 部署中的操作流程，并给出一种双线部署方法。</p>
+<p>本文主要介绍五种网页托管服务在 Hexo 部署中的操作流程，并给出一种双线部署方法。</p>
 </blockquote>
 <p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/Hexo%E5%A4%9A%E7%BA%BF%E9%83%A8%E7%BD%B2.svg"></p>
 <span id="more"></span>
@@ -317,35 +316,11 @@
 <td align="center">需要认证的太多<br> 新建网站服务器需要选在香港<br>SSL 申请下来不会用<br>构建过程漫长</td>
 </tr>
 </tbody></table>
-<p>神坑：</p>
-<ul>
-<li>新建网站服务器需要选在香港，否则：<ul>
-<li>域名需要备案</li>
-<li>阿里云提供免费备案，但需要备案码：</li>
-<li>买云服务器免费赠送备案码——<ul>
-<li>云服务器一年几千</li>
-</ul>
-</li>
-<li>备案码可单独购买——<ul>
-<li>100一个</li>
-</ul>
-</li>
-<li>尼玛……</li>
-</ul>
-</li>
-<li>SSL 申请下来不会用：<ul>
-<li>关闭 Cloudflare 后，网站彻底不能打开；</li>
-<li>阿里云可以上传证书——<ul>
-<li>使用时需要搭配云服务器<ul>
-<li>云服务器一年几千</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>尼玛……</li>
-</ul>
-</li>
-</ul>
+<p>踩过的神坑包括：</p>
+<ol>
+<li>新建网站服务器需要选在香港，否则域名需要备案；阿里云提供免费备案，但需要备案码；买云服务器免费赠送备案码但云服务器一年几千；备案码可单独购买，但100一个……</li>
+<li>SSL 申请下来不会用；关闭 Cloudflare 后，网站彻底不能打开；阿里云可以上传证书，但使用时需要搭配云服务器，云服务器一年几千……</li>
+</ol>
 <h4 id="Github-Pages-部署"><a href="#Github-Pages-部署" class="headerlink" title="Github Pages 部署"></a>Github Pages 部署</h4><table>
 <thead>
 <tr>
@@ -379,7 +354,19 @@
 </thead>
 <tbody><tr>
 <td align="center">部署简单</td>
-<td align="center">需要上传整个仓库<br>部署后页面样式全丢</td>
+<td align="center">上传后需要手动部署<br>不能避免被审查</td>
+</tr>
+</tbody></table>
+<h4 id="Vercel"><a href="#Vercel" class="headerlink" title="Vercel"></a>Vercel</h4><table>
+<thead>
+<tr>
+<th align="center">优点</th>
+<th align="center">缺点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">部署简单<br>自带域名解析</td>
+<td align="center">待发现……</td>
 </tr>
 </tbody></table>
 <h2 id="贰丨双线部署方法（已放弃）"><a href="#贰丨双线部署方法（已放弃）" class="headerlink" title="贰丨双线部署方法（已放弃）"></a>贰丨双线部署方法（已放弃）</h2><blockquote>
@@ -390,8 +377,8 @@
 <p>第二步，在阿里云解析中设置 CNAME 记录，为 Coding 设置智能线路，为 Cloudflare Pages 设置为国外 IP 线路。</p>
 <blockquote>
 <p>由于不会使用鹅云的 SSL，导致生成的页面最终无法强制 HTTPS，搞了很久都没成功，故放弃。</p>
-<p>Cloudflare 无法设置区分国内国外 IP 的 A 记录，但可设置屏蔽某些洲 / 国家 IP 的访问，毕竟——</p>
-<p>——双线部署，图啥呢？（已设置屏蔽域外访问）</p>
+<p>Cloudflare 无法设置区分国内国外 IP 的 A 记录，但可设置屏蔽某些洲 / 国家 IP 的访问。</p>
+<p>双线部署，图啥呢？（已设置屏蔽域外访问😎）</p>
 </blockquote>
 
     </div>

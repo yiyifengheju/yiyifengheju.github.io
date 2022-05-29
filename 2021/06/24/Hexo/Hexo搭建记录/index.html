@@ -22,16 +22,16 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.mastermao.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeInLeft","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="老当益壮，宁移白首之心？穷且益坚，不坠青云之志。 本文主要介绍使用 Hexo 搭建个人笔记的全过程，系统为 macOS Big Sur 11.4">
+    <meta name="description" content="本文记录了macOS下使用 Hexo 搭建个人博客的全过程，包括Hexo环境配置、初始化博客、GitHub部署、写作、个人域名配置等。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo搭建个人博客(macOS下)">
 <meta property="og:url" content="https://www.mastermao.cn/2021/06/24/Hexo/Hexo%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/index.html">
 <meta property="og:site_name" content="一一风和橘">
-<meta property="og:description" content="老当益壮，宁移白首之心？穷且益坚，不坠青云之志。 本文主要介绍使用 Hexo 搭建个人笔记的全过程，系统为 macOS Big Sur 11.4">
+<meta property="og:description" content="本文记录了macOS下使用 Hexo 搭建个人博客的全过程，包括Hexo环境配置、初始化博客、GitHub部署、写作、个人域名配置等。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88macOS%E4%B8%8B%EF%BC%89.svg">
 <meta property="article:published_time" content="2021-06-24T14:15:00.000Z">
-<meta property="article:modified_time" content="2021-10-23T23:07:45.034Z">
+<meta property="article:modified_time" content="2022-05-28T14:41:30.157Z">
 <meta property="article:author" content="MasterMao">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="macOS">
@@ -135,7 +135,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A3%B9%E4%B8%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-text">壹丨环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85-NodeJS"><span class="nav-text">1. 安装 NodeJS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%AE%89%E8%A3%85-Hexo"><span class="nav-text">2. 安装 Hexo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%AE%89%E8%A3%85-hexo-deployer-git%EF%BC%88%E7%94%A8%E4%BA%8E%E9%83%A8%E7%BD%B2%EF%BC%89"><span class="nav-text">3. 安装 hexo-deployer-git（用于部署）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E5%AE%89%E8%A3%85-homebrew"><span class="nav-text">4. 安装 homebrew</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E5%AE%89%E8%A3%85-git"><span class="nav-text">5. 安装 git</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B4%B0%E4%B8%A8%E6%96%B0%E5%BB%BA%E5%8D%9A%E5%AE%A2"><span class="nav-text">贰丨新建博客</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-text">1. 初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%AE%89%E8%A3%85-NexT"><span class="nav-text">2. 安装 NexT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%90%AF%E7%94%A8-NexT-%E4%B8%BB%E9%A2%98"><span class="nav-text">3. 启用 NexT 主题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88"><span class="nav-text">4. 本地预览</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%81%E4%B8%A8GitHub-%E9%83%A8%E7%BD%B2"><span class="nav-text">叁丨GitHub 部署</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E6%96%B0%E5%BB%BA%E4%BB%93%E5%BA%93"><span class="nav-text">1. 新建仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E9%85%8D%E7%BD%AE-SSH"><span class="nav-text">2. 配置 SSH</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-GitHub-%E4%B8%AD%E6%B7%BB%E5%8A%A0-SSH-key"><span class="nav-text">3. GitHub 中添加 SSH key</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E9%83%A8%E7%BD%B2%E5%88%B0-GitHub"><span class="nav-text">4. 部署到 GitHub</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%82%86%E4%B8%A8%E8%AE%BE%E7%BD%AE%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D"><span class="nav-text">肆丨设置个人域名</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E4%B9%B0%E4%B8%AA%E5%9F%9F%E5%90%8D"><span class="nav-text">1. 买个域名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E9%98%BF%E9%87%8C%E4%BA%91%E8%AE%BE%E7%BD%AE"><span class="nav-text">2.阿里云设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E6%9C%AC%E5%9C%B0%E9%85%8D%E7%BD%AE"><span class="nav-text">3. 本地配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-GitHub-%E9%85%8D%E7%BD%AE"><span class="nav-text">4. GitHub 配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%8D%E4%B8%A8Cloudflare-%E5%AE%9E%E7%8E%B0-HTTPS"><span class="nav-text">伍丨Cloudflare 实现 HTTPS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%86%E4%B8%A8%E5%86%99%E4%BD%9C%E8%BD%AF%E4%BB%B6"><span class="nav-text">陆丨写作软件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-MWeb%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="nav-text">1. MWeb（推荐）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Typora%EF%BC%88%E5%BC%BA%E7%83%88%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="nav-text">2. Typora（强烈推荐）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E8%AE%BE%E7%BD%AE-post-asset-folder"><span class="nav-text">1. 设置 post_asset_folder</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E5%AE%89%E8%A3%85-hexo-asset-image"><span class="nav-text">2. 安装 hexo-asset-image</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E9%85%8D%E7%BD%AE-Typora-%E5%9B%BE%E7%89%87%E4%BF%9D%E5%AD%98%E8%B7%AF%E5%BE%84%EF%BC%9A"><span class="nav-text">3. 配置 Typora 图片保存路径：</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%92%E4%B8%A8%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95"><span class="nav-text">柒丨常用语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Front-matter"><span class="nav-text">1. Front-matter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%BC%95%E7%94%A8%E5%9D%97"><span class="nav-text">2. 引用块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="nav-text">3. 代码块</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-text">参考</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A3%B9%E4%B8%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-text">壹丨环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85-NodeJS"><span class="nav-text">1. 安装 NodeJS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%AE%89%E8%A3%85-Hexo"><span class="nav-text">2. 安装 Hexo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%AE%89%E8%A3%85-hexo-deployer-git%EF%BC%88%E7%94%A8%E4%BA%8E%E9%83%A8%E7%BD%B2%EF%BC%89"><span class="nav-text">3. 安装 hexo-deployer-git（用于部署）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B4%B0%E4%B8%A8%E6%96%B0%E5%BB%BA%E5%8D%9A%E5%AE%A2"><span class="nav-text">贰丨新建博客</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-text">1. 初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%AE%89%E8%A3%85-NexT"><span class="nav-text">2. 安装 NexT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%90%AF%E7%94%A8-NexT-%E4%B8%BB%E9%A2%98"><span class="nav-text">3. 启用 NexT 主题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88"><span class="nav-text">4. 本地预览</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%81%E4%B8%A8GitHub-%E9%83%A8%E7%BD%B2"><span class="nav-text">叁丨GitHub 部署</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E6%96%B0%E5%BB%BA%E4%BB%93%E5%BA%93"><span class="nav-text">1. 新建仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E9%85%8D%E7%BD%AE-SSH"><span class="nav-text">2. 配置 SSH</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">3. 修改配置文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2"><span class="nav-text">4. 部署博客</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%82%86%E4%B8%A8%E8%AE%BE%E7%BD%AE%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D"><span class="nav-text">肆丨设置个人域名</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%B7%BB%E5%8A%A0%E8%A7%A3%E6%9E%90"><span class="nav-text">1. 添加解析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%9C%AC%E5%9C%B0%E9%85%8D%E7%BD%AE"><span class="nav-text">2. 本地配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-GitHub-%E9%85%8D%E7%BD%AE"><span class="nav-text">3. GitHub 配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%8D%E4%B8%A8Cloudflare-%E5%AE%9E%E7%8E%B0-HTTPS"><span class="nav-text">伍丨Cloudflare 实现 HTTPS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%86%E4%B8%A8%E5%86%99%E4%BD%9C%E8%BD%AF%E4%BB%B6"><span class="nav-text">陆丨写作软件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-MWeb%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="nav-text">1. MWeb（推荐）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Typora%EF%BC%88%E5%BC%BA%E7%83%88%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="nav-text">2. Typora（强烈推荐）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%92%E4%B8%A8%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95"><span class="nav-text">柒丨常用语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Front-matter"><span class="nav-text">1. Front-matter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%BC%95%E7%94%A8%E5%9D%97"><span class="nav-text">2. 引用块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="nav-text">3. 代码块</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-text">参考</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -150,18 +150,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">37</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -267,7 +267,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2021-10-24 07:07:45" itemprop="dateModified" datetime="2021-10-24T07:07:45+08:00">2021-10-24</time>
+      <time title="修改时间：2022-05-28 22:41:30" itemprop="dateModified" datetime="2022-05-28T22:41:30+08:00">2022-05-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -297,79 +297,68 @@
     
     <div class="post-body" itemprop="articleBody">
         <blockquote>
-<p>老当益壮，宁移白首之心？穷且益坚，不坠青云之志。</p>
-<p>本文主要介绍使用 Hexo 搭建个人笔记的全过程，系统为 macOS Big Sur 11.4</p>
+<p>本文记录了macOS下使用 Hexo 搭建个人博客的全过程，包括Hexo环境配置、初始化博客、GitHub部署、写作、个人域名配置等。</p>
 </blockquote>
 <p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88macOS%E4%B8%8B%EF%BC%89.svg"></p>
 <span id="more"></span>
 
-<h2 id="壹丨环境配置"><a href="#壹丨环境配置" class="headerlink" title="壹丨环境配置"></a>壹丨环境配置</h2><h4 id="1-安装-NodeJS"><a href="#1-安装-NodeJS" class="headerlink" title="1. 安装 NodeJS"></a>1. 安装 NodeJS</h4><p>网址：<a target="_blank" rel="noopener" href="https://nodejs.org/en/">https://nodejs.org/en/</a></p>
-<h4 id="2-安装-Hexo"><a href="#2-安装-Hexo" class="headerlink" title="2. 安装 Hexo"></a>2. 安装 Hexo</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<h2 id="壹丨环境配置"><a href="#壹丨环境配置" class="headerlink" title="壹丨环境配置"></a>壹丨环境配置</h2><h4 id="1-安装-NodeJS"><a href="#1-安装-NodeJS" class="headerlink" title="1. 安装 NodeJS"></a>1. 安装 NodeJS</h4><p>从 <a target="_blank" rel="noopener" href="https://nodejs.org/en/">NodeJS官网</a> 下载安装包并安装</p>
+<h4 id="2-安装-Hexo"><a href="#2-安装-Hexo" class="headerlink" title="2. 安装 Hexo"></a>2. 安装 Hexo</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 
-<h4 id="3-安装-hexo-deployer-git（用于部署）"><a href="#3-安装-hexo-deployer-git（用于部署）" class="headerlink" title="3. 安装 hexo-deployer-git（用于部署）"></a>3. 安装 <code>hexo-deployer-git</code>（用于部署）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<h4 id="3-安装-hexo-deployer-git（用于部署）"><a href="#3-安装-hexo-deployer-git（用于部署）" class="headerlink" title="3. 安装 hexo-deployer-git（用于部署）"></a>3. 安装 <code>hexo-deployer-git</code>（用于部署）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 
-<h4 id="4-安装-homebrew"><a href="#4-安装-homebrew" class="headerlink" title="4. 安装 homebrew"></a>4. 安装 homebrew</h4><p>镜像：<a target="_blank" rel="noopener" href="http://mirrors.ustc.edu.cn/help/brew.git.html">http://mirrors.ustc.edu.cn/help/brew.git.html</a></p>
-<h4 id="5-安装-git"><a href="#5-安装-git" class="headerlink" title="5. 安装 git"></a>5. 安装 git</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install git</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p><em><strong>Tips</strong></em>：修复 “fatal: Could not resolve HEAD to a revision”：</p>
-</blockquote>
-<blockquote>
-<p>执行 <code>brew update --verbose</code>，找到报错路径；<br>执行 <code>git fetch --prune origin</code>；<br>执行 <code>git pull --rebase origin master</code>。</p>
-</blockquote>
-<h2 id="贰丨新建博客"><a href="#贰丨新建博客" class="headerlink" title="贰丨新建博客"></a>贰丨新建博客</h2><p>使用 NexT 主题：<a target="_blank" rel="noopener" href="https://theme-next.js.org/">https://theme-next.js.org</a></p>
-<h4 id="1-初始化"><a href="#1-初始化" class="headerlink" title="1. 初始化"></a>1. 初始化</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir hexo-site</span><br><span class="line">$ <span class="built_in">cd</span> hexo-site</span><br><span class="line">$ hexo init</span><br></pre></td></tr></table></figure>
 
+<h2 id="贰丨新建博客"><a href="#贰丨新建博客" class="headerlink" title="贰丨新建博客"></a>贰丨新建博客</h2><p>使用 <a target="_blank" rel="noopener" href="https://theme-next.js.org/">NexT 主题</a></p>
+<h4 id="1-初始化"><a href="#1-初始化" class="headerlink" title="1. 初始化"></a>1. 初始化</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir hexo-site</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo-site</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+
+<p><em><strong>Tips：配置文件介绍</strong></em></p>
 <blockquote>
-<p><em><strong>Tips</strong></em>：配置文件</p>
-</blockquote>
-<blockquote>
-<p><code>~/hexo-site/_config.yml</code> 为博客网站配置文件<br><code>~/hexo-site/themes/next/_config.yml</code> 为主题配置文件</p>
+<p><code>~/hexo-site/_config.yml</code> ，为博客网站配置文件<br><code>~/hexo-site/themes/next/_config.yml</code> ，为主题配置文件</p>
 </blockquote>
 <h4 id="2-安装-NexT"><a href="#2-安装-NexT" class="headerlink" title="2. 安装 NexT"></a>2. 安装 NexT</h4><blockquote>
-<p>官方提供了 git 方法和 npm 方法，其中，npm 方法安装的主题文件位于 <code>~/hexo-site/node_modules/next</code> 下，后续配置主题文件及修改 CSS、JS 文件不方便，所以本文使用的 git 方法。</p>
+<p>官方提供了 git 方法和 npm 方法，其中，npm 方法安装的主题文件位于 <code>~/hexo-site/node_modules/next</code> 下，后续配置主题文件及修改 CSS、JS 文件不方便，所以本文推荐 git 方法。</p>
 </blockquote>
 <p>安装主题：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> hexo-site</span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/next-theme/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo-site</span><br></pre></td></tr></table></figure>
 
-<p>升级主题：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> hexo-site</span><br><span class="line">$ <span class="built_in">cd</span> themes/next</span><br><span class="line">$ git pull origin master</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/next-theme/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+
+<p><em><strong>Tips: 升级主题</strong></em></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo-site</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> themes/next</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin master</span><br></pre></td></tr></table></figure>
 
 <h4 id="3-启用-NexT-主题"><a href="#3-启用-NexT-主题" class="headerlink" title="3. 启用 NexT 主题"></a>3. 启用 NexT 主题</h4><p>博客配置文件 <code>~/hexo-site/_config.yml</code></p>
 <figure class="highlight bash"><figcaption><span>~/hexo-site/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+ theme: next</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p><em><strong>Tips</strong></em>：配置文件的键值中间有个空格</p>
-</blockquote>
-<h4 id="4-本地预览"><a href="#4-本地预览" class="headerlink" title="4. 本地预览"></a>4. 本地预览</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 清除缓存</span></span><br><span class="line">$ hexo clean</span><br><span class="line"><span class="comment"># 生成静态网页</span></span><br><span class="line">$ hexo g</span><br><span class="line"><span class="comment"># 本地预览</span></span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+<p><em><strong>Tips：配置文件的键值中间有个空格</strong></em></p>
+<h4 id="4-本地预览"><a href="#4-本地预览" class="headerlink" title="4. 本地预览"></a>4. 本地预览</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 清除缓存</span></span><br><span class="line">hexo clean</span><br><span class="line"><span class="comment"># 生成静态网页</span></span><br><span class="line">hexo g</span><br><span class="line"><span class="comment"># 本地预览</span></span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 
-<p>打开默认端口 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a> 即可预览博客</p>
+<p>打开默认端口 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a> 即可本地预览博客</p>
 <h2 id="叁丨GitHub-部署"><a href="#叁丨GitHub-部署" class="headerlink" title="叁丨GitHub 部署"></a>叁丨GitHub 部署</h2><h4 id="1-新建仓库"><a href="#1-新建仓库" class="headerlink" title="1. 新建仓库"></a>1. 新建仓库</h4><p>命名为：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用户名.github.io</span><br></pre></td></tr></table></figure>
 
 <h4 id="2-配置-SSH"><a href="#2-配置-SSH" class="headerlink" title="2. 配置 SSH"></a>2. 配置 SSH</h4><p>Terminal 执行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">&quot;yourname&quot;</span></span><br><span class="line">$ git config --global user.email <span class="string">&quot;youremail&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用户配置</span></span><br><span class="line">git config --global user.name <span class="string">&quot;yourname&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;youremail&quot;</span></span><br><span class="line"><span class="comment"># 生成秘钥</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;youremail&quot;</span></span><br><span class="line"><span class="comment"># 读取秘钥，并添加到GitHub——Setting——SSH keys</span></span><br><span class="line">cat ~/.ssh/id_rsa.pub</span><br><span class="line"><span class="comment"># 测试是否成功</span></span><br><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
 
-<p>创建 SSH：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">&quot;youremail&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="3-GitHub-中添加-SSH-key"><a href="#3-GitHub-中添加-SSH-key" class="headerlink" title="3. GitHub 中添加 SSH key"></a>3. GitHub 中添加 SSH key</h4><p>访达 —— 前往文件夹 —— .ssh，其中：</p>
-<ul>
-<li>id_rsa —— 私人秘钥</li>
-<li>id_rsa.pub —— 公共秘钥</li>
-</ul>
-<p>GitHub 账户 setting 中，SSH keys —— New SSH key —— 将 id_rsa.pub 内容粘贴进去</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 测试是否成功</span></span><br><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-
-<h4 id="4-部署到-GitHub"><a href="#4-部署到-GitHub" class="headerlink" title="4. 部署到 GitHub"></a>4. 部署到 GitHub</h4><p>修改博客配置文件 <code> ~/hexo-site/_config.yml</code>：</p>
+<h4 id="3-修改配置文件"><a href="#3-修改配置文件" class="headerlink" title="3. 修改配置文件"></a>3. 修改配置文件</h4><p>修改 <code> ~/hexo-site/_config.yml</code>：</p>
 <figure class="highlight bash"><figcaption><span>~/hexo-site/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">+ deploy:</span><br><span class="line">+   <span class="built_in">type</span>: git</span><br><span class="line">+   repo: git@github.com:用户名/用户名.github.io.git</span><br><span class="line">+   branch: master</span><br></pre></td></tr></table></figure>
 
-<p>部署博客：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 清除缓存</span></span><br><span class="line">$ hexo clean</span><br><span class="line"><span class="comment"># 生成静态网页</span></span><br><span class="line">$ hexo g</span><br><span class="line"><span class="comment"># 部署</span></span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+<h3 id="4-部署博客"><a href="#4-部署博客" class="headerlink" title="4. 部署博客"></a>4. 部署博客</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 清除缓存</span></span><br><span class="line">hexo clean</span><br><span class="line"><span class="comment"># 生成静态网页</span></span><br><span class="line">hexo g</span><br><span class="line"><span class="comment"># 部署</span></span><br><span class="line">hexo deploy</span><br><span class="line"><span class="comment"># 或</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 
 <p>打开 <code>http://用户名.github.io</code> 即可看到博客。</p>
-<h2 id="肆丨设置个人域名"><a href="#肆丨设置个人域名" class="headerlink" title="肆丨设置个人域名"></a>肆丨设置个人域名</h2><h4 id="1-买个域名"><a href="#1-买个域名" class="headerlink" title="1. 买个域名"></a>1. 买个域名</h4><h4 id="2-阿里云设置"><a href="#2-阿里云设置" class="headerlink" title="2.阿里云设置"></a>2.阿里云设置</h4><p>阿里云控制台 —— 域名 —— 解析</p>
-<p>添加 A 记录：</p>
+<h2 id="肆丨设置个人域名"><a href="#肆丨设置个人域名" class="headerlink" title="肆丨设置个人域名"></a>肆丨设置个人域名</h2><p>以阿里云为例</p>
+<h3 id="1-添加解析"><a href="#1-添加解析" class="headerlink" title="1. 添加解析"></a>1. 添加解析</h3><p>阿里云控制台 —— 域名 —— 解析</p>
+<ol>
+<li>添加 A 记录：</li>
+</ol>
 <ul>
 <li><p>解析线路，默认</p>
 </li>
@@ -380,22 +369,22 @@
 <li><p>记录值，下述任选一即可</p>
 </li>
 </ul>
-<p>使用 <a target="_blank" rel="noopener" href="https://www.ipaddress.com/">IPAddress.com</a> 查找 <code>github.io</code> 的地址：</p>
+<p><em><strong>Tips: 使用 <a target="_blank" rel="noopener" href="https://www.ipaddress.com/">IPAddress.com</a> 查找 <code>github.io</code> 的地址：</strong></em></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">185.199.108.153</span><br><span class="line">185.199.109.153</span><br><span class="line">185.199.110.153 </span><br><span class="line">185.199.111.153</span><br></pre></td></tr></table></figure>
 
-<p>添加 CNAME 记录：</p>
+<ol start="2">
+<li>添加 CNAME 记录：</li>
+</ol>
 <ul>
 <li>解析线路，默认</li>
 <li>记录类型，CNAME</li>
 <li>主机记录，www</li>
 <li>记录值，用户名.github.io</li>
 </ul>
-<h4 id="3-本地配置"><a href="#3-本地配置" class="headerlink" title="3. 本地配置"></a>3. 本地配置</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/hexo-site/<span class="built_in">source</span></span><br><span class="line">$ touch CNAME</span><br><span class="line">$ nano CNAME</span><br><span class="line"><span class="comment"># 写入域名并保存</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-本地配置"><a href="#2-本地配置" class="headerlink" title="2. 本地配置"></a>2. 本地配置</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/hexo-site/<span class="built_in">source</span></span><br><span class="line">touch CNAME</span><br><span class="line">nano CNAME</span><br><span class="line"><span class="comment"># 写入域名并保存</span></span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p><em><strong>Tips</strong></em>：或者执行下一步会自动添加 CNAME 文件</p>
-</blockquote>
-<h4 id="4-GitHub-配置"><a href="#4-GitHub-配置" class="headerlink" title="4. GitHub 配置"></a>4. GitHub 配置</h4><p>仓库 —— setting —— Custom domain —— 添加域名 —— 填入域名</p>
+<p><em><strong>Tips：或者执行下一步会自动添加 CNAME 文件</strong></em></p>
+<h4 id="3-GitHub-配置"><a href="#3-GitHub-配置" class="headerlink" title="3. GitHub 配置"></a>3. GitHub 配置</h4><p>仓库 —— setting —— Custom domain —— 添加域名 —— 填入域名</p>
 <h2 id="伍丨Cloudflare-实现-HTTPS"><a href="#伍丨Cloudflare-实现-HTTPS" class="headerlink" title="伍丨Cloudflare 实现 HTTPS"></a>伍丨Cloudflare 实现 HTTPS</h2><blockquote>
 <p>HTTP 访问会被浏览器发红包，具体原因不再赘述。</p>
 </blockquote>
@@ -411,12 +400,15 @@
 <p>上述操作下图片保存在 <code>~/hexo-site/source/images</code> 下，不利于图片管理。</p>
 </blockquote>
 <p>应对方法：图片保存在文件同名文件夹下</p>
-<h5 id="1-设置-post-asset-folder"><a href="#1-设置-post-asset-folder" class="headerlink" title="1. 设置 post_asset_folder"></a>1. 设置 <code>post_asset_folder</code></h5><p>修改<code>~/hexo-site/_config.yml</code>：</p>
+<p>第一步，设置 <code>post_asset_folder</code></p>
+<p>修改<code>~/hexo-site/_config.yml</code>：</p>
 <figure class="highlight bash"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+ post_asset_folder: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
-<h5 id="2-安装-hexo-asset-image"><a href="#2-安装-hexo-asset-image" class="headerlink" title="2. 安装 hexo-asset-image"></a>2. 安装 <code>hexo-asset-image</code></h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/hexo-site</span><br><span class="line">$ npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+<p>第二步，安装 <code>hexo-asset-image</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/hexo-site</span><br><span class="line">$ npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
 
-<h5 id="3-配置-Typora-图片保存路径："><a href="#3-配置-Typora-图片保存路径：" class="headerlink" title="3. 配置 Typora 图片保存路径："></a>3. 配置 Typora 图片保存路径：</h5><p>文件 —— 偏好设置 —— 图像 —— 插入图片时…</p>
+<p>第三步，配置 Typora 图片保存路径：</p>
+<p>文件 —— 偏好设置 —— 图像 —— 插入图片时…</p>
 <ul>
 <li>复制到指定路径</li>
 <li><code>./$&#123;filename&#125;</code></li>
@@ -424,9 +416,7 @@
 <li>勾选 - 对网络位置的图片应用上述规则</li>
 <li>勾选 - 优先使用相对路径</li>
 </ul>
-<blockquote>
-<p>本地保存图片的方法比较占空间，可以换用图床方式插入图片。</p>
-</blockquote>
+<p><em><strong>Tips：本地保存图片的方法比较占空间，建议换用图床方式插入图片</strong></em></p>
 <h2 id="柒丨常用语法"><a href="#柒丨常用语法" class="headerlink" title="柒丨常用语法"></a>柒丨常用语法</h2><h4 id="1-Front-matter"><a href="#1-Front-matter" class="headerlink" title="1. Front-matter"></a>1. Front-matter</h4><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">layout:</span> <span class="string">post</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">标题</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2021</span><span class="string">/6/24</span> <span class="number">21</span><span class="string">:28:25</span></span><br><span class="line"><span class="attr">updated:</span> <span class="number">2021</span><span class="string">/6/25</span> <span class="number">21</span><span class="string">:28:25</span></span><br><span class="line"><span class="attr">comments:</span> <span class="literal">true</span> <span class="string">(开启评论)</span></span><br><span class="line"><span class="attr">tags:</span> <span class="string">(标签)</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">标签1</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">标签2</span></span><br><span class="line"><span class="attr">categories:</span> <span class="string">(分类)</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">类名</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="2-引用块"><a href="#2-引用块" class="headerlink" title="2. 引用块"></a>2. 引用块</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% blockquote [author[, source]] [link] [source_link_title] %&#125;</span><br><span class="line">content</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
@@ -507,8 +497,8 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/06/25/Windows%E7%9B%B8%E5%85%B3/Windows%E4%BF%AE%E5%A4%8D/" rel="next" title="Windows 10常见异常修复">
-                  Windows 10常见异常修复 <i class="fa fa-chevron-right"></i>
+                <a href="/2021/06/25/Windows%E7%9B%B8%E5%85%B3/Windows%E4%BF%AE%E5%A4%8D/" rel="next" title="Windows 10常见报错及修复技巧">
+                  Windows 10常见报错及修复技巧 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
