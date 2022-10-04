@@ -89,7 +89,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-gallery"><a href="/gallery/" rel="section"><i class="fa fa-camera fa-fw"></i>画廊</a></li><li class="menu-item menu-item-photo"><a href="/photoalbum/" rel="section"><i class="fa fa-images fa-fw"></i>相册</a></li><li class="menu-item menu-item-travel"><a href="/travel/" rel="section"><i class="fa fa-sailboat fa-fw"></i>旅行</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fab fa-medapps fa-fw"></i>关于</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-gallery"><a href="/gallery/" rel="section"><i class="fa fa-camera fa-fw"></i>画廊</a></li><li class="menu-item menu-item-photo"><a href="/photoalbum/" rel="section"><i class="fa fa-images fa-fw"></i>相册</a></li><li class="menu-item menu-item-league-of-legends"><a href="/League-of-Legends/" rel="section"><i class="fa fa-gamepad fa-fw"></i>LEAGUE of LEGENDS</a></li><li class="menu-item menu-item-travel"><a href="/travel/" rel="section"><i class="fa fa-sailboat fa-fw"></i>旅行</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fab fa-medapps fa-fw"></i>关于</a></li>
   </ul>
 </nav>
 
@@ -134,13 +134,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">56</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -205,6 +205,289 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.mastermao.cn/2022/01/04/Python%E7%8E%AF%E5%A2%83%E7%9B%B8%E5%85%B3/%E8%A7%A3%E5%86%B3PyCharm%E5%AE%89%E8%A3%85%E6%85%A2%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="一一风和橘">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MasterMao's Blog">
+      <meta itemprop="description" content="The trick, William Potter, is not minding that it hurts.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | MasterMao's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/01/04/Python%E7%8E%AF%E5%A2%83%E7%9B%B8%E5%85%B3/%E8%A7%A3%E5%86%B3PyCharm%E5%AE%89%E8%A3%85%E6%85%A2%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">解决PyCharm使用pip安装包慢的问题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-01-04 01:25:28" itemprop="dateCreated datePublished" datetime="2022-01-04T01:25:28+08:00">2022-01-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-05-29 01:53:29" itemprop="dateModified" datetime="2022-05-29T01:53:29+08:00">2022-05-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Pycharm/" itemprop="url" rel="index"><span itemprop="name">Pycharm</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>问题描述：在PyCharm中使用<code>pip</code>命令安装Python包特别慢</p>
+<p>解决方法：更换国内镜像源</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/01/04/Python%E7%8E%AF%E5%A2%83%E7%9B%B8%E5%85%B3/%E8%A7%A3%E5%86%B3PyCharm%E5%AE%89%E8%A3%85%E6%85%A2%E9%97%AE%E9%A2%98/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.mastermao.cn/2021/12/26/Windows%E7%9B%B8%E5%85%B3/%E7%BE%8E%E5%9B%BE%E7%A7%80%E7%A7%80%E9%AB%98DPI/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="一一风和橘">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MasterMao's Blog">
+      <meta itemprop="description" content="The trick, William Potter, is not minding that it hurts.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | MasterMao's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/12/26/Windows%E7%9B%B8%E5%85%B3/%E7%BE%8E%E5%9B%BE%E7%A7%80%E7%A7%80%E9%AB%98DPI/" class="post-title-link" itemprop="url">美图秀秀开启高DPI</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-12-26 08:16:00" itemprop="dateCreated datePublished" datetime="2021-12-26T08:16:00+08:00">2021-12-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-05-29 05:15:04" itemprop="dateModified" datetime="2022-05-29T05:15:04+08:00">2022-05-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Windows-10/" itemprop="url" rel="index"><span itemprop="name">Windows 10</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>使用2K、4K屏幕时，类似美图秀秀、央视影音这种软件显示的非常小，原因是没有适配高DPI，可以手动开启。</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/12/26/Windows%E7%9B%B8%E5%85%B3/%E7%BE%8E%E5%9B%BE%E7%A7%80%E7%A7%80%E9%AB%98DPI/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.mastermao.cn/2021/11/28/PythonGUI%E7%BC%96%E7%A8%8B/PySide6%E8%B8%A9%E5%9D%91%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="一一风和橘">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MasterMao's Blog">
+      <meta itemprop="description" content="The trick, William Potter, is not minding that it hurts.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | MasterMao's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/11/28/PythonGUI%E7%BC%96%E7%A8%8B/PySide6%E8%B8%A9%E5%9D%91%E8%AE%B0/" class="post-title-link" itemprop="url">PySide6踩坑记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-11-28 17:43:50" itemprop="dateCreated datePublished" datetime="2021-11-28T17:43:50+08:00">2021-11-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-05-29 01:42:59" itemprop="dateModified" datetime="2022-05-29T01:42:59+08:00">2022-05-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>使用 Pyside6 的记录</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/11/28/PythonGUI%E7%BC%96%E7%A8%8B/PySide6%E8%B8%A9%E5%9D%91%E8%AE%B0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -862,435 +1145,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/08/20/Hexo/Hexo%E7%BE%8E%E5%8C%96/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.mastermao.cn/2021/07/16/Python/Python%E5%AE%9E%E8%B7%B5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="一一风和橘">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MasterMao's Blog">
-      <meta itemprop="description" content="The trick, William Potter, is not minding that it hurts.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | MasterMao's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/16/Python/Python%E5%AE%9E%E8%B7%B5/" class="post-title-link" itemprop="url">Python入门——名片管理系统</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-07-16 17:43:50" itemprop="dateCreated datePublished" datetime="2021-07-16T17:43:50+08:00">2021-07-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-05-29 01:34:03" itemprop="dateModified" datetime="2022-05-29T01:34:03+08:00">2022-05-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>本文主要记录初学Python时写的名片管理系统</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/07/16/Python/Python%E5%AE%9E%E8%B7%B5/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.mastermao.cn/2021/07/13/Python/Python%E5%9F%BA%E7%A1%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="一一风和橘">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MasterMao's Blog">
-      <meta itemprop="description" content="The trick, William Potter, is not minding that it hurts.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | MasterMao's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/13/Python/Python%E5%9F%BA%E7%A1%80/" class="post-title-link" itemprop="url">Python入门——基础</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-07-13 22:16:33" itemprop="dateCreated datePublished" datetime="2021-07-13T22:16:33+08:00">2021-07-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-05-29 01:23:23" itemprop="dateModified" datetime="2022-05-29T01:23:23+08:00">2022-05-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="一、Pycharm基础使用"><a href="#一、Pycharm基础使用" class="headerlink" title="一、Pycharm基础使用"></a>一、Pycharm基础使用</h2><h4 id="单词列表"><a href="#单词列表" class="headerlink" title="单词列表"></a>单词列表</h4><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">* </span>error 错误</span><br><span class="line"><span class="bullet">* </span>name 名字</span><br><span class="line"><span class="bullet">* </span>defined 已经定义</span><br><span class="line"><span class="bullet">* </span>syntax 语法</span><br><span class="line"><span class="bullet">* </span>invalid 无效</span><br><span class="line"><span class="bullet">* </span>Indentation 索引</span><br><span class="line"><span class="bullet">* </span>unexpected 意外的，不期望的</span><br><span class="line"><span class="bullet">* </span>character 字符</span><br><span class="line"><span class="bullet">* </span>line 行</span><br><span class="line"><span class="bullet">* </span>encoding 编码</span><br><span class="line"><span class="bullet">* </span>declared 声明</span><br><span class="line"><span class="bullet">* </span>details 细节，详细信息</span><br><span class="line"><span class="bullet">* </span>ASCII 一种字符编码</span><br></pre></td></tr></table></figure>
-
-<h3 id="Python-解释器"><a href="#Python-解释器" class="headerlink" title="Python 解释器"></a>Python 解释器</h3><ul>
-<li><code>CPython</code> —— 官方版本的 C 语言实现</li>
-<li><code>Jython</code> —— 可以运行在 Java 平台</li>
-<li><code>IronPython</code> —— 可以运行在 .NET 和 Mono 平台</li>
-<li><code>PyPy</code> —— Python 实现的，支持 JIT 即时编译</li>
-</ul>
-<h2 id="二、编程语言科普"><a href="#二、编程语言科普" class="headerlink" title="二、编程语言科普"></a>二、编程语言科普</h2><p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/001_%E7%BC%96%E8%AF%91%E5%9E%8B%E5%92%8C%E8%A7%A3%E9%87%8A%E5%9E%8B%E8%AF%AD%E8%A8%80%E5%B7%A5%E4%BD%9C%E5%AF%B9%E6%AF%94.png"></p>
-<ul>
-<li><strong>编译型语言</strong>：程序在执行之前需要一个专门的编译过程，把程序编译成为机器语言的文件，运行时不需要重新翻译，直接使用编译的结果就行了。程序执行效率高，依赖编译器，跨平台性差些。如 C、C++（速度快）</li>
-<li><strong>解释型语言</strong>：解释型语言编写的程序不进行预先编译，以文本方式存储程序代码，会将代码一句一句直接运行。在发布程序时，看起来省了道编译工序，但是在运行程序的时候，必须先解释再运行。（跨平台）</li>
-</ul>
-<h2 id="三、代码规范"><a href="#三、代码规范" class="headerlink" title="三、代码规范"></a>三、代码规范</h2><p><strong>PEP 8</strong>代码格式：<a target="_blank" rel="noopener" href="https://www.python.org/dev/peps/pep-0008/">https://www.python.org/dev/peps/pep-0008/</a></p>
-<p>中文文档：<a target="_blank" rel="noopener" href="https://zh-google-styleguide.readthedocs.io/en/latest/google-python-styleguide/python_style_rules/#id1">https://zh-google-styleguide.readthedocs.io/en/latest/google-python-styleguide/python_style_rules/#id1</a></p>
-<blockquote>
-<p>Tip: 大部分.py文件不必以#!作为文件的开始. 根据 <a target="_blank" rel="noopener" href="http://www.python.org/dev/peps/pep-0394/">PEP-394</a> , 程序的main文件应该以 #!/usr/bin/python2或者 #!/usr/bin/python3开始.(类Unix操作系统的程序载入器会分析Shebang后的内容, 将这些内容作为解释器指令, 并调用该指令, 并将载有Shebang的文件路径作为该解释器的参数. )</p>
-</blockquote>
-<blockquote>
-<p>Tip: 如果一个类不继承自其它类, 就显式的从object继承. 嵌套类也一样.</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 继承自 object 是为了使属性(properties)正常工作, 并且这样可以保护你的代码, 使其不受 PEP-3000 的一个特殊的潜在不兼容性影响. 这样做也定义了一些特殊的方法, 这些方法实现了对象的默认语义, 包括 __new__, __init__, __delattr__, __getattribute__, __setattr__, __hash__, __repr__, and __str__ .</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SampleClass</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OuterClass</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ChildClass</span>(<span class="params">ParentClass</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Explicitly inherits from another class already.&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<blockquote>
-<p>Tip: 避免在循环中用+和+=操作符来累加字符串. </p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 字符串是不可变的, 这样做会创建不必要的临时对象, 并且导致二次方而不是线性的运行时间. 作为替代方案, 你可以将每个子串加入列表, 然后在循环结束后用 `.join` 连接列表. (也可以将每个子串写入一个 `cStringIO.StringIO` 缓存中.)</span></span><br><span class="line"></span><br><span class="line">items = [<span class="string">&#x27;&lt;table&gt;&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> last_name, first_name <span class="keyword">in</span> employee_list:</span><br><span class="line">items.append(<span class="string">&#x27;&lt;tr&gt;&lt;td&gt;%s, %s&lt;/td&gt;&lt;/tr&gt;&#x27;</span> % (last_name, first_name))</span><br><span class="line">items.append(<span class="string">&#x27;&lt;/table&gt;&#x27;</span>)</span><br><span class="line">employee_table = <span class="string">&#x27;&#x27;</span>.join(items)</span><br></pre></td></tr></table></figure>
-
-
-
-<blockquote>
-<p>Tip: 命名规范</p>
-</blockquote>
-<p><strong>Python之父Guido推荐的规范</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Public(公有)</th>
-<th>Internal(内部)</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Modules(模块)</td>
-<td>lower_with_under</td>
-<td>_lower_with_under</td>
-</tr>
-<tr>
-<td>Packages(包)</td>
-<td>lower_with_under</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Classes(类)</strong></td>
-<td>CapWords</td>
-<td>_CapWords</td>
-</tr>
-<tr>
-<td><strong>Exceptions()</strong></td>
-<td>CapWords</td>
-<td></td>
-</tr>
-<tr>
-<td>Functions(函数)</td>
-<td>lower_with_under()</td>
-<td>_lower_with_under()</td>
-</tr>
-<tr>
-<td><strong>Global/Class Constants(全局/类常量)</strong></td>
-<td>CAPS_WITH_UNDER</td>
-<td>_CAPS_WITH_UNDER</td>
-</tr>
-<tr>
-<td>Global/Class Variables(全局/类变量)</td>
-<td>lower_with_under</td>
-<td>_lower_with_under</td>
-</tr>
-<tr>
-<td>Instance Variables(实例变量)</td>
-<td>lower_with_under</td>
-<td>_lower_with_under (protected) or __lower_with_under (private)</td>
-</tr>
-<tr>
-<td>Method Names(方法名)</td>
-<td>lower_with_under()</td>
-<td>_lower_with_under() (protected) or __lower_with_under() (private)</td>
-</tr>
-<tr>
-<td>Function/Method Parameters(函数/方法参数)</td>
-<td>lower_with_under</td>
-<td></td>
-</tr>
-<tr>
-<td>Local Variables(局部变量)</td>
-<td>lower_with_under</td>
-<td></td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>Tip: main函数</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Python中, pydoc以及单元测试要求模块必须是可导入的. 代码应该在执行主程序前总是检查 `if __name__ == &#x27;__main__&#x27;` , 这样当模块被导入时主程序就不会被执行.</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">      ...</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="四、变量"><a href="#四、变量" class="headerlink" title="四、变量"></a>四、变量</h2><h3 id="格式化输出"><a href="#格式化输出" class="headerlink" title="格式化输出"></a>格式化输出</h3><table>
-<thead>
-<tr>
-<th>格式化字符</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>%s</td>
-<td>字符串</td>
-</tr>
-<tr>
-<td>%d</td>
-<td>有符号十进制整数，<code>%06d</code> 表示输出的整数显示位数，不足的地方使用 <code>0</code> 补全</td>
-</tr>
-<tr>
-<td>%f</td>
-<td>浮点数，<code>%.2f</code> 表示小数点后只显示两位</td>
-</tr>
-<tr>
-<td>%%</td>
-<td>输出 <code>%</code></td>
-</tr>
-</tbody></table>
-<h3 id="命名规则"><a href="#命名规则" class="headerlink" title="命名规则"></a>命名规则</h3><ul>
-<li><p>每个单词都使用小写字母</p>
-</li>
-<li><p>单词与单词之间使用 <strong><code>_</code>下划线</strong> 连接</p>
-<ul>
-<li>例如：<code>first_name</code>、<code>last_name</code>、<code>qq_number</code>、<code>qq_password</code></li>
-</ul>
-</li>
-</ul>
-<h3 id="驼峰命名法"><a href="#驼峰命名法" class="headerlink" title="驼峰命名法"></a>驼峰命名法</h3><ul>
-<li>当 <strong>变量名</strong> 是由二个或多个单词组成时，还可以利用驼峰命名法来命名</li>
-<li><strong>小驼峰式命名法</strong><ul>
-<li>第一个单词以小写字母开始，后续单词的首字母大写</li>
-<li>例如：<code>firstName</code>、<code>lastName</code></li>
-</ul>
-</li>
-<li><strong>大驼峰式命名法</strong><ul>
-<li>每一个单词的首字母都采用大写字母</li>
-<li>例如：<code>FirstName</code>、<code>LastName</code>、<code>CamelCase</code> </li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.mastermao.cn/2021/07/12/Hexo/Hexo%E7%9B%B8%E5%86%8C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="一一风和橘">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MasterMao's Blog">
-      <meta itemprop="description" content="The trick, William Potter, is not minding that it hurts.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | MasterMao's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/12/Hexo/Hexo%E7%9B%B8%E5%86%8C/" class="post-title-link" itemprop="url">Hexo制作个人画廊</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-07-12 01:39:08" itemprop="dateCreated datePublished" datetime="2021-07-12T01:39:08+08:00">2021-07-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-05-28 22:52:46" itemprop="dateModified" datetime="2022-05-28T22:52:46+08:00">2022-05-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>需求：在导航栏添加一个展示照片墙的“画廊”功能，要求（1）图片使用图床保存；（2）图片加载速度快；（3）图片体积小，非原图</p>
-</blockquote>
-<blockquote>
-<p>本文使用腾讯云对象存储 COS 作为图床，使用 PicGo 软件上传，使用 Hexo 插件制作画廊，并使用 Python 脚本将原图批量压缩为 Webp 格式。</p>
-</blockquote>
-<img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/Hexo%E5%88%B6%E4%BD%9C%E4%B8%AA%E4%BA%BA%E7%94%BB%E5%BB%8A.svg" width='67%' />
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/07/12/Hexo/Hexo%E7%9B%B8%E5%86%8C/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
