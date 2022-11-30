@@ -42,6 +42,7 @@ const pjax = new Pjax({
 document.addEventListener('pjax:success', () => {
   pjax.executeScripts(document.querySelectorAll('script[data-pjax]'));
   NexT.boot.refresh();
+  // loadDPlayer();
   // Define Motion Sequence & Bootstrap Motion.
   if (CONFIG.motion.enable) {
     NexT.motion.integrator
@@ -61,21 +62,35 @@ document.addEventListener('pjax:success', () => {
     //动态加载 JS 文件
     dynamicLoading.js("/js/photo.js");
   }
-  if(document.getElementsByTagName("hexo-douban-tabs")){
-    //动态加载 CSS 文件
-    dynamicLoading.css("/css/douban.css");
-    dynamicLoading.js("/js/douban.js");
-  }
-  if(document.getElementsByTagName("hexo-douban-pagination")){
-    //动态加载 CSS 文件
-    dynamicLoading.css("/css/douban.css");
-    dynamicLoading.js("/js/douban.js");
-  }
-    if(document.getElementsByTagName("pullquote mindmap mindmap-md km-view")){
-    //动态加载 CSS 文件
-    dynamicLoading.css("https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css");
-    dynamicLoading.js("https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js");
-    dynamicLoading.js("https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js");
-    dynamicLoading.js("https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js");
-  }
+  // if(document.getElementsByTagName("hexo-douban-tabs")){
+  //   //动态加载 CSS 文件
+  //   dynamicLoading.css("/css/douban.css");
+  //   dynamicLoading.js("/js/douban.js");
+  // }
+  // if(document.getElementsByTagName("hexo-douban-pagination")){
+  //   //动态加载 CSS 文件
+  //   dynamicLoading.css("/css/douban.css");
+  //   dynamicLoading.js("/js/douban.js");
+  // }
+  //   if(document.getElementsByTagName("pullquote mindmap mindmap-md km-view")){
+  //   //动态加载 CSS 文件
+  //   dynamicLoading.css("https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css");
+  //   dynamicLoading.js("https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js");
+  //   dynamicLoading.js("https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js");
+  //   dynamicLoading.js("https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js");
+  // }
+  //   if(document.getElementById("dplayer0")){
+  //     if (window.dplayers) {
+  //       for (let i = 0; i < window.dplayers.length; i++) {
+  //           window.dplayers[i].destroy();
+  //       }
+  //       window.dplayers = [];
+  //     }
+
+    // dynamicLoading.js("https://cdn.jsdelivr.net/npm/hexo-tag-dplayer@0.3.3/index.min.js");
+    // dynamicLoading.js("https://cdn.jsdelivr.net/npm/dplayer@1.27.0/dist/DPlayer.min.js");
+    // dynamicLoading.js("/js/dplayer0.js");
+    // dynamicLoading.js("/js/dplayer00.js");
+  // }
+
 });
