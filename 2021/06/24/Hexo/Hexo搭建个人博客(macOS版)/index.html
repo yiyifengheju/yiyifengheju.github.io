@@ -5,22 +5,20 @@
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.0">
 
-
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
-  <meta name="baidu-site-verification" content="code-acp0FCvKY7">
 
 <link rel="stylesheet" href="/css/main.css">
 
-<link rel="stylesheet" href="https://fonts.loli.net/css?family=lato:300,300italic,400,400italic,700,700italic%7CMonoton:300,300italic,400,400italic,700,700italic%7CEB+Garamond:300,300italic,400,400italic,700,700italic%7CNoto+Serif+Simplified+Chinese:300,300italic,400,400italic,700,700italic%7COxygen+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto+Serif+SC:300,300italic,400,400italic,700,700italic%7CMonoton:300,300italic,400,400italic,700,700italic%7CEB+Garamond:300,300italic,400,400italic,700,700italic%7CUbuntu+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.mastermao.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeInLeft","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.mastermao.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeInLeft","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="本文记录了macOS下使用 Hexo 搭建个人博客的全过程，包括Hexo环境配置、初始化博客、GitHub部署、写作、个人域名配置等。">
 <meta property="og:type" content="article">
@@ -57,6 +55,10 @@
 
 
 
+  <script async defer data-website-id="" src=""></script>
+
+  <script defer data-domain="" src=""></script>
+
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -70,8 +72,8 @@
   <div class="headband"></div>
 
   <main class="main">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
         <span class="toggle-line"></span>
@@ -91,7 +93,7 @@
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
     </div>
   </div>
 </div>
@@ -99,22 +101,16 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-gallery"><a href="/gallery/" rel="section"><i class="fa fa-camera fa-fw"></i>画廊</a></li><li class="menu-item menu-item-travel"><a href="/travel/" rel="section"><i class="fa fa-sailboat fa-fw"></i>旅行</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fab fa-medapps fa-fw"></i>关于</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-gallery"><a href="/gallery/" rel="section"><i class="fa fa-camera-retro fa-fw"></i>画廊</a></li><li class="menu-item menu-item-travel"><a href="/travel/" rel="section"><i class="fa fa-sailboat fa-fw"></i>旅行</a></li><li class="menu-item menu-item-behappy"><a href="/behappy/" rel="section"><i class="fa fa-bath fa-fw"></i>开心一下</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fab fa-medapps fa-fw"></i>关于</a></li>
   </ul>
 </nav>
 
 
 
 
-</div>
+</header>
         
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-
   <aside class="sidebar">
 
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
@@ -135,13 +131,13 @@
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="一一风和橘"
-      src="/images/avatar.jpg">
+      src="/images/avatar.webp">
   <p class="site-author-name" itemprop="name">一一风和橘</p>
   <div class="site-description" itemprop="description">The trick, William Potter, is not minding that it hurts.</div>
 </div>
-<div class="site-state-wrap site-overview-item animated">
+<div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
@@ -161,59 +157,65 @@
       </div>
   </nav>
 </div>
-  <div class="links-of-author site-overview-item animated">
+  <div class="links-of-author animated">
       <span class="links-of-author-item">
-        <a href="https://music.163.com/#/user/home?id=1782954983" title="NetEase → https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;1782954983" rel="noopener" target="_blank"><i class="fa fa-headphones fa-fw"></i>NetEase</a>
+        <span class="exturl" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTE3ODI5NTQ5ODM=" title="NetEase → https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;1782954983"><i class="fa fa-headphones fa-fw"></i>NetEase</span>
       </span>
       <span class="links-of-author-item">
-        <a href="https://500px.com.cn/MonsterMao" title="500px → https:&#x2F;&#x2F;500px.com.cn&#x2F;MonsterMao" rel="noopener" target="_blank"><i class="fab fa-500px fa-fw"></i>500px</a>
+        <span class="exturl" data-url="aHR0cHM6Ly81MDBweC5jb20uY24vTW9uc3Rlck1hbw==" title="500px → https:&#x2F;&#x2F;500px.com.cn&#x2F;MonsterMao"><i class="fab fa-500px fa-fw"></i>500px</span>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:wego_mao@hotmail.com" title="E-Mail → mailto:wego_mao@hotmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+        <span class="exturl" data-url="bWFpbHRvOndlZ29fbWFvQGhvdG1haWwuY29t" title="E-Mail → mailto:wego_mao@hotmail.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</span>
       </span>
       <span class="links-of-author-item">
-        <a href="https://gitee.com/mastermao" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;mastermao" rel="noopener" target="_blank"><i class="fab fa-git-square fa-fw"></i>Gitee</a>
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRlZS5jb20vbWFzdGVybWFv" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;mastermao"><i class="fab fa-git-square fa-fw"></i>Gitee</span>
       </span>
   </div>
-
-
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></span>
+  </div>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title></title> 
-        <!-- require APlayer -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
-        <!-- require MetingJS -->
-        <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
-    </head>
-    <body>
-    <p> </p>
-    <meting-js server="netease" type="playlist" id="6922083348" autoplay="true" order="random" list-folded="true"></meting-js>
-        
-    </body>
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <!-- require APlayer -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+    <!-- require MetingJS -->
+    <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+</head>
+<body>
+
+<!--<p></p>-->
+<meting-js server="netease" type="playlist" id="6922083348" autoplay="true" order="random"
+           list-folded="true"></meting-js>
+<!--<p></p>-->
+
+<!--<div style="border-bottom:1px solid #CCC"></div>-->
+<!--<p></p>-->
+
+<!--<hr>-->
+<!--<div class="cc-license animated" itemprop="license">-->
+<!--    <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener external nofollow noreferrer noopener"-->
+<!--       target="_blank" class="exturl cc-opacity" title="遵守以下协议"><img-->
+<!--            src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/big/by_nc_sa.svg"-->
+<!--            alt="Creative Commons">-->
+<!--    </a>-->
+<!--    <br>遵循CC BY-NC-SA 4.0协议-->
+<!--</div>-->
+</body>
 </html>
 
         </div>
       </div>
     </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
-
-
-    </header>
 
     
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
+  </aside>
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
 
+    </div>
 
     <div class="main-inner post posts-expand">
 
@@ -229,7 +231,7 @@
     <link itemprop="mainEntityOfPage" href="https://www.mastermao.cn/2021/06/24/Hexo/Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2(macOS%E7%89%88)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.webp">
       <meta itemprop="name" content="一一风和橘">
     </span>
 
@@ -290,14 +292,14 @@
 <p><img data-src="https://my-gallery-1306340269.cos.ap-beijing.myqcloud.com/mastermao/Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88macOS%E4%B8%8B%EF%BC%89.svg"></p>
 <span id="more"></span>
 
-<h2 id="壹丨环境配置"><a href="#壹丨环境配置" class="headerlink" title="壹丨环境配置"></a>壹丨环境配置</h2><h4 id="1-安装-NodeJS"><a href="#1-安装-NodeJS" class="headerlink" title="1. 安装 NodeJS"></a>1. 安装 NodeJS</h4><p>从 <a target="_blank" rel="noopener" href="https://nodejs.org/en/">NodeJS官网</a> 下载安装包并安装</p>
+<h2 id="壹丨环境配置"><a href="#壹丨环境配置" class="headerlink" title="壹丨环境配置"></a>壹丨环境配置</h2><h4 id="1-安装-NodeJS"><a href="#1-安装-NodeJS" class="headerlink" title="1. 安装 NodeJS"></a>1. 安装 NodeJS</h4><p>从 <span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL2VuLw==">NodeJS官网<i class="fa fa-external-link-alt"></i></span> 下载安装包并安装</p>
 <h4 id="2-安装-Hexo"><a href="#2-安装-Hexo" class="headerlink" title="2. 安装 Hexo"></a>2. 安装 Hexo</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 
 <h4 id="3-安装-hexo-deployer-git（用于部署）"><a href="#3-安装-hexo-deployer-git（用于部署）" class="headerlink" title="3. 安装 hexo-deployer-git（用于部署）"></a>3. 安装 <code>hexo-deployer-git</code>（用于部署）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="贰丨新建博客"><a href="#贰丨新建博客" class="headerlink" title="贰丨新建博客"></a>贰丨新建博客</h2><p>使用 <a target="_blank" rel="noopener" href="https://theme-next.js.org/">NexT 主题</a></p>
+<h2 id="贰丨新建博客"><a href="#贰丨新建博客" class="headerlink" title="贰丨新建博客"></a>贰丨新建博客</h2><p>使用 <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy8=">NexT 主题<i class="fa fa-external-link-alt"></i></span></p>
 <h4 id="1-初始化"><a href="#1-初始化" class="headerlink" title="1. 初始化"></a>1. 初始化</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir hexo-site</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo-site</span><br></pre></td></tr></table></figure>
@@ -329,7 +331,7 @@
 <p><em><strong>Tips：配置文件的键值中间有个空格</strong></em></p>
 <h4 id="4-本地预览"><a href="#4-本地预览" class="headerlink" title="4. 本地预览"></a>4. 本地预览</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 清除缓存</span></span><br><span class="line">hexo clean</span><br><span class="line"><span class="comment"># 生成静态网页</span></span><br><span class="line">hexo g</span><br><span class="line"><span class="comment"># 本地预览</span></span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 
-<p>打开默认端口 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a> 即可本地预览博客</p>
+<p>打开默认端口 <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo0MDAwLw==">http://localhost:4000<i class="fa fa-external-link-alt"></i></span> 即可本地预览博客</p>
 <h2 id="叁丨GitHub-部署"><a href="#叁丨GitHub-部署" class="headerlink" title="叁丨GitHub 部署"></a>叁丨GitHub 部署</h2><h4 id="1-新建仓库"><a href="#1-新建仓库" class="headerlink" title="1. 新建仓库"></a>1. 新建仓库</h4><p>命名为：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用户名.github.io</span><br></pre></td></tr></table></figure>
 
@@ -357,7 +359,7 @@
 <li><p>记录值，下述任选一即可</p>
 </li>
 </ul>
-<p><em><strong>Tips: 使用 <a target="_blank" rel="noopener" href="https://www.ipaddress.com/">IPAddress.com</a> 查找 <code>github.io</code> 的地址：</strong></em></p>
+<p><em><strong>Tips: 使用 <span class="exturl" data-url="aHR0cHM6Ly93d3cuaXBhZGRyZXNzLmNvbS8=">IPAddress.com<i class="fa fa-external-link-alt"></i></span> 查找 <code>github.io</code> 的地址：</strong></em></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">185.199.108.153</span><br><span class="line">185.199.109.153</span><br><span class="line">185.199.110.153 </span><br><span class="line">185.199.111.153</span><br></pre></td></tr></table></figure>
 
 <ol start="2">
@@ -377,7 +379,7 @@
 <p>HTTP 访问会被浏览器发红包，具体原因不再赘述。</p>
 </blockquote>
 <p>这里使用 Cloudflare 实现 HTTPS：</p>
-<p>第一步，Cloudflare 注册： <a target="_blank" rel="noopener" href="http://www.cloudflare.com;/">www.cloudflare.com；</a></p>
+<p>第一步，Cloudflare 注册： <span class="exturl" data-url="aHR0cDovL3d3dy5jbG91ZGZsYXJlLmNvbTsv">www.cloudflare.com；<i class="fa fa-external-link-alt"></i></span></p>
 <p>第二步，获取 DNS 服务器地址：Add Site —— 添加域名 —— 扫描 DNS 记录 —— 分配两个 DNS —— 盛出备用；</p>
 <p>第三步，替换阿里云默认 DNS 服务器：阿里云 —— 域名控制台 —— 域名 —— 管理 —— 基本信息 —— 修改 DNS —— 添加分配的两个 DNS 地址 —— 保存</p>
 <h2 id="陆丨写作软件"><a href="#陆丨写作软件" class="headerlink" title="陆丨写作软件"></a>陆丨写作软件</h2><h4 id="1-MWeb（推荐）"><a href="#1-MWeb（推荐）" class="headerlink" title="1. MWeb（推荐）"></a>1. MWeb（推荐）</h4><p>第一步，打开外部模式，command+E；<br>第二步，引入文件夹，引入 <code>~/hexo-site/source</code>；<br>第三步，source 右键编辑，“保存拖入的图片的文件夹名称”：<code>images</code>，“拖入的图片的保存位置”：<code>绝对位置</code>；<br>第四步，写作；</p>
@@ -441,10 +443,10 @@
 </tr>
 </tbody></table>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
-<p>[1] CSDN，@HongtaiWolf，<a target="_blank" rel="noopener" href="https://blog.csdn.net/D516701881/article/details/107421940">Mac下使用Homebrew安装nginx报错</a></p>
-<p>[2] 知乎，@seay，<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/22405775">手把手教从零开始在GitHub上使用Hexo搭建博客教程(一)-附GitHub注册及配置</a></p>
-<p>[3] CSDN，@yucicheung，<a target="_blank" rel="noopener" href="https://blog.csdn.net/yucicheung/article/details/79560027">为GitHub Page绑定自定义域名并实现HTTPS访问 </a></p>
-<p>[4] 知乎，@Momo，<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/30513914">MWeb配合Hexo高效管理博客</a></p>
+<p>[1] CSDN，@HongtaiWolf，<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0Q1MTY3MDE4ODEvYXJ0aWNsZS9kZXRhaWxzLzEwNzQyMTk0MA==">Mac下使用Homebrew安装nginx报错<i class="fa fa-external-link-alt"></i></span></p>
+<p>[2] 知乎，@seay，<span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8yMjQwNTc3NQ==">手把手教从零开始在GitHub上使用Hexo搭建博客教程(一)-附GitHub注册及配置<i class="fa fa-external-link-alt"></i></span></p>
+<p>[3] CSDN，@yucicheung，<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l1Y2ljaGV1bmcvYXJ0aWNsZS9kZXRhaWxzLzc5NTYwMDI3">为GitHub Page绑定自定义域名并实现HTTPS访问 <i class="fa fa-external-link-alt"></i></span></p>
+<p>[4] 知乎，@Momo，<span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8zMDUxMzkxNA==">MWeb配合Hexo高效管理博客<i class="fa fa-external-link-alt"></i></span></p>
 </blockquote>
 
     </div>
@@ -455,17 +457,34 @@
 
     <footer class="post-footer">
           <div class="reward-container">
-  <div>Buy me a tea</div>
+  <div>Buy me a coffee</div>
   <button>
-    <i class="fa-brands fa-weixin" style="line-height:80px;"></i>
+    <i class="fa-brands fa-weixin"></i>
   </button>
   <div class="post-reward">
       <div>
-        <img src="/images/wechatpay.jpg" alt="一一风和橘 支付宝">
-        <span>支付宝</span>
+        <img src="/images/wechatpay.webp" alt="一一风和橘 微信支付">
+        <span>微信支付</span>
       </div>
 
   </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>一一风和橘
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://www.mastermao.cn/2021/06/24/Hexo/Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2(macOS%E7%89%88)/" title="Hexo搭建个人博客(macOS版)">https://www.mastermao.cn/2021/06/24/Hexo/Hexo搭建个人博客(macOS版)/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
 </div>
 
           <div class="post-tags">
@@ -507,22 +526,34 @@
 
 
 <div class="copyright">
-  &copy; 2021.08 – 
+  &copy; 贰零贰壹年·捌月 – 
   <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">一一风和橘</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
-  </div>
+  <div class="powered-by">由 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span> 强力驱动
+  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
 
     </div>
   </footer>
 
   
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
@@ -531,14 +562,15 @@
 
   
 
-
-  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@9.1.7/dist/mermaid.min.js","integrity":"sha256-G58AID1YoX5YaEtWfXSI0VLrZ6N4kvNvwg0BI8zUFxE="}}</script>
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@9.2.2/dist/mermaid.min.js","integrity":"sha256-o5AUfgOkNFWuInA78GVCoVdGoN9eTaB3Hxu+ep7TTrY="}}</script>
   <script src="/js/third-party/tags/mermaid.js"></script>
 
   <script src="/js/third-party/fancybox.js"></script>
 
 
   
+
+
 
 
 

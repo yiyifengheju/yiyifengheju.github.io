@@ -5,22 +5,20 @@
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.0">
 
-
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
-  <meta name="baidu-site-verification" content="code-acp0FCvKY7">
 
 <link rel="stylesheet" href="/css/main.css">
 
-<link rel="stylesheet" href="https://fonts.loli.net/css?family=lato:300,300italic,400,400italic,700,700italic%7CMonoton:300,300italic,400,400italic,700,700italic%7CEB+Garamond:300,300italic,400,400italic,700,700italic%7CNoto+Serif+Simplified+Chinese:300,300italic,400,400italic,700,700italic%7COxygen+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto+Serif+SC:300,300italic,400,400italic,700,700italic%7CMonoton:300,300italic,400,400italic,700,700italic%7CEB+Garamond:300,300italic,400,400italic,700,700italic%7CUbuntu+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.mastermao.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeInLeft","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.mastermao.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeInLeft","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="前不久介绍了一种在毕业论文中使用Matplotlib绘图设置中文宋体、英文新罗马的方法，需要安装LaTex软件，还需要在自用样式中做复杂的修改，总体来讲偏复杂。  本文介绍一种毕业论文使用Matplotlib绘图方法，主要原理是合并SimSun和Times New Roman">
 <meta property="og:type" content="article">
@@ -56,6 +54,10 @@
 
 
 
+  <script async defer data-website-id="" src=""></script>
+
+  <script defer data-domain="" src=""></script>
+
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -69,8 +71,8 @@
   <div class="headband"></div>
 
   <main class="main">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
         <span class="toggle-line"></span>
@@ -90,7 +92,7 @@
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
     </div>
   </div>
 </div>
@@ -98,22 +100,16 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-gallery"><a href="/gallery/" rel="section"><i class="fa fa-camera fa-fw"></i>画廊</a></li><li class="menu-item menu-item-travel"><a href="/travel/" rel="section"><i class="fa fa-sailboat fa-fw"></i>旅行</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fab fa-medapps fa-fw"></i>关于</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-gallery"><a href="/gallery/" rel="section"><i class="fa fa-camera-retro fa-fw"></i>画廊</a></li><li class="menu-item menu-item-travel"><a href="/travel/" rel="section"><i class="fa fa-sailboat fa-fw"></i>旅行</a></li><li class="menu-item menu-item-behappy"><a href="/behappy/" rel="section"><i class="fa fa-bath fa-fw"></i>开心一下</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fab fa-medapps fa-fw"></i>关于</a></li>
   </ul>
 </nav>
 
 
 
 
-</div>
+</header>
         
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-
   <aside class="sidebar">
 
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
@@ -134,13 +130,13 @@
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="一一风和橘"
-      src="/images/avatar.jpg">
+      src="/images/avatar.webp">
   <p class="site-author-name" itemprop="name">一一风和橘</p>
   <div class="site-description" itemprop="description">The trick, William Potter, is not minding that it hurts.</div>
 </div>
-<div class="site-state-wrap site-overview-item animated">
+<div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
@@ -160,59 +156,65 @@
       </div>
   </nav>
 </div>
-  <div class="links-of-author site-overview-item animated">
+  <div class="links-of-author animated">
       <span class="links-of-author-item">
-        <a href="https://music.163.com/#/user/home?id=1782954983" title="NetEase → https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;1782954983" rel="noopener" target="_blank"><i class="fa fa-headphones fa-fw"></i>NetEase</a>
+        <span class="exturl" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTE3ODI5NTQ5ODM=" title="NetEase → https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;1782954983"><i class="fa fa-headphones fa-fw"></i>NetEase</span>
       </span>
       <span class="links-of-author-item">
-        <a href="https://500px.com.cn/MonsterMao" title="500px → https:&#x2F;&#x2F;500px.com.cn&#x2F;MonsterMao" rel="noopener" target="_blank"><i class="fab fa-500px fa-fw"></i>500px</a>
+        <span class="exturl" data-url="aHR0cHM6Ly81MDBweC5jb20uY24vTW9uc3Rlck1hbw==" title="500px → https:&#x2F;&#x2F;500px.com.cn&#x2F;MonsterMao"><i class="fab fa-500px fa-fw"></i>500px</span>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:wego_mao@hotmail.com" title="E-Mail → mailto:wego_mao@hotmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+        <span class="exturl" data-url="bWFpbHRvOndlZ29fbWFvQGhvdG1haWwuY29t" title="E-Mail → mailto:wego_mao@hotmail.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</span>
       </span>
       <span class="links-of-author-item">
-        <a href="https://gitee.com/mastermao" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;mastermao" rel="noopener" target="_blank"><i class="fab fa-git-square fa-fw"></i>Gitee</a>
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRlZS5jb20vbWFzdGVybWFv" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;mastermao"><i class="fab fa-git-square fa-fw"></i>Gitee</span>
       </span>
   </div>
-
-
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></span>
+  </div>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title></title> 
-        <!-- require APlayer -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
-        <!-- require MetingJS -->
-        <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
-    </head>
-    <body>
-    <p> </p>
-    <meting-js server="netease" type="playlist" id="6922083348" autoplay="true" order="random" list-folded="true"></meting-js>
-        
-    </body>
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <!-- require APlayer -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+    <!-- require MetingJS -->
+    <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+</head>
+<body>
+
+<!--<p></p>-->
+<meting-js server="netease" type="playlist" id="6922083348" autoplay="true" order="random"
+           list-folded="true"></meting-js>
+<!--<p></p>-->
+
+<!--<div style="border-bottom:1px solid #CCC"></div>-->
+<!--<p></p>-->
+
+<!--<hr>-->
+<!--<div class="cc-license animated" itemprop="license">-->
+<!--    <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener external nofollow noreferrer noopener"-->
+<!--       target="_blank" class="exturl cc-opacity" title="遵守以下协议"><img-->
+<!--            src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/big/by_nc_sa.svg"-->
+<!--            alt="Creative Commons">-->
+<!--    </a>-->
+<!--    <br>遵循CC BY-NC-SA 4.0协议-->
+<!--</div>-->
+</body>
 </html>
 
         </div>
       </div>
     </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
-
-
-    </header>
 
     
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
+  </aside>
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
 
+    </div>
 
     <div class="main-inner post posts-expand">
 
@@ -228,7 +230,7 @@
     <link itemprop="mainEntityOfPage" href="https://www.mastermao.cn/2022/11/30/Python/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87Matplotlib%E7%BB%98%E5%9B%BE%E4%B8%AD%E8%8B%B1%E6%96%87%E8%AE%BE%E7%BD%AE%EF%BC%88%E4%BA%8C%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.webp">
       <meta itemprop="name" content="一一风和橘">
     </span>
 
@@ -292,7 +294,7 @@
 <span id="more"></span>
 
 <h3 id="壹丨Matplotlib无法同时使用两种字体"><a href="#壹丨Matplotlib无法同时使用两种字体" class="headerlink" title="壹丨Matplotlib无法同时使用两种字体"></a>壹丨Matplotlib无法同时使用两种字体</h3><p>不再赘述。</p>
-<h3 id="贰丨合并两种字体"><a href="#贰丨合并两种字体" class="headerlink" title="贰丨合并两种字体"></a>贰丨合并两种字体</h3><p>第一步，下载并解压<a target="_blank" rel="noopener" href="https://github.com/nowar-fonts/Warcraft-Font-Merger">字体合并工具</a>，本文直接放在桌面：<code>C:\Users\MasterMao\Desktop\font_merge</code></p>
+<h3 id="贰丨合并两种字体"><a href="#贰丨合并两种字体" class="headerlink" title="贰丨合并两种字体"></a>贰丨合并两种字体</h3><p>第一步，下载并解压<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25vd2FyLWZvbnRzL1dhcmNyYWZ0LUZvbnQtTWVyZ2Vy">字体合并工具<i class="fa fa-external-link-alt"></i></span>，本文直接放在桌面：<code>C:\Users\MasterMao\Desktop\font_merge</code></p>
 <p>第二步，复制字体到字体合并工具文件夹下。系统字体位于：<code>C:\Windows\Fonts</code>，搜索<code>宋体</code>、<code>times</code>就可找到对应字体，分别复制到：<code>C:\Users\MasterMao\Desktop\font_merge</code></p>
 <p>第三步，新建合并脚本：<code>C:\Users\MasterMao\Desktop\font_merge\merge.bat</code>。此处将合并后的新字体命名为<code>sun-times.ttf</code></p>
 <blockquote>
@@ -310,8 +312,8 @@
 <img data-src="C:\Users\MasterMao\PycharmProjects\MasterMao\sample_fig.jpg" alt="sample_fig" style="zoom: 33%;" />
 
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><blockquote>
-<p>[1] 知乎，@木土木，<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/501395717">完美解决Python的matplotlib库中英文字体混显问题</a></p>
-<p>[2] MasterMao’s Blog，@一一风和橘，<a target="_blank" rel="noopener" href="https://mastermao.cn/2022/05/31/Python/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87Matplotlib%E7%BB%98%E5%9B%BE%E4%B8%AD%E8%8B%B1%E6%96%87%E8%AE%BE%E7%BD%AE%EF%BC%88%E4%B8%80%EF%BC%89/">毕业论文Matplotlib绘图中英文设置(一)</a></p>
+<p>[1] 知乎，@木土木，<span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC81MDEzOTU3MTc=">完美解决Python的matplotlib库中英文字体混显问题<i class="fa fa-external-link-alt"></i></span></p>
+<p>[2] MasterMao’s Blog，@一一风和橘，<span class="exturl" data-url="aHR0cHM6Ly9tYXN0ZXJtYW8uY24vMjAyMi8wNS8zMS9QeXRob24vJUU2JUFGJTk1JUU0JUI4JTlBJUU4JUFFJUJBJUU2JTk2JTg3TWF0cGxvdGxpYiVFNyVCQiU5OCVFNSU5QiVCRSVFNCVCOCVBRCVFOCU4QiVCMSVFNiU5NiU4NyVFOCVBRSVCRSVFNyVCRCVBRSVFRiVCQyU4OCVFNCVCOCU4MCVFRiVCQyU4OS8=">毕业论文Matplotlib绘图中英文设置(一)<i class="fa fa-external-link-alt"></i></span></p>
 </blockquote>
 
     </div>
@@ -322,17 +324,34 @@
 
     <footer class="post-footer">
           <div class="reward-container">
-  <div>Buy me a tea</div>
+  <div>Buy me a coffee</div>
   <button>
-    <i class="fa-brands fa-weixin" style="line-height:80px;"></i>
+    <i class="fa-brands fa-weixin"></i>
   </button>
   <div class="post-reward">
       <div>
-        <img src="/images/wechatpay.jpg" alt="一一风和橘 支付宝">
-        <span>支付宝</span>
+        <img src="/images/wechatpay.webp" alt="一一风和橘 微信支付">
+        <span>微信支付</span>
       </div>
 
   </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>一一风和橘
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://www.mastermao.cn/2022/11/30/Python/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87Matplotlib%E7%BB%98%E5%9B%BE%E4%B8%AD%E8%8B%B1%E6%96%87%E8%AE%BE%E7%BD%AE%EF%BC%88%E4%BA%8C%EF%BC%89/" title="毕业论文Matplotlib绘图中英文设置（二）">https://www.mastermao.cn/2022/11/30/Python/毕业论文Matplotlib绘图中英文设置（二）/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
 </div>
 
           <div class="post-tags">
@@ -372,22 +391,34 @@
 
 
 <div class="copyright">
-  &copy; 2021.08 – 
+  &copy; 贰零贰壹年·捌月 – 
   <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">一一风和橘</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
-  </div>
+  <div class="powered-by">由 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span> 强力驱动
+  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
 
     </div>
   </footer>
 
   
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
@@ -396,14 +427,15 @@
 
   
 
-
-  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@9.1.7/dist/mermaid.min.js","integrity":"sha256-G58AID1YoX5YaEtWfXSI0VLrZ6N4kvNvwg0BI8zUFxE="}}</script>
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@9.2.2/dist/mermaid.min.js","integrity":"sha256-o5AUfgOkNFWuInA78GVCoVdGoN9eTaB3Hxu+ep7TTrY="}}</script>
   <script src="/js/third-party/tags/mermaid.js"></script>
 
   <script src="/js/third-party/fancybox.js"></script>
 
 
   
+
+
 
 
 

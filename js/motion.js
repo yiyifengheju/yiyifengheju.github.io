@@ -18,7 +18,8 @@ NexT.motion.integrator = {
     if (!CONFIG.motion.async) this.queue = [this.queue];
     this.queue.forEach(sequence => {
       const timeline = window.anime.timeline({
-        duration: 200,
+        // duration: 200,
+        duration: 20,
         easing  : 'linear'
       });
       sequence.forEach(item => {
@@ -37,8 +38,10 @@ NexT.motion.middleWares = {
       sequence.push({
         targets,
         scaleX  : [0, 1],
-        duration: 500,
-        deltaT  : '-=200'
+        // duration: 500,
+        // deltaT  : '-=200'
+        duration: 60,
+        deltaT  : '-=20'
       });
     }
 
@@ -47,11 +50,12 @@ NexT.motion.middleWares = {
         targets,
         opacity: 1,
         top    : 0,
-        deltaT : sequenceQueue ? '-=200' : '-=0'
+        // deltaT : sequenceQueue ? '-=200' : '-=0'
+        deltaT : sequenceQueue ? '-=20' : '-=0'
       });
     }
 
-    pushToSequence('header.header');
+    pushToSequence('.column');
     CONFIG.scheme === 'Mist' && getMistLineSettings('.logo-line');
     CONFIG.scheme === 'Muse' && pushToSequence('.custom-logo-image');
     pushToSequence('.site-title');
@@ -59,13 +63,17 @@ NexT.motion.middleWares = {
     pushToSequence('.site-subtitle');
     (CONFIG.scheme === 'Pisces' || CONFIG.scheme === 'Gemini') && pushToSequence('.custom-logo-image');
 
-    document.querySelectorAll('.menu-item').forEach(targets => {
-      sequence.push({
-        targets,
-        complete: () => targets.classList.add('animated', 'fadeInDown'),
-        deltaT  : '-=200'
+    const menuItemTransition = CONFIG.motion.transition.menu_item;
+    if (menuItemTransition) {
+      document.querySelectorAll('.menu-item').forEach(targets => {
+        sequence.push({
+          targets,
+          complete: () => targets.classList.add('animated', menuItemTransition),
+          // deltaT  : '-=200'
+          deltaT  : '-=20'
+        });
       });
-    });
+    }
 
     return sequence;
   },
@@ -90,7 +98,8 @@ NexT.motion.middleWares = {
         sequence.push({
           targets,
           complete: () => targets.classList.add('animated', animation),
-          deltaT  : '-=100'
+          // deltaT  : '-=100'
+          deltaT  : '-=10'
         });
       });
     }
@@ -104,16 +113,21 @@ NexT.motion.middleWares = {
   },
 
   sidebar: function() {
-    const sidebar = document.querySelector('.sidebar');
+    const sequence = [];
+    const sidebar = document.querySelectorAll('.sidebar-inner');
     const sidebarTransition = CONFIG.motion.transition.sidebar;
     // Only for Pisces | Gemini.
     if (sidebarTransition && (CONFIG.scheme === 'Pisces' || CONFIG.scheme === 'Gemini')) {
-      return [{
-        targets : sidebar,
-        complete: () => sidebar.classList.add('animated', sidebarTransition)
-      }];
+      sidebar.forEach(targets => {
+        sequence.push({
+          targets,
+          complete: () => targets.classList.add('animated', sidebarTransition),
+          // deltaT  : '-=100'
+          deltaT  : '-=10'
+        });
+      });
     }
-    return [];
+    return sequence;
   },
 
   footer: function() {
