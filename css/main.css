@@ -1644,7 +1644,7 @@ pre code {
   font-family: UKIJ Ekran;
 }
 .post-button {
-  margin-top: 40px;
+  margin-top: 10px;
   text-align: center;
 }
 .use-motion .post-block,
@@ -1904,7 +1904,7 @@ pre code {
   width: 100%;
 }
 .posts-expand .post-gallery {
-  margin-bottom: 60px;
+  margin-bottom: 10px;
 }
 .posts-collapse .post-gallery {
   margin: 15px 0;
@@ -2642,6 +2642,12 @@ body {
 }
 * {
   font-weight: 700;
+}
+.posts-expand .post-header {
+  margin-bottom: 10px;
+}
+.post-button {
+  margin-top: 10px;
 }
 .ImageGrid {
   width: 100%;

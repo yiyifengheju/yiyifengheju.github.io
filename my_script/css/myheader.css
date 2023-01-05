@@ -1,0 +1,71 @@
+myheader {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-height: 280px;
+    padding: 50px;
+    border-radius: 16px;
+    color: #fff;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+myheader .upper-myheader {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+myheader .upper-myheader .mini-title {
+    font-size: 1.125rem;
+    font-weight: bold;
+    letter-spacing: 0.4rem;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+myheader .upper-myheader .date-since {
+    display: flex;
+    align-items: center;
+    opacity: 0.5;
+    font-size: 0.875rem;
+}
+myheader .upper-myheader .date-since .date-value {
+    display: inline-block;
+    padding-bottom: 2px;
+}
+myheader .upper-myheader .date-since svg {
+    width: 20px;
+    margin-left: 10px;
+}
+myheader .lower-myheader {
+    padding-top: 50px;
+}
+myheader .lower-myheader .tags-container {
+    display: flex;
+    align-items: center;
+    opacity: 0.75;
+    margin-bottom: 12px;
+}
+myheader .lower-myheader .tags-container > span:not(:nth-child(2))::before {
+    content: ", ";
+}
+myheader .lower-myheader .tags-container svg {
+    width: 20px;
+    margin-right: 10px;
+}
+myheader .lower-myheader .tags-container span {
+    font-size: 0.875rem;
+}
+myheader .lower-myheader .title {
+    margin: 20px 0;
+    font-size: 3rem;
+    font-weight: bold;
+    opacity: 0.9;
+}
+myheader .lower-myheader .subtitle {
+    width: 50%;
+    margin-top: 10px;
+    opacity: 0.75;
+    line-height: 1.75;
+}
