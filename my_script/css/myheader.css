@@ -1,6 +1,6 @@
 myheader {
-    width: 100%;
-    max-width: 1000px;
+    width: 90%;
+    /*max-width: 1000px;*/
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -39,7 +39,7 @@ myheader .upper-myheader .date-since svg {
     margin-left: 10px;
 }
 myheader .lower-myheader {
-    padding-top: 50px;
+    padding-top: 10px;
 }
 myheader .lower-myheader .tags-container {
     display: flex;
