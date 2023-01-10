@@ -211,7 +211,7 @@ NexT.utils = {
 
   registerActiveMenuItem: function() {
     document.querySelectorAll('.menu-item a[href]').forEach(target => {
-      const isSamePath = target.pathname === location.pathname || target.pathname === location.pathname.replace('index.html', '');
+      const isSamePath = target.pathname === location.pathname || target.pathname === location.pathname.replace('2022.html', '');
       const isSubPath = !CONFIG.root.startsWith(target.pathname) && location.pathname.startsWith(target.pathname);
       target.classList.toggle('menu-item-active', target.hostname === location.hostname && (isSamePath || isSubPath));
     });

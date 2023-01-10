@@ -1,12 +1,16 @@
 myheader {
-    width: 90%;
+    /*width: 92%;*/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
     /*max-width: 1000px;*/
-    display: flex;
+    /*display: flex;*/
     flex-direction: column;
     justify-content: space-between;
-    max-height: 280px;
+    max-height: 240px;
     padding: 50px;
-    border-radius: 16px;
+    border-radius: 12px;
     color: #fff;
     background-position: center;
     background-repeat: no-repeat;
@@ -15,7 +19,7 @@ myheader {
 myheader .upper-myheader {
     display: flex;
     justify-content: space-between;
-    padding-bottom: 20px;
+    padding-bottom: 0px;
 }
 myheader .upper-myheader .mini-title {
     font-size: 1.125rem;
@@ -32,7 +36,7 @@ myheader .upper-myheader .date-since {
 }
 myheader .upper-myheader .date-since .date-value {
     display: inline-block;
-    padding-bottom: 2px;
+    padding-bottom: 0px;
 }
 myheader .upper-myheader .date-since svg {
     width: 20px;
@@ -59,7 +63,7 @@ myheader .lower-myheader .tags-container span {
 }
 myheader .lower-myheader .title {
     margin: 20px 0;
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: bold;
     opacity: 0.9;
 }

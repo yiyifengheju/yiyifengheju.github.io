@@ -38,7 +38,7 @@
     --table-row-odd-bg-color: #282828;
     --table-row-hover-bg-color: #363636;
     --menu-item-bg-color: #555;
-    --theme-color: #222;
+    --theme-color: #000;
     --btn-default-bg: #222;
     --btn-default-color: #ccc;
     --btn-default-border-color: #555;
@@ -2810,7 +2810,7 @@ ul.breadcrumb li:last-child {
   }
 }
 body {
-  background: url("/images/background.webp");
+  background: url("/images/background7.webp");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -2821,24 +2821,50 @@ body {
 .main-inner > .tabs-comment,
 .main-inner > .comments,
 .main-inner > .pagination {
-  background: rgba(80,80,80,0.5);
+  background-color: rgba(0,0,0,0.8);
 }
 .side-brand-container {
-  background: rgba(80,80,80,0.2);
+  background-color: rgba(0,0,0,0.8);
 }
 .main-inner {
   opacity: 0.95;
 }
 .header {
-  background: rgba(80,80,80,0.5);
+  background-color: rgba(0,0,0,0.6);
+}
+.btn {
+  background: rgba(0,0,0,0.4);
+}
+.btn:hover {
+  background: rgba(40,40,40,0.4);
 }
 .sidebar-inner {
-  background: rgba(80,80,80,0.5);
+  background-color: rgba(0,0,0,0.6);
+  margin-top: 3px;
+}
+.post-block,
+.comments {
+  padding: 25px;
+}
+.fancybox.image {
+  pointer-events: none;
+}
+@media (prefers-color-scheme: dark) {
+  img:hover {
+    opacity: 1;
+  }
 }
 @media (prefers-color-scheme: dark) {
   img {
     opacity: 1;
   }
+}
+.main-inner > .sub-menu:not(:first-child):not(.sub-menu),
+.main-inner > .post-block:not(:first-child):not(.sub-menu),
+.main-inner > .tabs-comment:not(:first-child):not(.sub-menu),
+.main-inner > .comments:not(:first-child):not(.sub-menu),
+.main-inner > .pagination:not(:first-child):not(.sub-menu) {
+  margin-top: 3px;
 }
 * {
   font-weight: 700;
@@ -2851,7 +2877,7 @@ body {
 }
 .ImageGrid {
   width: 100%;
-  max-width: 1040px;
+  max-width: 1280px;
   margin: 0 auto;
   text-align: center;
   column-count: 1;
@@ -2866,7 +2892,8 @@ body {
     box-sizing: border-box;
     padding: 4px;
     border-radius: 8px;
-    background-color: #ddd;
+    background-color: rgba(0,0,0,0);
+    margin-bottom: 10px;
   }
 }
 @media (min-width: 800px) {
@@ -2876,18 +2903,18 @@ body {
   .card {
     break-inside: avoid;
     box-sizing: border-box;
-    padding: 4px;
+    padding: 0;
     border-radius: 8px;
-    background-color: #ddd;
+    background-color: rgba(0,0,0,0);
   }
 }
 .card {
   break-inside: avoid;
   box-sizing: border-box;
   margin: 0 auto;
-  padding: 4px;
+  padding: 0;
   border-radius: 8px;
-  background-color: #ddd;
+  background-color: rgba(0,0,0,0);
 }
 .ImageInCard img {
   padding: 0 0 0 0;
