@@ -1,0 +1,116 @@
+.hallucination-effect {
+    background-image: url(https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg3.doubanio.com%2Fview%2Fgroup_topic%2Fraw%2Fpublic%2Fp106878681.jpg&refer=http%3A%2F%2Fimg3.doubanio.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671271180&t=13308088bbee45f06884269b6fea239b);
+    background-size: cover;
+    background-position: center;
+    max-width: 160px;
+    max-height: 90px;
+    /*filter: grayscale(1) invert(1);*/
+    align-self: center;
+    border-radius: 8px;
+    filter: invert(1);
+    opacity: 0.8;
+}
+
+@supports (mix-blend-mode: multiply) {
+    .hallucination-effect {
+        position: relative;
+        overflow: hidden;
+        background-color: magenta;
+        background-blend-mode: screen;
+    }
+
+    .hallucination-effect:before, .hallucination-effect:after {
+        display: block;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: inherit;
+        mix-blend-mode: multiply;
+        transform: scale(1);
+        animation: moving 2s steps(20, end) infinite;
+    }
+
+    .hallucination-effect:before {
+        background-color: yellow;
+        background-blend-mode: screen;
+        transform-origin: top left;
+    }
+
+    .hallucination-effect:after {
+        background-color: cyan;
+        background-blend-mode: screen;
+        transform-origin: bottom right;
+    }
+}
+
+@keyframes moving {
+    5% {
+        transform: scale(0.97) translate(4px, -3px);
+    }
+    10% {
+        transform: scale(0.99) translate(3px, -5px);
+    }
+    15% {
+        transform: scale(0.98) translate(6px, 1px);
+    }
+    20% {
+        transform: scale(1.02) translate(10px, -6px);
+    }
+    25% {
+        transform: scale(1) translate(6px, -2px);
+    }
+    30% {
+        transform: scale(1) translate(6px, -6px);
+    }
+    35% {
+        transform: scale(1.03) translate(-2px, 10px);
+    }
+    40% {
+        transform: scale(0.99) translate(5px, -2px);
+    }
+    45% {
+        transform: scale(1.01) translate(7px, 4px);
+    }
+    50% {
+        transform: scale(0.96) translate(-3px, 3px);
+    }
+    55% {
+        transform: scale(1.03) translate(-3px, 0px);
+    }
+    60% {
+        transform: scale(0.96) translate(9px, 1px);
+    }
+    65% {
+        transform: scale(0.97) translate(9px, 3px);
+    }
+    70% {
+        transform: scale(0.98) translate(-8px, 2px);
+    }
+    75% {
+        transform: scale(1) translate(-5px, -4px);
+    }
+    80% {
+        transform: scale(0.99) translate(4px, 5px);
+    }
+    85% {
+        transform: scale(1.01) translate(-3px, -4px);
+    }
+    90% {
+        transform: scale(0.96) translate(-9px, 8px);
+    }
+    95% {
+        transform: scale(1.01) translate(-9px, 1px);
+    }
+    100% {
+        transform: scale(1.03) translate(-4px, -6px);
+    }
+}
+
+[class$=-effect] img {
+    vertical-align: top !important;
+    margin: 0 !important;
+    opacity: 0 !important;
+}
