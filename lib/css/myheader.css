@@ -18,14 +18,14 @@ myheader {
 }
 
 .upper-myheader {
-    backdrop-filter: blur(1px) saturate(150%);
+    /*backdrop-filter: blur(1px) saturate(150%);*/
     background-color: rgba(0, 0, 0, 0.4);
     padding: 20px;
     border-top-right-radius: 25px;
 }
 
 .lower-myheader {
-    backdrop-filter: blur(1px) saturate(150%);
+    /*backdrop-filter: blur(1px) saturate(150%);*/
     background-color: rgba(0, 0, 0, 0.4);
     padding: 20px;
     border-bottom-left-radius: 25px;

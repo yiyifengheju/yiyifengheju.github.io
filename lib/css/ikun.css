@@ -17,6 +17,7 @@
         overflow: hidden;
         background-color: magenta;
         background-blend-mode: screen;
+        border-radius: 8px;
     }
 
     .hallucination-effect:before, .hallucination-effect:after {
@@ -31,18 +32,24 @@
         mix-blend-mode: multiply;
         transform: scale(1);
         animation: moving 2s steps(20, end) infinite;
+        border-radius: 8px;
+
     }
 
     .hallucination-effect:before {
         background-color: yellow;
         background-blend-mode: screen;
         transform-origin: top left;
+        border-radius: 8px;
+
     }
 
     .hallucination-effect:after {
         background-color: cyan;
         background-blend-mode: screen;
         transform-origin: bottom right;
+        border-radius: 8px;
+
     }
 }
 
