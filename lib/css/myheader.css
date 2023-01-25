@@ -1,0 +1,102 @@
+myheader {
+    /*width: 92%;*/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    /*max-width: 1000px;*/
+    /*display: flex;*/
+    flex-direction: column;
+    justify-content: space-between;
+    max-height: 240px;
+    padding: 50px;
+    border-radius: 8px;
+    color: #fff;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.upper-myheader {
+    backdrop-filter: blur(1px) saturate(150%);
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    border-top-right-radius: 25px;
+}
+
+.lower-myheader {
+    backdrop-filter: blur(1px) saturate(150%);
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    border-bottom-left-radius: 25px;
+}
+
+
+myheader .upper-myheader {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0px;
+}
+
+myheader .upper-myheader .mini-title {
+    font-size: 1.125rem;
+    font-weight: bold;
+    letter-spacing: 0.4rem;
+    text-transform: uppercase;
+    opacity: 1;
+}
+
+myheader .upper-myheader .date-since {
+    display: flex;
+    align-items: center;
+    opacity: 1;
+    font-size: 0.875rem;
+}
+
+myheader .upper-myheader .date-since .date-value {
+    display: inline-block;
+    padding-bottom: 0px;
+}
+
+myheader .upper-myheader .date-since svg {
+    width: 20px;
+    margin-left: 10px;
+}
+
+myheader .lower-myheader {
+    padding-top: 10px;
+}
+
+myheader .lower-myheader .tags-container {
+    display: flex;
+    align-items: center;
+    opacity: 1;
+    margin-bottom: 12px;
+}
+
+myheader .lower-myheader .tags-container > span:not(:nth-child(2))::before {
+    content: ", ";
+}
+
+myheader .lower-myheader .tags-container svg {
+    width: 20px;
+    margin-right: 10px;
+}
+
+myheader .lower-myheader .tags-container span {
+    font-size: 0.875rem;
+}
+
+myheader .lower-myheader .title {
+    margin: 20px 0;
+    font-size: 2rem;
+    font-weight: bold;
+    opacity: 1;
+}
+
+myheader .lower-myheader .subtitle {
+    width: 50%;
+    margin-top: 10px;
+    opacity: 1;
+    line-height: 1.75;
+}

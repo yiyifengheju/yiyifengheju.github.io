@@ -69,6 +69,6 @@ document.addEventListener('pjax:success', () => {
   if (document.getElementById('aplayer')) {
     dynamicLoading.css("https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css");
     dynamicLoading.js("https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js");
-    dynamicLoading.js("/my_script/js/tydhan.js");
+    dynamicLoading.js("/lib/js/tydhan.js");
   }
 });
