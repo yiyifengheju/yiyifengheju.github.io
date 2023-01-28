@@ -4,41 +4,46 @@ myheader {
     margin-left: auto;
     margin-right: auto;
     max-width: 100%;
-    /*max-width: 1000px;*/
-    /*display: flex;*/
     flex-direction: column;
     justify-content: space-between;
-    max-height: 240px;
-    padding: 50px;
+    max-height: 300px;
+    padding: 0px;
     border-radius: 8px;
-    color: #fff;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #222;
+}
+
+.darkmode--activated myheader {
+    color: #eee;
+}
+
+.darkmode--activated my_black_layer {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+my_black_layer {
+    background: rgba(255, 255, 255, 0.5);
+    max-width: 100%;
+    height: 210px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 45px;
+    border-radius: 8px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.upper-myheader {
-    /*backdrop-filter: blur(1px) saturate(150%);*/
-    background-color: rgba(0, 0, 0, 0.4);
-    padding: 20px;
-    border-top-right-radius: 25px;
-}
-
-.lower-myheader {
-    /*backdrop-filter: blur(1px) saturate(150%);*/
-    background-color: rgba(0, 0, 0, 0.4);
-    padding: 20px;
-    border-bottom-left-radius: 25px;
-}
-
-
-myheader .upper-myheader {
+my_black_layer .upper-myheader {
     display: flex;
     justify-content: space-between;
     padding-bottom: 0px;
 }
 
-myheader .upper-myheader .mini-title {
+my_black_layer .upper-myheader .mini-title {
     font-size: 1.125rem;
     font-weight: bold;
     letter-spacing: 0.4rem;
@@ -46,55 +51,59 @@ myheader .upper-myheader .mini-title {
     opacity: 1;
 }
 
-myheader .upper-myheader .date-since {
+
+my_black_layer .upper-myheader .date-since {
     display: flex;
     align-items: center;
     opacity: 1;
     font-size: 0.875rem;
 }
 
-myheader .upper-myheader .date-since .date-value {
+
+my_black_layer .upper-myheader .date-since .date-value {
     display: inline-block;
     padding-bottom: 0px;
 }
 
-myheader .upper-myheader .date-since svg {
+my_black_layer .upper-myheader .date-since svg {
     width: 20px;
     margin-left: 10px;
 }
 
-myheader .lower-myheader {
+my_black_layer .lower-myheader {
     padding-top: 10px;
 }
 
-myheader .lower-myheader .tags-container {
+my_black_layer .lower-myheader .tags-container {
     display: flex;
     align-items: center;
     opacity: 1;
     margin-bottom: 12px;
 }
 
-myheader .lower-myheader .tags-container > span:not(:nth-child(2))::before {
+my_black_layer .lower-myheader .tags-container > span:not(:nth-child(2))::before {
     content: ", ";
 }
 
-myheader .lower-myheader .tags-container svg {
+
+my_black_layer .lower-myheader .tags-container svg {
     width: 20px;
     margin-right: 10px;
 }
 
-myheader .lower-myheader .tags-container span {
+my_black_layer .lower-myheader .tags-container span {
     font-size: 0.875rem;
 }
 
-myheader .lower-myheader .title {
+my_black_layer .lower-myheader .title {
     margin: 20px 0;
     font-size: 1.5rem;
     font-weight: bold;
     opacity: 1;
 }
 
-myheader .lower-myheader .subtitle {
+
+my_black_layer .lower-myheader .subtitle {
     width: 50%;
     margin-top: 10px;
     opacity: 1;
