@@ -20,7 +20,7 @@ myheader {
 }
 
 .darkmode--activated my_black_layer {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.5);
 }
 
 my_black_layer {

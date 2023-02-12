@@ -5,6 +5,9 @@ document.addEventListener('page:loaded', () => {
    */
   document.querySelectorAll('.post-body :not(a) > img, .post-body > img').forEach(element => {
     const $image = $(element);
+    if ($image.is('.no-fancybox img')) {
+      return;
+    }
     const imageLink = $image.attr('data-src') || $image.attr('src');
     const $imageWrapLink = $image.wrap(`<a class="fancybox fancybox.image" href="${imageLink}" itemscope itemtype="http://schema.org/ImageObject" itemprop="url"></a>`).parent('a');
     if ($image.is('.post-gallery img')) {
@@ -28,7 +31,7 @@ document.addEventListener('page:loaded', () => {
 
   $.fancybox.defaults.hash = false;
   $('.fancybox').fancybox({
-    loop   : true,
+    loop: true,
     helpers: {
       overlay: {
         locked: false
