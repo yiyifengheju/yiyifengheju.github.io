@@ -2,11 +2,11 @@
     background-image: url(../images/ikun.gif);
     background-size: cover;
     background-position: center;
-    max-width: 160px;
-    max-height: 90px;
+    width: 160px;
+    height: 90px;
     /*filter: grayscale(1) invert(1);*/
     align-self: center;
-    border-radius: 8px;
+    border-radius: 4px;
     filter: invert(1);
     opacity: 0.8;
 }
@@ -17,7 +17,7 @@
         overflow: hidden;
         background-color: magenta;
         background-blend-mode: screen;
-        border-radius: 8px;
+        border-radius: 4px;
     }
 
     .hallucination-effect:before, .hallucination-effect:after {
@@ -32,7 +32,7 @@
         mix-blend-mode: multiply;
         transform: scale(1);
         animation: moving 2s steps(20, end) infinite;
-        border-radius: 8px;
+        border-radius: 4px;
 
     }
 
@@ -40,7 +40,7 @@
         background-color: yellow;
         background-blend-mode: screen;
         transform-origin: top left;
-        border-radius: 8px;
+        border-radius: 4px;
 
     }
 
@@ -48,7 +48,7 @@
         background-color: cyan;
         background-blend-mode: screen;
         transform-origin: bottom right;
-        border-radius: 8px;
+        border-radius: 4px;
 
     }
 }

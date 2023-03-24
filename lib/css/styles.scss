@@ -41,7 +41,7 @@ img:hover {
 
 img {
   opacity: 1;
-  border-radius: 6px;
+  border-radius: 4px;
   -webkit-transition: transform 0.5s ease-out, filter 0.28s ease-out;
 }
 
@@ -188,10 +188,19 @@ img {
   color: #fff;
 }
 
+.darkmode--activated .site-state-item-name {
+  color: #999;
+}
+
 //////////////////////////END DARK MODE////////////////
 
 .post-block, .comments {
   padding: 80px;
+}
+
+// 禁止图片打开
+.fancybox {
+  pointer-events: none;
 }
 
 .fancybox.image {
@@ -205,11 +214,6 @@ html {
   &::-webkit-scrollbar {
     display: none;
   }
-}
-
-// 禁止图片打开
-.fancybox {
-  pointer-events: none;
 }
 
 // 修改背景
@@ -318,7 +322,7 @@ code, pre {
   font-size: 1.15em;
 }
 
-.post-body img{
+.post-body img {
   max-width: 60%;
 }
 
@@ -386,7 +390,7 @@ h3 {
     break-inside: avoid;
     box-sizing: border-box;
     padding: 4px;
-    border-radius: 8px;
+    border-radius: 4px;
     background-color: rgba(0, 0, 0, 0);
     margin-bottom: 10px;
   }
@@ -400,7 +404,7 @@ h3 {
     break-inside: avoid;
     box-sizing: border-box;
     padding: 0;
-    border-radius: 8px;
+    border-radius: 4px;
     background-color: rgba(0, 0, 0, 0);
   }
 
@@ -411,27 +415,29 @@ h3 {
   box-sizing: border-box;
   margin: 0 auto;
   padding: 0;
-  border-radius: 8px;
+  border-radius: 4px;
   background-color: rgba(0, 0, 0, 0);
 }
 
 .ImageInCard img {
   padding: 0 0 0 0;
-  border-radius: 8px;
+  border-radius: 4px;
   max-width: 100%;
+  margin-bottom: 10px;
 }
 
 .TextInCard {
   background-color: rgba(255, 255, 255, 0.8);
   font-size: 70%;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 //表格样式
-.table-container th{
+.table-container th {
   border: 0;
 }
-.table-container td{
+
+.table-container td {
   border: 0;
 }
 
