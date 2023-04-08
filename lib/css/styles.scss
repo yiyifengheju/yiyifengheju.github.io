@@ -1,6 +1,7 @@
 //白天模式
 :root {
-  --body-bg-url: url(/images/bg7.webp);
+  --body-bg-url: url(/lib/img/bg7.webp);
+  --link-color: #333;
 }
 
 // 设置透明度
@@ -96,7 +97,7 @@ img {
 
 ///////////////////Dark模式////////////////////////////////
 .darkmode--activated {
-  --body-bg-url: url(/images/bg10.webp);
+  --body-bg-url: url(/lib/img/bg10.webp);
 
 }
 
@@ -199,13 +200,13 @@ img {
 }
 
 // 禁止图片打开
-.fancybox {
-  pointer-events: none;
-}
+//.fancybox {
+//  pointer-events: none;
+//}
 
-.fancybox.image {
-  pointer-events: none;
-}
+//.fancybox.image {
+//  pointer-events: none;
+//}
 
 // 隐藏滚动条
 html {
@@ -238,10 +239,10 @@ blockquote {
 
 
 // 代码字体大小
-pre {
-  //font-size: 1em;
-  font-size: 1.15em;
-}
+//pre {
+//  //font-size: 1em;
+//  font-size: 1.15em;
+//}
 
 
 //@font-face {
@@ -365,7 +366,7 @@ h3 {
 // 脚注
 .footer-inner {
   text-align: right;
-  font-size: 1.3em;
+  font-size: 0.9875em;
 }
 
 .footer {
@@ -419,6 +420,12 @@ h3 {
   background-color: rgba(0, 0, 0, 0);
 }
 
+.TextInCard {
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 70%;
+  border-radius: 4px;
+}
+
 .ImageInCard img {
   padding: 0 0 0 0;
   border-radius: 4px;
@@ -426,11 +433,11 @@ h3 {
   margin-bottom: 10px;
 }
 
-.TextInCard {
-  background-color: rgba(255, 255, 255, 0.8);
-  font-size: 70%;
-  border-radius: 4px;
+.TextInCard a{
+  border-bottom: 0;
 }
+
+
 
 //表格样式
 .table-container th {
@@ -481,7 +488,6 @@ figure.highlight table {
   border-collapse: collapse;
   border-spacing: 0;
   font-size: .875em;
-
 }
 
 figure.highlight tbody tr:nth-of-type(2n+1) {
@@ -500,6 +506,3 @@ figure.highlight tbody {
 .darkmode--activated figure.highlight tbody {
   border-bottom: 0 solid #fff;
 }
-
-
-

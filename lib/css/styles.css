@@ -1,5 +1,6 @@
 :root {
-  --body-bg-url: url(/images/bg7.webp);
+  --body-bg-url: url(/lib/img/bg7.webp);
+  --link-color: #333;
 }
 
 .main-inner > .sub-menu, .main-inner > .post-block, .main-inner > .tabs-comment, .main-inner > .comments, .main-inner > .pagination {
@@ -88,7 +89,7 @@ img {
 }
 
 .darkmode--activated {
-  --body-bg-url: url(/images/bg10.webp);
+  --body-bg-url: url(/lib/img/bg10.webp);
 }
 
 .darkmode--activated .main-inner > .sub-menu, .darkmode--activated .main-inner > .post-block, .darkmode--activated .main-inner > .tabs-comment, .darkmode--activated .main-inner > .comments, .darkmode--activated .main-inner > .pagination {
@@ -184,14 +185,6 @@ img {
   padding: 80px;
 }
 
-.fancybox {
-  pointer-events: none;
-}
-
-.fancybox.image {
-  pointer-events: none;
-}
-
 html {
   scrollbar-width: none;
 }
@@ -215,10 +208,6 @@ blockquote {
 
 .main-inner > .sub-menu:not(:first-child):not(.sub-menu), .main-inner > .post-block:not(:first-child):not(.sub-menu), .main-inner > .tabs-comment:not(:first-child):not(.sub-menu), .main-inner > .comments:not(:first-child):not(.sub-menu), .main-inner > .pagination:not(:first-child):not(.sub-menu) {
   margin-top: 12px;
-}
-
-pre {
-  font-size: 1.15em;
 }
 
 @font-face {
@@ -310,7 +299,7 @@ h3 {
 
 .footer-inner {
   text-align: right;
-  font-size: 1.3em;
+  font-size: 0.9875em;
 }
 
 .footer {
@@ -360,6 +349,12 @@ h3 {
   background-color: rgba(0, 0, 0, 0);
 }
 
+.TextInCard {
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 70%;
+  border-radius: 4px;
+}
+
 .ImageInCard img {
   padding: 0 0 0 0;
   border-radius: 4px;
@@ -367,10 +362,8 @@ h3 {
   margin-bottom: 10px;
 }
 
-.TextInCard {
-  background-color: rgba(255, 255, 255, 0.8);
-  font-size: 70%;
-  border-radius: 4px;
+.TextInCard a {
+  border-bottom: 0;
 }
 
 .table-container th {
