@@ -90,6 +90,11 @@ img {
 
 .darkmode--activated {
   --body-bg-url: url(/lib/img/bg10.webp);
+  --link-color: #ccc;
+  --text-color: #ccc;
+  --btn-default-color: #ccc;
+  --highlight-background: #282b2e;
+  --highlight-foreground: #a9b7c6;
 }
 
 .darkmode--activated .main-inner > .sub-menu, .darkmode--activated .main-inner > .post-block, .darkmode--activated .main-inner > .tabs-comment, .darkmode--activated .main-inner > .comments, .darkmode--activated .main-inner > .pagination {
@@ -262,7 +267,7 @@ code, pre {
 }
 
 .post-body img {
-  max-width: 60%;
+  max-width: 80%;
 }
 
 .site-state-item-name {
