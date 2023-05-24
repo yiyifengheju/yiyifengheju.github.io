@@ -1,0 +1,89 @@
+@font-face {
+    font-family: ZhiMangXing;
+    src: url('/lib/fonts/woff2/milan.woff');
+}
+
+.poem-title {
+    font-family: ZhiMangXing;
+    font-size: 34px;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.poem-author {
+    font-family: ZhiMangXing;
+    font-size: 22px;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.poem-content {
+    font-family: ZhiMangXing;
+    font-size: 26px;
+    text-align: center;
+    padding-bottom: 2px;
+}
+
+#skill {
+    height: fit-content;
+    width: 100%;
+}
+
+.no-fancybox {
+    display: -webkit-inline-flex;
+    /*display: flex;*/
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.no-fancybox img {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    -webkit-transition: transform 0.5s ease-out, filter 0.28s ease-out;
+}
+
+.post-padding {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.logo-display {
+    display: flow;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.logo-display svg {
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/*.post-body img {*/
+/*    margin-bottom: 0px;*/
+/*    margin-right: 5px;*/
+/*}*/
+
+.logos {
+    height: 35px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+}
+
+
+.logo-svg {
+    fill: #000;
+}
+
+.darkmode--activated .logo-svg {
+    fill: #fff;
+}
+
+.rabi {
+    border-style: dashed;
+    border-width: 2px;
+    padding: 5px;
+}
