@@ -4,41 +4,29 @@ const pjax = new Pjax({
   selectors: [
     'head title',
     'script[type="application/json"]',
-    '.main-inner',
+    // Precede .main-inner to prevent placeholder TOC changes asap
     '.post-toc-wrap',
+    '.main-inner',
     '.languages',
     '.pjax'
   ],
+  switches: {
+    '.post-toc-wrap': function(oldWrap, newWrap) {
+      if (newWrap.querySelector('.post-toc')) {
+        Pjax.switches.outerHTML.call(this, oldWrap, newWrap);
+      } else {
+        const curTOC = oldWrap.querySelector('.post-toc');
+        if (curTOC) {
+          curTOC.classList.add('placeholder-toc');
+        }
+        this.onSwitch();
+      }
+    }
+  },
   analytics: false,
   cacheBust: false,
   scrollTo : !CONFIG.bookmark.enable
 });
-
-// 添加以下代码///////////////////////////////////////
-var dynamicLoading = {
-  css: function (path) {
-    if (!path || path.length === 0) {
-      throw new Error('argument "path" is required !');
-    }
-    var head = document.getElementsByTagName('head')[0];
-    var link = document.createElement('link');
-    link.href = path;
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    head.appendChild(link);
-  },
-  js: function (path) {
-    if (!path || path.length === 0) {
-      throw new Error('argument "path" is required !');
-    }
-    var head = document.getElementsByTagName('head')[0];
-    var script = document.createElement('script');
-    script.src = path;
-    script.type = 'text/javascript';
-    head.appendChild(script);
-  }
-}
-///////////////////////////////////////////////
 
 document.addEventListener('pjax:success', () => {
   pjax.executeScripts(document.querySelectorAll('script[data-pjax]'));
@@ -54,21 +42,9 @@ document.addEventListener('pjax:success', () => {
       .bootstrap();
   }
   if (CONFIG.sidebar.display !== 'remove') {
-    const hasTOC = document.querySelector('.post-toc');
+    const hasTOC = document.querySelector('.post-toc:not(.placeholder-toc)');
     document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
     NexT.utils.activateSidebarPanel(hasTOC ? 0 : 1);
     NexT.utils.updateSidebarPosition();
   }
-
-  // 动态刷新gallery页面
-  if (document.getElementById("gallery")) {
-    dynamicLoading.css("/css/gallery.css");
-    dynamicLoading.js("/js/photo.js");
-  }
-  // // 动态刷新aplayer
-  // if (document.getElementById('aplayer')) {
-  //   dynamicLoading.css("https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css");
-  //   dynamicLoading.js("https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js");
-  //   dynamicLoading.js("/lib/js/tydhan.js");
-  // }
 });

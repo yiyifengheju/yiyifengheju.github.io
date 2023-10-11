@@ -1,3 +1,4 @@
+//////////////////////////白天模式////////////////
 //白天模式
 :root {
   --body-bg-url: url(/lib/img/bg7.webp);
@@ -36,6 +37,26 @@
   backdrop-filter: blur(2px)
 }
 
+// 修改间距
+.posts-expand .post-header {
+  margin-bottom: 10px;
+}
+
+.post-button {
+  margin-top: 10px;
+}
+
+// 脚注
+.footer-inner {
+  text-align: right;
+  font-size: 0.9875em;
+}
+
+.footer {
+  color: #000;
+}
+
+// 图片
 img:hover {
   opacity: 1;
 }
@@ -46,10 +67,87 @@ img {
   -webkit-transition: transform 0.5s ease-out, filter 0.28s ease-out;
 }
 
-.footer {
-  color: #000;
+.post-block, .comments {
+  padding: 80px;
 }
 
+blockquote {
+  border-left: 4px solid #dd0000;
+}
+
+// 文章卡片间距
+.main-inner > .sub-menu:not(:first-child):not(.sub-menu), .main-inner > .post-block:not(:first-child):not(.sub-menu), .main-inner > .tabs-comment:not(:first-child):not(.sub-menu), .main-inner > .comments:not(:first-child):not(.sub-menu), .main-inner > .pagination:not(:first-child):not(.sub-menu) {
+  margin-top: 12px;
+}
+
+// 隐藏滚动条
+html {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+//表格样式
+.table-container th {
+  border: 0;
+}
+
+.table-container td {
+  border: 0;
+}
+
+.table-container th {
+  border-bottom: 1px solid #000;
+  border-top: 2px solid #000;
+  text-align: center;
+}
+
+.table-container td {
+  text-align: center;
+}
+
+.table-container tbody {
+  border-bottom: 2px solid #000;
+}
+
+.table-container tbody tr {
+  background: none;
+}
+
+.table-container table {
+  width: 85%;
+  margin: auto;
+}
+
+//code
+figure.highlight table {
+  border: 0;
+  margin: 0;
+  width: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: .875em;
+}
+
+figure.highlight tbody tr:nth-of-type(2n+1) {
+  background: var(--table-row-odd-bg-color);
+}
+
+figure.highlight td {
+  padding: 0;
+  text-align: left;
+}
+
+figure.highlight tbody {
+  border-bottom: 0 solid #000;
+}
+
+
+//////////////////////////END DAILY MODE////////////////
+
+// Tag标签词云
 .tag-cloud-10 {
   color: rgb(0, 0, 0);
 }
@@ -214,29 +312,21 @@ img {
   color: #999;
 }
 
+.darkmode--activated .table-container th {
+  border-bottom: 1px solid #fff;
+  border-top: 2px solid #fff;
+}
+
+.darkmode--activated .table-container tbody {
+  border-bottom: 2px solid #fff;
+}
+
+.darkmode--activated figure.highlight tbody {
+  border-bottom: 0 solid #fff;
+}
+
 //////////////////////////END DARK MODE////////////////
 
-.post-block, .comments {
-  padding: 80px;
-}
-
-// 禁止图片打开
-//.fancybox {
-//  pointer-events: none;
-//}
-
-//.fancybox.image {
-//  pointer-events: none;
-//}
-
-// 隐藏滚动条
-html {
-  scrollbar-width: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
 
 // 修改背景
 body {
@@ -249,16 +339,8 @@ body {
   background-position: center;
 }
 
-blockquote {
-  border-left: 4px solid #dd0000;
-}
 
-// 文章卡片间距
-.main-inner > .sub-menu:not(:first-child):not(.sub-menu), .main-inner > .post-block:not(:first-child):not(.sub-menu), .main-inner > .tabs-comment:not(:first-child):not(.sub-menu), .main-inner > .comments:not(:first-child):not(.sub-menu), .main-inner > .pagination:not(:first-child):not(.sub-menu) {
-  margin-top: 12px;
-}
-
-
+////////////////////////// 字体设置 ////////////////
 // 代码字体大小
 //pre {
 //  //font-size: 1em;
@@ -273,7 +355,7 @@ blockquote {
 
 @font-face {
   font-family: Lato;
-  src: url('/lib/fonts/woff2/Lato.woff2');
+  src: url('/lib/fonts/Lato.woff2');
 }
 
 //@font-face {
@@ -288,17 +370,17 @@ blockquote {
 
 @font-face {
   font-family: NotoSerifSC;
-  src: url('/lib/fonts/woff2/NotoSerifSC.subset.woff');
+  src: url('/lib/fonts/NotoSerifSC.subset.otf');
 }
 
 @font-face {
   font-family: Monaco;
-  src: url('/lib/fonts/woff2/monaco.woff2');
+  src: url('/lib/fonts/monaco.woff2');
 }
 
 @font-face {
   font-family: Monoton;
-  src: url('/lib/fonts/woff2/Monoton.woff2');
+  src: url('/lib/fonts/Monoton.woff2');
 }
 
 //@font-face {
@@ -308,7 +390,7 @@ blockquote {
 
 @font-face {
   font-family: LavishlyYours;
-  src: url('/lib/fonts/woff2/LavishlyYours-Regular.woff2');
+  src: url('/lib/fonts/LavishlyYours-Regular.woff2');
 }
 
 .site-description {
@@ -375,154 +457,256 @@ h3 {
   font-size: 1.29375em;
 }
 
-// 修改间距
-.posts-expand .post-header {
-  margin-bottom: 10px;
-}
 
-.post-button {
-  margin-top: 10px;
-}
+//////////////////////////END FONT SETTING////////////////
 
-// 脚注
-.footer-inner {
-  text-align: right;
-  font-size: 0.9875em;
-}
+//ALBUM STYLE SETTING
+// 2023.10.11弃用
+//.ImageGrid {
+//  width: 100%;
+//  max-width: 1280px;
+//  margin: 0 auto;
+//  text-align: center;
+//  column-count: 1;
+//  column-gap: 0;
+//}
+//
+//@media (min-width: 500px) {
+//  .ImageGrid {
+//    column-count: 2;
+//  }
+//  .card {
+//    break-inside: avoid;
+//    box-sizing: border-box;
+//    padding: 4px;
+//    border-radius: 4px;
+//    background-color: rgba(0, 0, 0, 0);
+//    margin-bottom: 10px;
+//  }
+//}
+//
+//@media (min-width: 800px) {
+//  .ImageGrid {
+//    column-count: 3;
+//  }
+//  .card {
+//    break-inside: avoid;
+//    box-sizing: border-box;
+//    padding: 0;
+//    border-radius: 4px;
+//    background-color: rgba(0, 0, 0, 0);
+//  }
+//
+//}
+//
+//.card {
+//  break-inside: avoid;
+//  box-sizing: border-box;
+//  margin: 0 auto;
+//  padding: 0;
+//  border-radius: 4px;
+//  background-color: rgba(0, 0, 0, 0);
+//}
+//
+//.TextInCard {
+//  background-color: rgba(255, 255, 255, 0.8);
+//  font-size: 70%;
+//  border-radius: 4px;
+//}
+//
+//.ImageInCard img {
+//  padding: 0 0 0 0;
+//  border-radius: 4px;
+//  max-width: 100%;
+//  margin-bottom: 10px;
+//}
+//
+//.TextInCard a {
+//  border-bottom: 0;
+//}
 
-.footer {
+
+////////////////////////// Post的头部图片样式 ///////////////
+myheader {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  max-width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  max-height: 300px;
+  padding: 0px;
+  border-radius: 8px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   color: #fff;
 }
 
-//ALBUM STYLE SETTING
-.ImageGrid {
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  text-align: center;
-  column-count: 1;
-  column-gap: 0;
-}
 
-@media (min-width: 500px) {
-  .ImageGrid {
-    column-count: 2;
-  }
-  .card {
-    break-inside: avoid;
-    box-sizing: border-box;
-    padding: 4px;
-    border-radius: 4px;
-    background-color: rgba(0, 0, 0, 0);
-    margin-bottom: 10px;
-  }
-}
-
-@media (min-width: 800px) {
-  .ImageGrid {
-    column-count: 3;
-  }
-  .card {
-    break-inside: avoid;
-    box-sizing: border-box;
-    padding: 0;
-    border-radius: 4px;
-    background-color: rgba(0, 0, 0, 0);
-  }
-
-}
-
-.card {
-  break-inside: avoid;
-  box-sizing: border-box;
-  margin: 0 auto;
-  padding: 0;
-  border-radius: 4px;
-  background-color: rgba(0, 0, 0, 0);
-}
-
-.TextInCard {
-  background-color: rgba(255, 255, 255, 0.8);
-  font-size: 70%;
-  border-radius: 4px;
-}
-
-.ImageInCard img {
-  padding: 0 0 0 0;
-  border-radius: 4px;
+my_black_layer {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   max-width: 100%;
-  margin-bottom: 10px;
+  height: 210px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 45px;
+  background-image: linear-gradient(to right top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+  position: relative;
+  box-shadow: 0 5px 60px rgba(20, 20, 20, 0.8);
+  display: flex;
+  border-radius: 8px;
+
 }
 
-.TextInCard a {
-  border-bottom: 0;
+my_black_layer .upper-myheader {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 0px;
+}
+
+my_black_layer .upper-myheader .mini-title {
+  font-size: 1.125rem;
+  font-weight: 400;
+  letter-spacing: 0.4rem;
+  text-transform: uppercase;
+  opacity: 1;
 }
 
 
-//表格样式
-.table-container th {
-  border: 0;
+my_black_layer .upper-myheader .date-since {
+  display: flex;
+  align-items: center;
+  opacity: 1;
+  font-size: 0.875rem;
 }
 
-.table-container td {
-  border: 0;
+
+my_black_layer .upper-myheader .date-since .date-value {
+  display: inline-block;
+  padding-bottom: 0px;
 }
 
-.table-container th {
-  border-bottom: 1px solid #000;
-  border-top: 2px solid #000;
-  text-align: center;
+my_black_layer .upper-myheader .date-since svg {
+  width: 20px;
+  margin-left: 10px;
 }
 
-.table-container td {
-  text-align: center;
+my_black_layer .lower-myheader {
+  padding-top: 10px;
 }
 
-.table-container tbody {
-  border-bottom: 2px solid #000;
+my_black_layer .lower-myheader .tags-container {
+  display: flex;
+  align-items: center;
+  opacity: 1;
+  margin-bottom: 12px;
 }
 
-.table-container tbody tr {
-  background: none;
+my_black_layer .lower-myheader .tags-container > span:not(:nth-child(2))::before {
+  content: ", ";
 }
 
-.table-container table {
-  width: 85%;
-  margin: auto;
+
+my_black_layer .lower-myheader .tags-container svg {
+  width: 20px;
+  margin-right: 10px;
 }
 
-.darkmode--activated .table-container th {
-  border-bottom: 1px solid #fff;
-  border-top: 2px solid #fff;
+my_black_layer .lower-myheader .tags-container span {
+  font-size: 0.875rem;
 }
 
-.darkmode--activated .table-container tbody {
-  border-bottom: 2px solid #fff;
+my_black_layer .lower-myheader .title {
+  margin: 20px 0;
+  font-size: 1.5rem;
+  font-weight: 400;
+  opacity: 1;
 }
 
-//code
-figure.highlight table {
-  border: 0;
-  margin: 0;
-  width: auto;
-  border-collapse: collapse;
-  border-spacing: 0;
-  font-size: .875em;
+
+my_black_layer .lower-myheader .subtitle {
+  width: 50%;
+  margin-top: 10px;
+  opacity: 1;
+  line-height: 1.75;
+  font-size: 0.9em;
 }
 
-figure.highlight tbody tr:nth-of-type(2n+1) {
-  background: var(--table-row-odd-bg-color);
+.darkmode--activated myheader {
+  color: #eee;
 }
 
-figure.highlight td {
-  padding: 0;
-  text-align: left;
+.darkmode--activated my_black_layer {
+  background: rgba(0, 0, 0, 0.5);
 }
 
-figure.highlight tbody {
-  border-bottom: 0 solid #000;
-}
 
-.darkmode--activated figure.highlight tbody {
-  border-bottom: 0 solid #fff;
+$photoList: (
+        "url(/lib/images/photo-1514908866475-59af9c4069bb.webp)",
+        "url(/lib/images/photo-1520808663317-647b476a81b9.webp)",
+        "url(/lib/images/photo-1567266565446-d9c40ccf59a4.webp)",
+        "url(/lib/images/photo-1561998344-4bf90978561d.webp)",
+        "url(/lib/images/photo-1433259651738-0e74537aa8b5.webp)",
+        "url(/lib/images/photo-1609568175100-55a3902e3188.webp)",
+        "url(/lib/images/photo-1533230408708-8f9f91d1235a.webp)",
+        "url(/lib/images/photo-1495567720989-cebdbdd97913.webp)",
+        "url(/lib/images/photo-1535408913330-a71d0a3e29ba.webp)",
+        "url(/lib/images/photo-1624215824600-ed3118b76873.webp)",
+        "url(/lib/images/photo-1553603227-2358aabe821e.webp)",
+        "url(/lib/images/photo-1587106449900-587411154d2d.webp)",
+        "url(/lib/images/photo-1477322524744-0eece9e79640.webp)",
+        "url(/lib/images/photo-1505896202-4fe971e982fa.webp)",
+        "url(/lib/images/photo-1620964780032-81ef649db4d9.webp)",
+        "url(/lib/images/photo-1533168461629-51f6f8061c68.webp)",
+        "url(/lib/images/photo-1567266565245-c08dc046815f.webp)",
+        "url(/lib/images/photo-1498575637358-821023f27355.webp)",
+        "url(/lib/images/photo-1572065716657-c1f964c418cc.webp)",
+        "url(/lib/images/photo-1599571234909-29ed5d1321d6.webp)",
+        "url(/lib/images/photo-1612669531405-ab3f4dd9860a.webp)",
+        "url(/lib/images/photo-1499233983070-99a5f004e720.webp)",
+        "url(/lib/images/photo-1580137189272-c9379f8864fd.webp)",
+        "url(/lib/images/photo-1492273840898-6102ad35701e.webp)",
+        "url(/lib/images/photo-1571564756948-51c10b7f058e.webp)",
+        "url(/lib/images/photo-1519414442781-fbd745c5b497.webp)",
+        "url(/lib/images/photo-1675154626842-afc3c951ebed.webp)",
+        "url(/lib/images/photo-1611546666752-8794dcd0ab8c.webp)",
+        "url(/lib/images/photo-1615301649602-358e40412b81.webp)",
+        "url(/lib/images/photo-1425036458755-dc303a604201.webp)",
+        "url(/lib/images/photo-1551668231-6a07c2b7d544.webp)",
+        "url(/lib/images/photo-1516544820488-4a99efa70a58.webp)",
+        "url(/lib/images/photo-1615958354408-c15ad934a549.webp)",
+        "url(/lib/images/photo-1542273917363-3b1817f69a2d.webp)",
+        "url(/lib/images/photo-1429734956993-8a9b0555e122.webp)",
+        "url(/lib/images/photo-1572254010320-07dabf143647.webp)",
+        "url(/lib/images/photo-1647519724515-25805711b315.webp)",
+        "url(/lib/images/photo-1495616811223-4d98c6e9c869.webp)",
+        "url(/lib/images/photo-1506857170102-783e03df14ed.webp)",
+        "url(/lib/images/photo-1573879707712-cf6ba9151082.webp)",
+        "url(/lib/images/photo-1613814854371-64750ce3b87b.webp)",
+        "url(/lib/images/photo-1490100667990-4fced8021649.webp)",
+        "url(/lib/images/photo-1639757008958-c8a13e84207e.webp)",
+        "url(/lib/images/photo-1661256195466-abf9df7d3e2c.webp)",
+        "url(/lib/images/photo-1639757230152-e6f194321963.webp)",
+        "url(/lib/images/photo-1495419597644-19934b6b7c40.webp)",
+        "url(/lib/images/photo-1496488541840-cb0da70e9230.webp)",
+        "url(/lib/images/photo-1501666630716-053f442b3ecc.webp)",
+        "url(/lib/images/photo-1510784722466-f2aa9c52fff6.webp)",
+        "url(/lib/images/photo-1505765050516-f72dcac9c60e.webp)",
+        "url(/lib/images/photo-1602054618838-5e8ceb470ab5.webp)",
+        "url(/lib/images/kMh0QXZMQOmsIiQRQIlW_14701556285_aacce9be47_o.webp)",
+        "url(/lib/images/photo-1507525428034-b723cf961d3e.webp)",
+        "url(/lib/images/photo-1624291732715-8f01d3a22138.webp)",
+        "url(/lib/images/photo-1613100354134-eeaf0ca9ae41.webp)",
+);
+
+@for $i from 1 through 60 {
+  .random-bg-#{$i} {
+    $index: random(length($photoList)); // 生成随机索引
+    $photo: nth($photoList, $index); // 获取列表中的对应项
+    background-image: #{$photo}; // 生成背景图像URL
+  }
 }
