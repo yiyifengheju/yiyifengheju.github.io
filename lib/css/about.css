@@ -1,6 +1,6 @@
 @font-face {
     font-family: ZhiMangXing;
-    src: url('/lib/fonts/woff2/milan.woff');
+    src: url('/lib/fonts/milan.woff');
 }
 
 .poem-title {
@@ -30,36 +30,33 @@
 }
 
 .no-fancybox {
-    display: -webkit-inline-flex;
-    /*display: flex;*/
-    flex-direction: row;
+    display: flex;
     flex-wrap: wrap;
-    justify-content: center;
 }
 
 .no-fancybox img {
-    display: inline-block;
     margin-right: 10px;
     margin-bottom: 10px;
-    -webkit-transition: transform 0.5s ease-out, filter 0.28s ease-out;
+    height: 30px;
+    margin-left: unset;
 }
 
 .post-padding {
-    padding-left: 10px;
-    padding-right: 10px;
+    /*padding-left: 10px;*/
+    /*padding-right: 10px;*/
 }
 
 .logo-display {
-    display: flow;
-    flex-direction: row;
+    display: flex;
     flex-wrap: wrap;
-    justify-content: center;
 }
 
 .logo-display svg {
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
+    width: 120px;
+    height: 55px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 25px;
 }
 
 /*.post-body img {*/

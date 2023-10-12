@@ -6,6 +6,9 @@ document.addEventListener('page:loaded', () => {
    * Wrap images with fancybox.
    */
   document.querySelectorAll('.post-body :not(a) > img, .post-body > img').forEach(image => {
+    if ($image.is('.no-fancybox img')) {
+      return;
+    }
     const imageLink = image.dataset.src || image.src;
     const imageWrapLink = document.createElement('a');
     imageWrapLink.classList.add('fancybox');

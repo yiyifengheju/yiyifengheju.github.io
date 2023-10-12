@@ -1,7 +1,7 @@
 //////////////////////////白天模式////////////////
 //白天模式
 :root {
-  --body-bg-url: url(/lib/img/bg7.webp);
+  --body-bg-url: url(/lib/img/bg9.webp);
   --link-color: #333;
 }
 
@@ -23,7 +23,8 @@
 
 .btn {
   //background: rgba(255, 255, 255, 0.4);
-  opacity: 0.9;
+  //opacity: 0.9;
+  background: none;
 }
 
 .btn:hover {
@@ -88,6 +89,13 @@ html {
     display: none;
   }
 }
+
+// 隐藏头部小黑条
+.headband {
+  background: var(--theme-color);
+  height: 0;
+}
+
 
 //表格样式
 .table-container th {
@@ -195,7 +203,7 @@ figure.highlight tbody {
 
 ///////////////////Dark模式////////////////////////////////
 .darkmode--activated {
-  --body-bg-url: url(/lib/img/bg10.webp);
+  --body-bg-url: url(/lib/img/bg11.webp);
   --link-color: #ccc;
   --text-color: #ccc;
   --btn-default-color: #ccc;
@@ -237,7 +245,8 @@ figure.highlight tbody {
 }
 
 .darkmode--activated .btn {
-  background: rgba(40, 40, 40, 0.4);
+  //background: rgba(40, 40, 40, 0.4);
+  background: none;
 }
 
 .darkmode--activated .btn:hover {
@@ -245,7 +254,7 @@ figure.highlight tbody {
 }
 
 .darkmode--activated .sidebar-inner {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.65);
 }
 
 .darkmode--activated img:hover {
@@ -331,7 +340,7 @@ figure.highlight tbody {
 // 修改背景
 body {
   background: var(--body-bg-url);
-  height: 100%;
+  //height: 100%;
   width: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -396,7 +405,7 @@ body {
 .site-description {
   font-family: LavishlyYours;
   //font-size: 1em;
-  font-size: 1.15em;
+  font-size: 1.25em;
   color: #000;
 }
 
