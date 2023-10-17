@@ -17,12 +17,9 @@
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-.header {
-  background-color: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(2px)
-}
-header.header{
-  background: none;
+header.header {
+  background-color: rgba(255, 255, 255, 0.6) !important;
+  backdrop-filter: blur(2px);
 }
 
 .btn {
@@ -245,7 +242,8 @@ figure.highlight tbody {
 }
 
 .darkmode--activated .header {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  backdrop-filter: blur(2px);
 }
 
 .darkmode--activated .btn {
